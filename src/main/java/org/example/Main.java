@@ -34,5 +34,11 @@ public class Main {
         System.out.println("\n-- Aliceが2枚目を交換 --");
         dealer.changeCard(0, 1);
         dealer.showAllHands();
+
+        System.out.println("勝者を決定");
+        dealer.decideWinner();
+        System.out.println("勝者：");
+        dealer.showWinners();
+        dealer.showAllHands();
     }
 }

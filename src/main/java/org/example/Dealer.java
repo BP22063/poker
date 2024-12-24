@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealer {
 
@@ -10,6 +11,9 @@ public class Dealer {
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
     private ArrayList<Integer> usedSkills;
+    ArrayList<Player> winners;
+
+
 
     //private Skill_handSwap  skill_handSwap ;
 
@@ -118,6 +122,35 @@ public class Dealer {
 
     public void checkPlayersList(ArrayList<Player> players) {
 
+    }
+
+    public void decideWinner(){
+        List<Integer> point = new ArrayList<>();
+        winners = new ArrayList<>();
+        RoleControl roleControl = new RoleControl();
+        int maxIndex=0;
+
+        for(Player player: players){
+            point.add(roleControl.judgeRole(player.hand));
+        }
+
+        for(int i = 1; i<point.size();i++){
+            if(point.get(i)>=point.get(maxIndex)){
+                maxIndex = i;
+                winners.add(players.get(i));
+            }
+        }
+
+        if(maxIndex==0){
+            winners.add(players.get(maxIndex));
+        }
+
+    }
+
+    public void showWinners(){
+        for(Player player:winners){
+            System.out.println(player.getName());
+        }
     }
 
 

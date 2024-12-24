@@ -5,27 +5,27 @@ import java.util.*;
 public class RoleControl {
     private Card card;
 
-    public String judgeRole(ArrayList<Card> stack) {
+    public int judgeRole(ArrayList<Card> stack) {
         if(judgeRoyalStraightFlush(stack)==1){
-            return "RoyalStraightFlush";
+            return 10;
         }else if(judgeStraightFlush(stack)==1){
-            return "StraightFlush";
+            return 9;
         }else if(judge4cards(stack)==1){
-            return "4cards";
+            return 8;
         }else if(judgeFullHouse(stack)==1){
-            return "FullHouse";
+            return 7;
         }else if(judgeFlush(stack)==1){
-            return "Flush";
+            return 6;
         }else if(judgeStraight(stack)==1){
-            return "Straight";
+            return 5;
         }else if(judge3cards(stack)==1){
-            return "3cards";
+            return 4;
         }else if(judge2pair(stack)==1){
-            return "2pair";
+            return 3;
         }else if(judge1pair(stack)==1){
-            return "1pair";
+            return 2;
         }else{
-            return "high card";
+            return 1;
         }
     }
 
