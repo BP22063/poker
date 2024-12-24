@@ -6,7 +6,27 @@ public class RoleControl {
     private Card card;
 
     public String judgeRole(ArrayList<Card> stack) {
-        return null;
+        if(judgeRoyalStraightFlush(stack)==1){
+            return "RoyalStraightFlush";
+        }else if(judgeStraightFlush(stack)==1){
+            return "StraightFlush";
+        }else if(judge4cards(stack)==1){
+            return "4cards";
+        }else if(judgeFullHouse(stack)==1){
+            return "FullHouse";
+        }else if(judgeFlush(stack)==1){
+            return "Flush";
+        }else if(judgeStraight(stack)==1){
+            return "Straight";
+        }else if(judge3cards(stack)==1){
+            return "3cards";
+        }else if(judge2pair(stack)==1){
+            return "2pair";
+        }else if(judge1pair(stack)==1){
+            return "1pair";
+        }else{
+            return "high card";
+        }
     }
 
     private int judge1pair(ArrayList<Card> stack) {
@@ -151,7 +171,7 @@ public class RoleControl {
         }
 
         //ペアの回数が1回かつスリーカードが1回なら1を返す
-        if (pairCount == 1 || threeCount ==1) {
+        if (pairCount == 1 && threeCount ==1) {
             return 1;//フルハウス
         } else {
             return 0;
@@ -212,7 +232,7 @@ public class RoleControl {
                 numbers.contains(12) &&
                 numbers.contains(13);
 
-        if(isFlush || isHighStraight){
+        if(isFlush && isHighStraight){
             return 1;
         }
         return 0;
