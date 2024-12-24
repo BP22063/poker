@@ -125,32 +125,70 @@ public class Dealer {
     }
 
     public void decideWinner(){
-        List<Integer> point = new ArrayList<>();
+        //List<Integer> point = new ArrayList<>();
         winners = new ArrayList<>();
         RoleControl roleControl = new RoleControl();
-        int maxIndex=0;
+        int maxPoint=0;
 
         for(Player player: players){
-            point.add(roleControl.judgeRole(player.hand));
+            player.rolePoint=roleControl.judgeRole(player.hand);
         }
 
-        for(int i = 1; i<point.size();i++){
-            if(point.get(i)>=point.get(maxIndex)){
-                maxIndex = i;
-                winners.add(players.get(i));
+        for(Player player:players){
+            if(player.rolePoint>maxPoint){
+                maxPoint = player.rolePoint;
             }
         }
 
-        if(maxIndex==0){
-            winners.add(players.get(maxIndex));
+        for (Player player : players){
+            if(player.rolePoint == maxPoint){
+                winners.add(player);
+            }
         }
 
     }
 
     public void showWinners(){
         for(Player player:winners){
-            System.out.println(player.getName());
+            System.out.println("プレイヤー："+player.getName()+" 役："+getRoleName(player.rolePoint));
         }
+    }
+
+    public String getRoleName(int point){
+        String roleName=null;
+        switch(point){
+            case 10:
+                roleName="RoyalStraightFlush";
+                break;
+            case 9:
+                roleName="StraightFlush";
+                break;
+            case 8:
+                roleName="4cards";
+                break;
+            case 7:
+                roleName="FullHouse";
+                break;
+            case 6:
+                roleName="Flush";
+                break;
+            case 5:
+                roleName="Straight";
+                break;
+            case 4:
+                roleName="3cards";
+                break;
+            case 3:
+                roleName="2pair";
+                break;
+            case 2:
+                roleName="1pair";
+                break;
+            case 1:
+                roleName="high card";
+                break;
+        }
+        return roleName;
     }
 
 

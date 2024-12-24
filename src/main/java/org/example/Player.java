@@ -8,6 +8,7 @@ public class Player {
     public int haveChip;
     public int betChip;
     public int rank;
+    public int rolePoint;
     public ArrayList<Card> hand;
     public ArrayList<Integer> skill;
     private boolean isInRound;
