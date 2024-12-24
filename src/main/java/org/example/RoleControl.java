@@ -149,7 +149,17 @@ public class RoleControl {
     }
 
     private int judgeStraightFlush(ArrayList<Card> stack) {
-        return 0;
+        // 1. フラッシュとストレートを判定
+        int isFlush = judgeFlush(stack);
+        int isStraight = judgeStraight(stack);
+
+        // 2. 両方を満たす場合はストレートフラッシュ
+        if (isFlush == 1 && isStraight == 1) {
+            return 1; // ストレートフラッシュ
+        }
+
+        // 3. どちらかが満たされない場合
+        return 0; // ストレートフラッシュではない
     }
 
     private int judgeRoyalStraightFlush(ArrayList<Card> stack) {
