@@ -94,14 +94,14 @@ public class RoleControl {
         }
 
         // 3. 特殊ケース（A, 2, 3, 4, 5）を判定
-        boolean isLowStraight = numbers.contains(1) &&
-                numbers.contains(2) &&
-                numbers.contains(3) &&
-                numbers.contains(4) &&
-                numbers.contains(5);
+        boolean isHighStraight = numbers.contains(1) &&
+                numbers.contains(10) &&
+                numbers.contains(11) &&
+                numbers.contains(12) &&
+                numbers.contains(13);
 
         // 4. ストレートであれば1を返す
-        if (isStraight || isLowStraight) {
+        if (isStraight || isHighStraight) {
             return 1;
         }
 
@@ -163,6 +163,28 @@ public class RoleControl {
     }
 
     private int judgeRoyalStraightFlush(ArrayList<Card> stack) {
+        boolean isFlush = false;
+        if(judgeFlush(stack)==1){
+            isFlush = true;
+        }
+
+        // 1. カードの番号を取得してソート
+        List<Integer> numbers = new ArrayList<>();
+        for (Card card : stack) {
+            numbers.add(card.getNumber());
+        }
+        Collections.sort(numbers); // 昇順ソート
+
+        // 3. 特殊ケース（A, 2, 3, 4, 5）を判定
+        boolean isHighStraight = numbers.contains(1) &&
+                numbers.contains(10) &&
+                numbers.contains(11) &&
+                numbers.contains(12) &&
+                numbers.contains(13);
+
+        if(isFlush || isHighStraight){
+            return 1;
+        }
         return 0;
     }
 }
