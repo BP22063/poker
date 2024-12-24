@@ -17,6 +17,8 @@ public class Player {
         this.userID = userID;
         this.name = name;
         this.hand = new ArrayList<>();
+        this.haveChip = 3000;
+        this.betChip = 0;
     }
 
     public void updatePlayerInformation() {
