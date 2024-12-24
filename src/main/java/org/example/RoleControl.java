@@ -110,7 +110,18 @@ public class RoleControl {
     }
 
     private int judgeFlush(ArrayList<Card> stack) {
-        return 0;
+        // 1. 最初のカードのスートを取得
+        String firstMark = stack.get(0).getMark();
+
+        // 2. すべてのカードが同じスートかを確認
+        for (Card card : stack) {
+            if (!card.getMark().equals(firstMark)) {
+                return 0; // 異なるスートがあればフラッシュではない
+            }
+        }
+
+        // 3. 全て同じスートならフラッシュ
+        return 1;
     }
 
     private int judgeFullHouse(ArrayList<Card> stack) {
