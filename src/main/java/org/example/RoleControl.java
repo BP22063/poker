@@ -32,7 +32,29 @@ public class RoleControl {
     }
 
     private int judge2pair(ArrayList<Card> stack) {
-        return 0;
+        // カードの番号を記録するためのマップを作成
+        Map<Integer, Integer> numberCounts = new HashMap<>();
+
+        // カードの番号をカウント
+        for (Card card : stack) {
+            int number = card.getNumber();
+            numberCounts.put(number, numberCounts.getOrDefault(number, 0) + 1);
+        }
+
+        // 出現回数が2の番号をカウント
+        int pairCount = 0;
+        for (int count : numberCounts.values()) {
+            if (count == 2) {
+                pairCount++;
+            }
+        }
+
+        if (pairCount >= 2) {
+            return 1;
+        } else {
+            return 0;
+        }
+
     }
 
     private int judge3cards(ArrayList<Card> stack) {
