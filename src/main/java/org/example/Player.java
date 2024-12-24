@@ -32,6 +32,10 @@ public class Player {
 
     }
 
+    public void clearCard(){
+        hand.clear();
+    }
+
     public void disconnectFromGame() {
 
     }
@@ -47,7 +51,7 @@ public class Player {
     }
 
     public void showHand_player() {
-
+        System.out.println(name + "'s Hand: " + hand);//テスト用
     }
 
     public int removeSkill() {
@@ -56,6 +60,9 @@ public class Player {
 
     public void provideChips() {
 
+    }
+    public String getName() {
+        return name;
     }
 
 }

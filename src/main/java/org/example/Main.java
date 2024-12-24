@@ -15,5 +15,24 @@ public class Main {
             // Ctrl+F8 を押すといつでも他のブレークポイントを追加できます。
             System.out.println("i = " + i);
         }
+
+
+        //テスト用コード
+        Dealer dealer = new Dealer();
+
+        // 4人のプレイヤーを作成して追加
+        dealer.addPlayer(new Player(1, "Alice"));
+        dealer.addPlayer(new Player(2, "Bob"));
+        dealer.addPlayer(new Player(3, "Charlie"));
+        dealer.addPlayer(new Player(4, "Daisy"));
+
+        System.out.println("-- Game 1 --");
+        System.out.println("Dealer: " + dealer.getCurrentDealer().getName());
+        dealer.dealInitialCards(5);
+        dealer.showAllHands();
+
+        System.out.println("\n-- Aliceが2枚目を交換 --");
+        dealer.changeCard(0, 1);
+        dealer.showAllHands();
     }
 }

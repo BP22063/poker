@@ -51,12 +51,12 @@ public class Dealer {
         }
     }
 
-    /*
+
     public void provideChip(Player players) {
 
     }
 
-    */
+
 
     private void adaptSkill() {
 
@@ -83,20 +83,30 @@ public class Dealer {
         players.add(player);
     }
 
-    public void dealInitialCard(int cardPerPlayer) {
-
+    public void dealInitialCards(int cardsPerPlayer) {
+        for (Player player : players) {
+            player.clearCard();
+            for (int i = 0; i < cardsPerPlayer; i++) {
+                player.addCard(deck.draw());
+            }
+        }
+    }
+    public Player getCurrentDealer(){
+        return players.get(0);
     }
 
     public void showAllHands() {
-
+        for (Player player : players) {
+            player.showHand_player();
+        }
     }
 
-    /*
+
     public void checkLostUser(ArrayList<Player> players, ArrayList<Player> rankList) {
 
     }
 
-     */
+
     public void addDisableHands(String hand) {
 
     }
@@ -105,12 +115,12 @@ public class Dealer {
 
     }
 
-    /*
+
     public void checkPlayersList(ArrayList<Player> players) {
 
     }
 
-     */
+
 
 
 }
