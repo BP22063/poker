@@ -36,7 +36,23 @@ public class RoleControl {
     }
 
     private int judge3cards(ArrayList<Card> stack) {
-        return 0;
+        Map<Integer, Integer> numberCounts = new HashMap<>();
+
+        // カードの番号をカウント
+        for (Card card : stack) {
+            int number = card.getNumber();
+            numberCounts.put(number, numberCounts.getOrDefault(number, 0) + 1);
+            //numberCountsは1つ目に数字の種類、2つ目にその数字が出た回数を記録する
+        }
+
+        // 番号のカウントを確認して、3が1つ以上あればスリーカード
+        for (int count : numberCounts.values()) {
+            if (count == 3) {
+                return 1; // スリーカード
+            }
+        }
+
+        return 0; // スリーカードではない
     }
 
     private int judgeStraightFlush(ArrayList<Card> stack) {
