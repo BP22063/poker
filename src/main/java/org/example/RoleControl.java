@@ -1,8 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RoleControl {
     private Card card;
@@ -79,10 +77,35 @@ public class RoleControl {
     }
 
     private int judgeStraight(ArrayList<Card> stack) {
-        return 0;
-    }
+        // 1. カードの番号を取得してソート
+        List<Integer> numbers = new ArrayList<>();
+        for (Card card : stack) {
+            numbers.add(card.getNumber());
+        }
+        Collections.sort(numbers); // 昇順ソート
 
-    private int judgeStraightFlush(ArrayList<Card> stack) {
+        // 2. 通常のストレートを判定
+        boolean isStraight = true;
+        for (int i = 0; i < numbers.size() - 1; i++) {
+            if (numbers.get(i + 1) != numbers.get(i) + 1) {
+                isStraight = false;
+                break;
+            }
+        }
+
+        // 3. 特殊ケース（A, 2, 3, 4, 5）を判定
+        boolean isLowStraight = numbers.contains(1) &&
+                numbers.contains(2) &&
+                numbers.contains(3) &&
+                numbers.contains(4) &&
+                numbers.contains(5);
+
+        // 4. ストレートであれば1を返す
+        if (isStraight || isLowStraight) {
+            return 1;
+        }
+
+        // ストレートでなければ0を返す
         return 0;
     }
 
@@ -112,6 +135,10 @@ public class RoleControl {
         }
 
         return 0; // フォーカードではない
+    }
+
+    private int judgeStraightFlush(ArrayList<Card> stack) {
+        return 0;
     }
 
     private int judgeRoyalStraightFlush(ArrayList<Card> stack) {
