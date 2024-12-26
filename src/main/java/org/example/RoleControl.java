@@ -5,46 +5,59 @@ import java.util.*;
 public class RoleControl {
 
     public enum HandRank {
-        HIGH_CARD,
-        ONE_PAIR,
-        TWO_PAIR,
-        THREE_OF_A_KIND,
-        STRAIGHT,
-        FLUSH,
-        FULL_HOUSE,
-        FOUR_OF_A_KIND,
-        STRAIGHT_FLUSH,
-        ROYAL_STRAIGHT_FLUSH
+        HIGH_CARD(1),
+        ONE_PAIR(2),
+        TWO_PAIR(3),
+        THREE_OF_A_KIND(4),
+        STRAIGHT(5),
+        FLUSH(6),
+        FULL_HOUSE(7),
+        FOUR_OF_A_KIND(8),
+        STRAIGHT_FLUSH(9),
+        ROYAL(10);
+
+        private final int score;
+
+        HandRank(int score) {
+            this.score = score;
+        }
+
+        public int getScore() {
+            return score;
+        }
     }
 
     //役を判定するメソッド
-    public static HandRank judgeRole(List<Card> cards){
+    public static int judgeRole(List<Card> cards){
         if (cards.size() != 5) {
             throw new IllegalArgumentException("Hand must contain exactly 5 cards.");
         }
 
         boolean isFlush = checkFlush(cards);
         boolean isStraight = checkStraight(cards);
+        boolean isRoyal = checkRoyal(cards);
         Map<Integer, Integer> rankCounts = countRanks(cards);
 
-        if (isFlush && isStraight) {
-            return HandRank.STRAIGHT_FLUSH;
+        if (isFlush && isRoyal) {
+            return HandRank.ROYAL.getScore();
+        } else if (isFlush && isStraight) {
+            return HandRank.STRAIGHT_FLUSH.getScore();
         } else if (rankCounts.containsValue(4)) {
-            return HandRank.FOUR_OF_A_KIND;
+            return HandRank.FOUR_OF_A_KIND.getScore();
         } else if (rankCounts.containsValue(3) && rankCounts.containsValue(2)) {
-            return HandRank.FULL_HOUSE;
+            return HandRank.FULL_HOUSE.getScore();
         } else if (isFlush) {
-            return HandRank.FLUSH;
+            return HandRank.FLUSH.getScore();
         } else if (isStraight) {
-            return HandRank.STRAIGHT;
+            return HandRank.STRAIGHT.getScore();
         } else if (rankCounts.containsValue(3)) {
-            return HandRank.THREE_OF_A_KIND;
+            return HandRank.THREE_OF_A_KIND.getScore();
         } else if (Collections.frequency(rankCounts.values(), 2) == 2) {
-            return HandRank.TWO_PAIR;
+            return HandRank.TWO_PAIR.getScore();
         } else if (rankCounts.containsValue(2)) {
-            return HandRank.ONE_PAIR;
+            return HandRank.ONE_PAIR.getScore();
         } else {
-            return HandRank.HIGH_CARD;
+            return HandRank.HIGH_CARD.getScore();
         }
     }
 
@@ -80,6 +93,16 @@ public class RoleControl {
         return true;
     }
 
+    // ロイヤルストレートの判定
+    private static boolean checkRoyal(List<Card> cards) {
+        List<Integer> numbers = new ArrayList<>();
+        for (Card card : cards) {
+            numbers.add(card.getNumber());
+        }
+        Collections.sort(numbers);
+        return numbers.equals(Arrays.asList(1, 10, 11, 12, 13));
+    }
+
     // 重複枚数をカウント
     private static Map<Integer, Integer> countRanks(List<Card> cards){
         Map<Integer, Integer> rankCounts = new HashMap<>();
@@ -99,7 +122,7 @@ public class RoleControl {
                 new Card("Hearts", 1)
         );
 
-        HandRank rank = judgeRole(hand);
-        System.out.println("Hand rank: " + rank);
+        int score = judgeRole(hand);
+        System.out.println("Hand rank score: " + score);
     }
 }
