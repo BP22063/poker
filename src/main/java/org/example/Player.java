@@ -10,7 +10,7 @@ public class Player {
     public int rank;
     public ArrayList<Card> hand;
     public ArrayList<Integer> skill;
-    private boolean isInRound;
+    public boolean isInRound;
     //private Card[] 手札;
 
     public Player(int userID,String name){
