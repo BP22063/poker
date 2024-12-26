@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealer {
 
@@ -10,6 +11,9 @@ public class Dealer {
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
     private ArrayList<Integer> usedSkills;
+    ArrayList<Player> winners;
+
+
 
     //private Skill_handSwap  skill_handSwap ;
 
@@ -118,6 +122,73 @@ public class Dealer {
 
     public void checkPlayersList(ArrayList<Player> players) {
 
+    }
+
+    public void decideWinner(){
+        //List<Integer> point = new ArrayList<>();
+        winners = new ArrayList<>();
+        RoleControl roleControl = new RoleControl();
+        int maxPoint=0;
+
+        for(Player player: players){
+            player.rolePoint=roleControl.judgeRole(player.hand);
+        }
+
+        for(Player player:players){
+            if(player.rolePoint>maxPoint){
+                maxPoint = player.rolePoint;
+            }
+        }
+
+        for (Player player : players){
+            if(player.rolePoint == maxPoint){
+                winners.add(player);
+            }
+        }
+
+    }
+
+    public void showWinners(){
+        for(Player player:winners){
+            System.out.println("プレイヤー："+player.getName()+" 役："+getRoleName(player.rolePoint));
+        }
+    }
+
+    public String getRoleName(int point){
+        String roleName=null;
+        switch(point){
+            case 10:
+                roleName="RoyalStraightFlush";
+                break;
+            case 9:
+                roleName="StraightFlush";
+                break;
+            case 8:
+                roleName="4cards";
+                break;
+            case 7:
+                roleName="FullHouse";
+                break;
+            case 6:
+                roleName="Flush";
+                break;
+            case 5:
+                roleName="Straight";
+                break;
+            case 4:
+                roleName="3cards";
+                break;
+            case 3:
+                roleName="2pair";
+                break;
+            case 2:
+                roleName="1pair";
+                break;
+            case 1:
+                roleName="high card";
+                break;
+        }
+        return roleName;
     }
 
 
