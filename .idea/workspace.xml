@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="RoleControlを編集">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/RoleControl$HandRank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/RoleControl$HandRank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/RoleControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/RoleControl.class" afterDir="false" />
-    </list>
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="RoleControlを編集" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,6 +74,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.RoleControl" />
+        <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.RoleControl" />
       </list>

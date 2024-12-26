@@ -42,6 +42,21 @@ public class Player {
         this.betChip = betChip;
     }
 
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public int getRolePoint() {
+        return rolePoint;
+    }
+
+    public void setRolePoint(int rolePoint) {
+        this.rolePoint = rolePoint;
+    }
 
     public void updatePlayerInformation() {
 
