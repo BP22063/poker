@@ -22,6 +22,27 @@ public class Player {
         this.betChip = 0;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
+    public int getHaveChip() {
+        return haveChip;
+    }
+
+    public void setHaveChip(int haveChip) {
+        this.haveChip = haveChip;
+    }
+
+    public int getBetChip() {
+        return betChip;
+    }
+
+    public void setBetChip(int betChip){
+        this.betChip = betChip;
+    }
+
+
     public void updatePlayerInformation() {
 
     }
@@ -68,4 +89,11 @@ public class Player {
         return name;
     }
 
+    public boolean isInRound() {
+        return isInRound;
+    }
+
+    public void setisInRound(boolean isInRound) {
+        this.isInRound = isInRound;
+    }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class Dealer {
 
     private ArrayList<Player> players;
-    private int fieldbetChip;
+    public int fieldbetChip;
     private Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
