@@ -41,7 +41,11 @@ public class Dealer {
     }
 
     public void provideCard() {
-
+        for (int i = 0; i < 5; i++) {
+            for (Player player : players) {
+                player.addCard(deck.draw());
+            }
+        }
     }
 
     public void changeCard(int playerIndex, int cardIndex) {
@@ -88,12 +92,7 @@ public class Dealer {
     }
 
     public void dealInitialCards(int cardsPerPlayer) {
-        for (Player player : players) {
-            player.clearCard();
-            for (int i = 0; i < cardsPerPlayer; i++) {
-                player.addCard(deck.draw());
-            }
-        }
+
     }
     public Player getCurrentDealer(){
         return players.get(0);
