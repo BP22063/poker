@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 public class Game {
 
+<<<<<<< HEAD
     private static final int MAX_ROUND = 10;
 
+=======
+>>>>>>> e7044ff (Gameクラスの追加、コンストラクタとgetterの設定)
     private int roundNum;
     private int gameID;
 
