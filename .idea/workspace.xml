@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Actionクラスと関連するDealerクラスの変更">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Player.java" afterDir="false" />
-    </list>
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735292284132</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整">
+      <option name="closed" value="true" />
+      <created>1735294183193</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735294183193</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +172,7 @@
     <MESSAGE value="Dealerクラス(collectInitialChip,performAction)の実装&#10;Actionクラスの引数の変更" />
     <MESSAGE value="Gameクラスの追加、コンストラクタとgetterの設定" />
     <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actionクラスと関連するDealerクラスの変更" />
+    <MESSAGE value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
+    <option name="LAST_COMMIT_MESSAGE" value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
   </component>
 </project>
