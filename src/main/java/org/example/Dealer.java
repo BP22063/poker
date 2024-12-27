@@ -1,17 +1,19 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Dealer {
 
+    private static final int INITIAL_BET_CHIP = 1; // 初期ベットチップ数
+
     private ArrayList<Player> players;
-    public int fieldbetChip;
+    public int fieldBetChip;
     private Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
     private ArrayList<Integer> usedSkills;
     ArrayList<Player> winners;
+    private Action action;
 
 
 
@@ -26,6 +28,7 @@ public class Dealer {
         players = new ArrayList<>();
         deck = new Deck();
         deck.shuffle();
+        action = new Action();
     }
 
     public void decideOrder() {
@@ -38,9 +41,21 @@ public class Dealer {
 
     public void collectInitialChip() {
 
+        for( Player player : this.players ){
+
+            // 最初のチップを払えない
+            if(INITIAL_BET_CHIP > player.getHaveChip()){
+                // 順位の決定
+                this.rankList.add(player);
+                this.players.remove(player);
+
+            }else{
+                player.setHaveChip( player.getHaveChip() - INITIAL_BET_CHIP );
+            }
+        }
     }
 
-    public void provideCard() {
+    public void provideCard(Player players) {
 
     }
 
@@ -55,7 +70,7 @@ public class Dealer {
         }
     }
 
-
+    // いらないかも（Playerのコンストラクタで初期チップを設定できるため）
     public void provideChip(Player players) {
 
     }
@@ -76,6 +91,57 @@ public class Dealer {
 
     public void performAction(int userID, int actionNumber, int betChip) {
 
+        Player player = getUserByID(userID);
+
+        switch (actionNumber){
+
+            // bet
+            case 0:
+                this.action.executeBet(player,this,betChip);
+                break;
+
+            // pass
+            case 1:
+                this.action.executePass();
+                break;
+
+            // raise
+            case 2:
+                int raiseAmount = 0; // 要変更　ここでraiseの増加量の問い合わせをする？
+                this.action.executeRaise(player,this,betChip,raiseAmount);
+                break;
+
+            // call
+            case 3:
+                this.action.executeCall(player,this);
+                break;
+
+            // drop
+            case 4:
+                this.action.executeDrop(player);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    // ユーザIDを対応するユーザに変換
+    private Player getUserByID(int userID){
+
+        for ( Player player : this.players ){
+            if( userID == player.getUserID()){
+                return player;
+            }
+        }
+
+        for ( Player player : this.rankList ){
+            if( userID == player.getUserID()){
+                return player;
+            }
+        }
+
+        return null;
     }
 
     public void sendCardInformation() {
