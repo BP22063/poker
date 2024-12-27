@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="RoleControlを編集" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="RoleControlを編集">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="develop_ishihara" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
