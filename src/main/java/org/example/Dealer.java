@@ -55,8 +55,12 @@ public class Dealer {
         }
     }
 
-    public void provideCard(Player players) {
-
+    public void provideCard() {
+        for (int i = 0; i < 5; i++) {
+            for (Player player : players) {
+                player.addCard(deck.draw());
+            }
+        }
     }
 
     public void changeCard(int playerIndex, int cardIndex) {
