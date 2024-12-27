@@ -2,11 +2,18 @@ package org.example;
 
 public class Action {
 
-    public void executeBet(Player player, Dealer dealer, int betChip) {
+    Dealer dealer;
+
+    public Action(Dealer dealer){
+        this.dealer = dealer;
+    }
+
+
+    public void executeBet(Player player, int betChip) {
         if (player.getHaveChip() >= betChip) {
             player.setHaveChip(player.getHaveChip() - betChip);
             player.setBetChip(betChip);
-            dealer.fieldBetChip = betChip;
+            this.dealer.fieldBetChip = betChip;
             System.out.println(player.getName() + " bets " + betChip + " chips.");
         } else {
             System.out.println(player.getName() + " does not have enough chips to bet.");
@@ -14,22 +21,22 @@ public class Action {
     }
 
     public void executePass() {
-
+        System.out.println("pass.");
     }
 
-    public void executeRaise(Player player, Dealer dealer, int betChip, int raiseAmount) {
+    public void executeRaise(Player player, int betChip, int raiseAmount) {
         int totalBet = betChip + raiseAmount;
         if (player.getHaveChip() >= totalBet) {
             player.setHaveChip(player.getHaveChip() - totalBet);
             player.setBetChip(totalBet);
-            dealer.fieldBetChip = totalBet;
+            this.dealer.fieldBetChip = totalBet;
             System.out.println(player.getName() + " raises to " + totalBet + " chips.");
         } else {
             System.out.println(player.getName() + " does not have enough chips to raise.");
         }
     }
 
-    public void executeCall(Player player, Dealer dealer) {
+    public void executeCall(Player player) {
         int callAmount = dealer.fieldBetChip - player.getBetChip();
         if (player.getHaveChip() >= callAmount) {
             player.setBetChip(player.getHaveChip() - callAmount);
