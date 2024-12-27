@@ -5,12 +5,12 @@ public class Player {
 
     private int userID;
     private String name;
-    public int haveChip;
-    public int betChip;
-    public int rank;
-    public int rolePoint;
+    private int haveChip;
+    private int betChip;
+    private int rank;
+    private int rolePoint;
     public ArrayList<Card> hand;
-    public ArrayList<Integer> skill;
+    private ArrayList<Integer> skill;
     private boolean isInRound;
     //private Card[] 手札;
 

@@ -197,17 +197,17 @@ public class Dealer {
         int maxPoint=0;
 
         for(Player player: players){
-            player.rolePoint=roleControl.judgeRole(player.hand);
+            player.setRolePoint( roleControl.judgeRole(player.hand) );
         }
 
         for(Player player:players){
-            if(player.rolePoint>maxPoint){
-                maxPoint = player.rolePoint;
+            if(player.getRolePoint() >maxPoint){
+                maxPoint = player.getRolePoint();
             }
         }
 
         for (Player player : players){
-            if(player.rolePoint == maxPoint){
+            if(player.getRolePoint() == maxPoint){
                 winners.add(player);
             }
         }
@@ -216,7 +216,7 @@ public class Dealer {
 
     public void showWinners(){
         for(Player player:winners){
-            System.out.println("プレイヤー："+player.getName()+" 役："+getRoleName(player.rolePoint));
+            System.out.println("プレイヤー："+player.getName()+" 役："+getRoleName(player.getRolePoint()));
         }
     }
 
