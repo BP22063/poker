@@ -28,7 +28,7 @@ public class Dealer {
         players = new ArrayList<>();
         deck = new Deck();
         deck.shuffle();
-        action = new Action();
+        action = new Action(this);
     }
 
     public void decideOrder() {
@@ -97,7 +97,7 @@ public class Dealer {
 
             // bet
             case 0:
-                this.action.executeBet(player,this,betChip);
+                this.action.executeBet(player,betChip);
                 break;
 
             // pass
@@ -108,12 +108,12 @@ public class Dealer {
             // raise
             case 2:
                 int raiseAmount = 0; // 要変更　ここでraiseの増加量の問い合わせをする？
-                this.action.executeRaise(player,this,betChip,raiseAmount);
+                this.action.executeRaise(player,betChip,raiseAmount);
                 break;
 
             // call
             case 3:
-                this.action.executeCall(player,this);
+                this.action.executeCall(player);
                 break;
 
             // drop
