@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Skillクラスの作成、コンストラクタとgetterの設定">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_handSwap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_handSwap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735294183193</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Skillクラスの作成、コンストラクタとgetterの設定">
+      <option name="closed" value="true" />
+      <created>1735551033927</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1735551033927</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +185,7 @@
     <MESSAGE value="Gameクラスの追加、コンストラクタとgetterの設定" />
     <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
     <MESSAGE value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
+    <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
+    <option name="LAST_COMMIT_MESSAGE" value="Skillクラスの作成、コンストラクタとgetterの設定" />
   </component>
 </project>

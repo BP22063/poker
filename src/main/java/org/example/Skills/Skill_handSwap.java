@@ -1,6 +1,9 @@
 package org.example.Skills;
 
+import org.example.Card;
 import org.example.Player;
+
+import java.util.ArrayList;
 
 public class Skill_handSwap {
 
@@ -18,11 +21,10 @@ public class Skill_handSwap {
         return skillID;
     }
 
+    // プレイヤー１とプレイヤー２の手札を交換する
     public void useSkill_handSwap(){
-
-    }
-
-    private void swapHand(){
-
+        ArrayList<Card> player1Hand = this.player1.hand;
+        this.player1.hand = this.player2.hand;
+        this.player2.hand = player1Hand;
     }
 }
