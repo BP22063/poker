@@ -1,8 +1,12 @@
 package org.example;
 
+import org.example.Skills.Skill_disableHand;
+import org.example.Skills.Skill_disableSkill;
 import org.example.Skills.Skill_exchangingHandsAgain;
+import org.example.Skills.Skill_handSwap;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class Dealer {
@@ -14,7 +18,8 @@ public class Dealer {
     private Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
-    private ArrayList<Integer> usedSkills;
+    private ArrayList<Integer> usedSkills; // ラウンド内で選択されたスキルのID
+    private ArrayList<Object> skills; // ラウンド内で使用されるスキルのインスタンスを保持
     ArrayList<Player> winners;
     private Action action;
 
@@ -38,7 +43,7 @@ public class Dealer {
 
     // 各プレイヤーにスキルを配布
     // 配布されるスキルはランダム
-    public void provideSkill( int Skill ) {
+    public void provideSkill() {
 
         Random random = new Random();
 
@@ -91,14 +96,43 @@ public class Dealer {
 
     }
 
+    // スキルの情報に応じてインスタンスを生成
+    // 選択されたスキルは使用済みとしてPlayerから削除
+    // 引数を使用しない場合はnull入れる
+    private void adaptSkill( int skillID, Player player, String disableHand , Player swapPlayer ) {
 
+        switch (skillID){
 
-    private void adaptSkill() {
+            // Skill_disableSkill
+            case 0:
+                skills.add( new Skill_disableSkill() );
+                break;
+
+            // Skill_disableHand
+            case 1:
+                skills.add( new Skill_disableHand(disableHand) );
+                break;
+
+            // Skill_exchangingHandsAgain
+            case 2:
+                skills.add( new Skill_exchangingHandsAgain(player) );
+                break;
+
+            // Skill_handSwap
+            case 3:
+                skills.add( new Skill_handSwap(player,swapPlayer) );
+                break;
+
+            default:
+                break;
+        }
+
+        player.removeSkill(skillID);
 
     }
 
+    // スキルのインスタンスを生成、リストを作成、実行
     public void useSkills() {
-
     }
 
     public void sendApplicationCommunication(String JSON) {
@@ -106,13 +140,7 @@ public class Dealer {
     }
 
     // actionNumberの値によってベット、パス、レイズ、コール、ドロップの操作を実行する
-    /*
-    0:ベット
-    1:パス
-    2:レイズ
-    3:コール
-    4:ドロップ
-     */
+    // 0:ベット　1:パス　2:レイズ　3:コール　4:ドロップ
     public void performAction(int userID, int actionNumber, int betChip) {
 
         Player player = getUserByID(userID);
