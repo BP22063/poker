@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +38,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
