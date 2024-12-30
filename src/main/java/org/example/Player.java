@@ -20,6 +20,7 @@ public class Player {
         this.hand = new ArrayList<>();
         this.haveChip = 3000;
         this.betChip = 0;
+        this.skill = new ArrayList<>();
     }
 
     public int getUserID() {
@@ -56,6 +57,16 @@ public class Player {
 
     public void setRolePoint(int rolePoint) {
         this.rolePoint = rolePoint;
+    }
+
+    // スキルを追加
+    public void addSkill(int skillID){
+        this.skill.add(Integer.valueOf(skillID));
+    }
+
+    // 使用したスキルを削除
+    public void removeSkill(int skillID){
+        this.skill.remove(Integer.valueOf(skillID));
     }
 
     public void updatePlayerInformation() {

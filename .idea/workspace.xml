@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Skillクラスの作成、コンストラクタとgetterの設定">
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Skill_handSwapの実装">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_handSwap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_handSwap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735551033927</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Skill_handSwapの実装">
+      <option name="closed" value="true" />
+      <created>1735554405483</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1735554405483</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +195,7 @@
     <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
     <MESSAGE value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
     <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
-    <option name="LAST_COMMIT_MESSAGE" value="Skillクラスの作成、コンストラクタとgetterの設定" />
+    <MESSAGE value="Skill_handSwapの実装" />
+    <option name="LAST_COMMIT_MESSAGE" value="Skill_handSwapの実装" />
   </component>
 </project>

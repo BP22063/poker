@@ -1,6 +1,9 @@
 package org.example;
 
+import org.example.Skills.Skill_exchangingHandsAgain;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Dealer {
 
@@ -15,14 +18,12 @@ public class Dealer {
     ArrayList<Player> winners;
     private Action action;
 
-
+    private static final int SKILL_NUM = 3; // 一人当たりのスキル配布数
+    private static final int SKILL_KIND_NUM = 4; // スキルの種類数
 
     //private Skill_handSwap  skill_handSwap ;
-
     //private Skill_disableHand skill_disableHand;
-
-
-    //private Skill_exchangingHandsAgain skill_exchangingHandsAgain;
+    // private Skill_exchangingHandsAgain skill_exchangingHandsAgain;
 
     public Dealer() {
         players = new ArrayList<>();
@@ -35,10 +36,21 @@ public class Dealer {
         players.add(players.remove(0));
     }
 
-    public void provideSkill(int Skill) {
+    // 各プレイヤーにスキルを配布
+    // 配布されるスキルはランダム
+    public void provideSkill( int Skill ) {
 
+        Random random = new Random();
+
+        for ( int i=0; i<SKILL_NUM; i++ ) {
+            for (Player player : this.players) {
+                player.addSkill(random.nextInt(Integer.valueOf(random.nextInt(SKILL_KIND_NUM))));
+            }
+        }
     }
 
+    // 各プレイヤーに同数のチップを配布
+    // ゲーム開始時に使用
     public void collectInitialChip() {
 
         for( Player player : this.players ){
@@ -93,6 +105,14 @@ public class Dealer {
 
     }
 
+    // actionNumberの値によってベット、パス、レイズ、コール、ドロップの操作を実行する
+    /*
+    0:ベット
+    1:パス
+    2:レイズ
+    3:コール
+    4:ドロップ
+     */
     public void performAction(int userID, int actionNumber, int betChip) {
 
         Player player = getUserByID(userID);
