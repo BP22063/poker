@@ -111,7 +111,7 @@ public class Dealer {
 
             // Skill_exchangingHandsAgain
             case 2:
-                skills.add( new Skill_exchangingHandsAgain(player) );
+                skills.add( new Skill_exchangingHandsAgain(player, this) );
                 break;
 
             // Skill_handSwap
@@ -305,6 +305,10 @@ public class Dealer {
         return roleName;
     }
 
+    //Skill_exchangingHandsAgain用
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
 
 
 
