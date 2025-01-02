@@ -1,5 +1,6 @@
 package org.example.Skills;
 
+import org.example.Card;
 import org.example.Player;
 import org.example.Dealer;
 
@@ -10,14 +11,14 @@ public class Skill_exchangingHandsAgain{
     private static final int skillID = 2;
     private Dealer dealer;
     Player player;
-    ArrayList<Integer> cardIndex;
+    ArrayList<Integer> cardIndexList;
 
     // コンストラクタ
-    public Skill_exchangingHandsAgain( Player player, Dealer dealer ,ArrayList<Integer> cardIndex){
+    public Skill_exchangingHandsAgain( Player player, Dealer dealer ,ArrayList<Integer> cardIndexList){
 
         this.player = player;
         this.dealer = dealer;
-        this.cardIndex = cardIndex;
+        this.cardIndexList = cardIndexList;
     }
 
     public int getSkillID(){
@@ -26,12 +27,14 @@ public class Skill_exchangingHandsAgain{
 
     //public void useSkill_exchangingHandsAgain(){exchangingHandsAgain();}
 
-    private void exchangingHandsAgain(int cardIndex){
+    private void exchangingHandsAgain(){
         //DealerクラスのchangeCardメソッドを呼び出す
         int playerIndex = dealer.getPlayers().indexOf(player); //プレイヤーのインデックスを取得
         if (playerIndex >= 0) {
             //プレイヤーの手札の最初のカードを交換（例）
-            dealer.changeCard(playerIndex, cardIndex);
+            for(int cardIndex : cardIndexList) {
+                dealer.changeCard(playerIndex, cardIndex);
+            }
         }
     }
 
