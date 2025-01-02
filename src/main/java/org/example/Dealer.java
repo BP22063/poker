@@ -271,6 +271,13 @@ public class Dealer {
 
         for(Player player: players){
             player.setRolePoint( roleControl.judgeRole(player.hand) );
+
+            // 無効役判定
+            for( String disableHand : this.disableHands ){
+                if( player.getRolePoint() == getRolePoint(disableHand)){
+                    player.setRolePoint(0);
+                }
+            }
         }
 
         for(Player player:players){
@@ -328,6 +335,35 @@ public class Dealer {
                 break;
         }
         return roleName;
+    }
+
+    // 役名→ポイント数（無効役は考慮しない）
+    public int getRolePoint(String roleName){
+
+        switch(roleName){
+            case "RoyalStraightFlush":
+                return 10;
+            case "StraightFlush":
+                return 9;
+            case "4cards":
+                return 8;
+            case "FullHouse":
+                return 7;
+            case "Flush":
+                return 6;
+            case "Straight":
+                return 5;
+            case "3cards":
+                return 4;
+            case "2pair":
+                return 3;
+            case "1pair":
+                return 2;
+            case "high card":
+                return 1;
+        }
+
+        return 0;
     }
 
     //Skill_exchangingHandsAgain用

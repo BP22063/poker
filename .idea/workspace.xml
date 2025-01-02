@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="DealerとPlayerでスキル配布(provideSkill)の実装">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____3.xml" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="DealerクラスのuseSkillsを実装adaptSkillの調整">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_exchangingHandsAgain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_exchangingHandsAgain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735572634680</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="DealerクラスのuseSkillsを実装adaptSkillの調整">
+      <option name="closed" value="true" />
+      <created>1735829003218</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1735829003218</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,6 +212,7 @@
     <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
     <MESSAGE value="Skill_handSwapの実装" />
     <MESSAGE value="DealerとPlayerでスキル配布(provideSkill)の実装" />
-    <option name="LAST_COMMIT_MESSAGE" value="DealerとPlayerでスキル配布(provideSkill)の実装" />
+    <MESSAGE value="DealerクラスのuseSkillsを実装adaptSkillの調整" />
+    <option name="LAST_COMMIT_MESSAGE" value="DealerクラスのuseSkillsを実装adaptSkillの調整" />
   </component>
 </project>
