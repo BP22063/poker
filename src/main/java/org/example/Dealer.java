@@ -26,16 +26,22 @@ public class Dealer {
     private static final int SKILL_NUM = 3; // 一人当たりのスキル配布数
     private static final int SKILL_KIND_NUM = 4; // スキルの種類数
 
+    // 使用される各スキルを格納
     private ArrayList<Skill_disableSkill> skills_disableSkill;
-    private ArrayList<Skill_handSwap>  skills_handSwap ;
     private ArrayList<Skill_disableHand> skills_disableHand;
     private ArrayList<Skill_exchangingHandsAgain> skills_exchangingHandsAgain;
+    private ArrayList<Skill_handSwap>  skills_handSwap ;
 
     public Dealer() {
         players = new ArrayList<>();
         deck = new Deck();
         deck.shuffle();
         action = new Action(this);
+
+        skills_disableSkill = new ArrayList<>();
+        skills_disableHand = new ArrayList<>();
+        skills_exchangingHandsAgain = new ArrayList<>();
+        skills_handSwap = new ArrayList<>();
     }
 
     public void decideOrder() {
@@ -98,58 +104,56 @@ public class Dealer {
     }
 
     // スキルの情報に応じてインスタンスを生成
-    private void adaptSkill(){
+    private void adaptSkill(Player player){
+        player.removeSkill(0);
         this.skills_disableSkill.add(new Skill_disableSkill());
     }
 
-    private void adaptSkill(String disableHand){
+    private void adaptSkill(Player player,String disableHand){
+        player.removeSkill(1);
         this.skills_disableHand.add(new Skill_disableHand(disableHand));
     }
 
     private void adaptSkill(Player player,ArrayList<Integer> cardIndexList){
+        player.removeSkill(2);
         this.skills_exchangingHandsAgain.add(new Skill_exchangingHandsAgain(player,this,cardIndexList));
     }
 
     private void adaptSkill(Player player,Player swapPlayer){
+        player.removeSkill(3);
         this.skills_handSwap.add(new Skill_handSwap(player,swapPlayer));
     }
 
-    /*
-    private void adaptSkill( int skillID, Player player, String disableHand , Player swapPlayer ) {
-
-        switch (skillID){
-
-            // Skill_disableSkill
-            case 0:
-                skills.add( new Skill_disableSkill() );
-                break;
-
-            // Skill_disableHand
-            case 1:
-                skills.add( new Skill_disableHand(disableHand) );
-                break;
-
-            // Skill_exchangingHandsAgain
-            case 2:
-                skills.add( new Skill_exchangingHandsAgain(player, this) );
-                break;
-
-            // Skill_handSwap
-            case 3:
-                skills.add( new Skill_handSwap(player,swapPlayer) );
-                break;
-
-            default:
-                break;
-        }
-
-        player.removeSkill(skillID);
-
-    }
-     */
-
-    // スキルのインスタンスを生成、リストを作成、実行
+    // スキルを実行
     public void useSkills() {
+
+        // この時点でスキルリスト作成,adaptSkillが完了している
+
+        // スキル無効が選択されていない
+        if(skills_disableSkill.isEmpty()){
+
+            // 手札無効
+            if(!skills_disableHand.isEmpty()){
+                for ( Skill_disableHand skill : skills_disableHand ){
+                    skill.useSkill_disableHand(); // 不要
+                    this.disableHands.add(skill.getDisableHand());
+                }
+            }
+
+            // 再度手札交換
+            if(!skills_exchangingHandsAgain.isEmpty()){
+                for ( Skill_exchangingHandsAgain skill : skills_exchangingHandsAgain ){
+                    skill.useSkill_exchangingHandsAgain();
+                }
+            }
+
+            // 他プレイヤーと手札交換
+            if(!skills_handSwap.isEmpty()){
+                for ( Skill_handSwap skill : skills_handSwap ){
+                    skill.useSkill_handSwap();
+                }
+            }
+        }
     }
 
     public void sendApplicationCommunication(String JSON) {

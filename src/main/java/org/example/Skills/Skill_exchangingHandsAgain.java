@@ -25,7 +25,9 @@ public class Skill_exchangingHandsAgain{
         return skillID;
     }
 
-    //public void useSkill_exchangingHandsAgain(){exchangingHandsAgain();}
+    public void useSkill_exchangingHandsAgain(){
+        exchangingHandsAgain();
+    }
 
     private void exchangingHandsAgain(){
         //DealerクラスのchangeCardメソッドを呼び出す
