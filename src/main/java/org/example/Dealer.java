@@ -106,8 +106,8 @@ public class Dealer {
         this.skills_disableHand.add(new Skill_disableHand(disableHand));
     }
 
-    private void adaptSkill(Player player,ArrayList<Integer> cardIndex){
-        this.skills_exchangingHandsAgain.add(new Skill_exchangingHandsAgain(player,this,cardIndex));
+    private void adaptSkill(Player player,ArrayList<Integer> cardIndexList){
+        this.skills_exchangingHandsAgain.add(new Skill_exchangingHandsAgain(player,this,cardIndexList));
     }
 
     private void adaptSkill(Player player,Player swapPlayer){
