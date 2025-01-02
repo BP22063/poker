@@ -20,14 +20,14 @@ public class Skill_exchangingHandsAgain{
         return skillID;
     }
 
-    public void useSkill_exchangingHandsAgain(){exchangingHandsAgain();}
+    //public void useSkill_exchangingHandsAgain(){exchangingHandsAgain();}
 
-    private void exchangingHandsAgain(){
+    private void exchangingHandsAgain(int cardIndex){
         //DealerクラスのchangeCardメソッドを呼び出す
         int playerIndex = dealer.getPlayers().indexOf(player); //プレイヤーのインデックスを取得
         if (playerIndex >= 0) {
             //プレイヤーの手札の最初のカードを交換（例）
-            dealer.changeCard(playerIndex, 0);
+            dealer.changeCard(playerIndex, cardIndex);
         }
     }
 
