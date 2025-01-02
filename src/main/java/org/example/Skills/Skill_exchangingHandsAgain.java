@@ -29,13 +29,12 @@ public class Skill_exchangingHandsAgain{
 
     private void exchangingHandsAgain(){
         //DealerクラスのchangeCardメソッドを呼び出す
-        int playerIndex = dealer.getPlayers().indexOf(player); //プレイヤーのインデックスを取得
-        if (playerIndex >= 0) {
+
             //プレイヤーの手札の最初のカードを交換（例）
             for(int cardIndex : cardIndexList) {
-                dealer.changeCard(playerIndex, cardIndex);
+                dealer.changeCard(player.getUserID(), cardIndex);
             }
-        }
+
     }
 
 }
