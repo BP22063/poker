@@ -53,5 +53,7 @@ public class Main {
         players.add(new Player(4, "Daisy"));
 
         Game game1 = new Game(players);
+
+        game1.getDealer().decideOrder();
     }
 }
