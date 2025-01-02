@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 // Shift を 2 回押して 'どこでも検索' ダイアログを開き、`show whitespaces` と入力して
 // Enter キーを押します。これでコードに空白文字が表示されます。
 public class Main {
@@ -16,7 +18,7 @@ public class Main {
             System.out.println("i = " + i);
         }
 
-
+        /*
         //テスト用コード
         Dealer dealer = new Dealer();
 
@@ -42,5 +44,14 @@ public class Main {
         dealer.decideWinner();
         dealer.showWinners();
         dealer.showAllHands();
+
+         */
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(new Player(1, "Alice"));
+        players.add(new Player(2, "Bob"));
+        players.add(new Player(3, "Charlie"));
+        players.add(new Player(4, "Daisy"));
+
+        Game game1 = new Game(players);
     }
 }

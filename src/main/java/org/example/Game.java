@@ -8,9 +8,14 @@ public class Game {
 
     private int roundNum;
     private int gameID;
+    //private ArrayList<Player> players;
 
-    public Game(){
+    public Game(ArrayList<Player> players){
         this.roundNum = 1;
+        Dealer dealer = new Dealer();
+        for(Player player : players ){
+            dealer.addPlayer(player);
+        }
     }
 
     public int getRoundNum(){
@@ -26,7 +31,11 @@ public class Game {
     }
 
     public void progressRound(int round){
-
+        if(roundNum<=MAX_ROUND){
+            roundNum +=1;
+            Dealer dealer = new Dealer();
+            dealer.decideOrder();
+        }
     }
 
     public void decideRankCutPlayer(){
@@ -40,6 +49,8 @@ public class Game {
     public void receiveNotification(){
 
     }
+
+
 
 
 }
