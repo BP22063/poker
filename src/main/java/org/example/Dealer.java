@@ -80,15 +80,15 @@ public class Dealer {
         }
     }
 
-    public void changeCard(int playerIndex, int cardIndex) {
-        if (playerIndex >= 0 && playerIndex < players.size()) {
-            Player player = players.get(playerIndex);
+    public void changeCard(int userID, int cardIndex) {
+
+            Player player = getUserByID(userID);
             Card oldCard = player.hand.get(cardIndex);
             Card newCard = deck.draw();
 
             player.exchangeCard_player(cardIndex, newCard);
             deck.discard(oldCard);  // 捨て札に追加
-        }
+
     }
 
     // いらないかも（Playerのコンストラクタで初期チップを設定できるため）

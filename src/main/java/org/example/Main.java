@@ -29,14 +29,14 @@ public class Main {
         System.out.println("-- Game 1 --");
         System.out.println("Dealer: " + dealer.getCurrentDealer().getName());
         dealer.dealInitialCards(5);
-        /*
+
         dealer.showAllHands();
 
         System.out.println("\n-- Aliceが2枚目を交換 --");
-        dealer.changeCard(0, 1);
+        dealer.changeCard(1, 1);
         dealer.showAllHands();
 
-         */
+
 
         System.out.println("勝者を決定");
         dealer.decideWinner();
