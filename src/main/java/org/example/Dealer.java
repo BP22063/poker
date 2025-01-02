@@ -26,9 +26,10 @@ public class Dealer {
     private static final int SKILL_NUM = 3; // 一人当たりのスキル配布数
     private static final int SKILL_KIND_NUM = 4; // スキルの種類数
 
-    //private Skill_handSwap  skill_handSwap ;
-    //private Skill_disableHand skill_disableHand;
-    // private Skill_exchangingHandsAgain skill_exchangingHandsAgain;
+    private ArrayList<Skill_disableSkill> skills_disableSkill;
+    private ArrayList<Skill_handSwap>  skills_handSwap ;
+    private ArrayList<Skill_disableHand> skills_disableHand;
+    private ArrayList<Skill_exchangingHandsAgain> skills_exchangingHandsAgain;
 
     public Dealer() {
         players = new ArrayList<>();
@@ -97,8 +98,23 @@ public class Dealer {
     }
 
     // スキルの情報に応じてインスタンスを生成
-    // 選択されたスキルは使用済みとしてPlayerから削除
-    // 引数を使用しない場合はnull入れる
+    private void adaptSkill(){
+        this.skills_disableSkill.add(new Skill_disableSkill());
+    }
+
+    private void adaptSkill(String disableHand){
+        this.skills_disableHand.add(new Skill_disableHand(disableHand));
+    }
+
+    private void adaptSkill(Player player,ArrayList<Integer> cardIndex){
+        this.skills_exchangingHandsAgain.add(new Skill_exchangingHandsAgain(player,this,cardIndex));
+    }
+
+    private void adaptSkill(Player player,Player swapPlayer){
+        this.skills_handSwap.add(new Skill_handSwap(player,swapPlayer));
+    }
+
+    /*
     private void adaptSkill( int skillID, Player player, String disableHand , Player swapPlayer ) {
 
         switch (skillID){
@@ -130,6 +146,7 @@ public class Dealer {
         player.removeSkill(skillID);
 
     }
+     */
 
     // スキルのインスタンスを生成、リストを作成、実行
     public void useSkills() {

@@ -3,17 +3,21 @@ package org.example.Skills;
 import org.example.Player;
 import org.example.Dealer;
 
+import java.util.ArrayList;
+
 public class Skill_exchangingHandsAgain{
 
     private static final int skillID = 2;
     private Dealer dealer;
     Player player;
+    ArrayList<Integer> cardIndex;
 
     // コンストラクタ
-    public Skill_exchangingHandsAgain( Player player, Dealer dealer ){
+    public Skill_exchangingHandsAgain( Player player, Dealer dealer ,ArrayList<Integer> cardIndex){
 
         this.player = player;
         this.dealer = dealer;
+        this.cardIndex = cardIndex;
     }
 
     public int getSkillID(){
