@@ -6,17 +6,6 @@ import java.util.ArrayList;
 // Enter キーを押します。これでコードに空白文字が表示されます。
 public class Main {
     public static void main(String[] args) {
-        // ハイライトされたテキストにキャレットがある状態で Alt+Enter を押して
-        // IntelliJ IDEA が提案する修正方法を表示します。
-        System.out.printf("Hello and welcome!");
-
-        // コードを実行するには Shift+F10 を押すか、ガターにある緑の矢印ボタンをクリックします。
-        for (int i = 1; i <= 5; i++) {
-
-            // Shift+F9 を押してコードのデバッグを開始します。ブレークポイントを 1 つ設定しましたが、
-            // Ctrl+F8 を押すといつでも他のブレークポイントを追加できます。
-            System.out.println("i = " + i);
-        }
 
         /*
         //テスト用コード
@@ -46,6 +35,7 @@ public class Main {
         dealer.showAllHands();
 
          */
+
         ArrayList<Player> players = new ArrayList<>();
         players.add(new Player(1, "Alice"));
         players.add(new Player(2, "Bob"));
@@ -54,6 +44,23 @@ public class Main {
 
         Game game1 = new Game(players);
 
-        game1.getDealer().decideOrder();
+        game1.getDealer().dealInitialCards(5);
+        game1.getDealer().showAllHands();
+
+
+        String jsonInput = "["
+                + "{\"userID\": 1, \"exchangeCardIndex\": [0, 2, 4]},"
+                + "{\"userID\": 2, \"exchangeCardIndex\": [1, 3]},"
+                + "{\"userID\": 3, \"exchangeCardIndex\": []},"
+                + "{\"userID\": 4, \"exchangeCardIndex\": [0, 1]}"
+                + "]";
+
+        game1.transformExchangeRequests(jsonInput);
+
+        game1.playRound();
+
+        game1.getDealer().showAllHands();
+
+
     }
 }

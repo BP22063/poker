@@ -5,9 +5,8 @@ import org.example.Skills.Skill_disableSkill;
 import org.example.Skills.Skill_exchangingHandsAgain;
 import org.example.Skills.Skill_handSwap;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Dealer {
 
@@ -20,6 +19,7 @@ public class Dealer {
     private ArrayList<String> disableHands;
     private ArrayList<Integer> usedSkills; // ラウンド内で選択されたスキルのID
     private ArrayList<Object> skills; // ラウンド内で使用されるスキルのインスタンスを保持
+    private ArrayList<Integer>exchangeCardIndex;
     ArrayList<Player> winners;
     private Action action;
 
@@ -81,6 +81,7 @@ public class Dealer {
         }
     }
 
+    //1枚ずつカード交換
     public void changeCard(int userID, int cardIndex) {
 
             Player player = getUserByID(userID);
@@ -89,7 +90,26 @@ public class Dealer {
 
             player.exchangeCard_player(cardIndex, newCard);
             deck.discard(oldCard);  // 捨て札に追加
+    }
+    //手札の中から交換したいカードを交換
+    public void changeHand(int userID,ArrayList<Integer> exchangeCardIndex){
+        for(int index:exchangeCardIndex){
+            changeCard(userID,index);
+        }
+    }
 
+    //プレイヤー4人がカードを交換
+    public void executeChangeHand(List<Map<String,Object>> exchangeRequests){
+        for(Map<String,Object>request : exchangeRequests){
+            int userID = ((Double) request.get("userID")).intValue();
+            List<Integer> exchangeCardIndex = ((List<Double>) request.get("exchangeCardIndex"))
+                    .stream()
+                    .map(Double::intValue)
+                    .collect(Collectors.toList());
+
+
+            changeHand(userID,new ArrayList<>(exchangeCardIndex));
+        }
     }
 
     // いらないかも（Playerのコンストラクタで初期チップを設定できるため）

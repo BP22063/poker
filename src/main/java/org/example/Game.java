@@ -1,12 +1,19 @@
 package org.example;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class Game {
 
+    static Gson gson = new Gson();
     private static final int MAX_ROUND = 10;
 
-
+    List<Map<String, Object>> exchangeRequests;
     private int roundNum;
     private int gameID;
     //private ArrayList<Player> players;
@@ -52,6 +59,17 @@ public class Game {
 
     }
 
+    //1ラウンドの流れを記述
+    public void playRound(){
+        dealer.executeChangeHand(exchangeRequests);
+    }
+
+
+
+    Type listType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+    public void transformExchangeRequests(String jsonInput){
+        exchangeRequests = gson.fromJson(jsonInput, listType);
+    }
 
     public Dealer getDealer() {
         return dealer; // 現在のDealerを返す
