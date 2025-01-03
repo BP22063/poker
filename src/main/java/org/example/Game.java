@@ -16,15 +16,13 @@ public class Game {
     List<Map<String, Object>> exchangeRequests;
     private int roundNum;
     private int gameID;
-    //private ArrayList<Player> players;
+    public ArrayList<Player> players;
     private Dealer dealer;
 
     public Game(ArrayList<Player> players){
         this.roundNum = 1;
-        dealer = new Dealer();
-        for(Player player : players ){
-            dealer.addPlayer(player);
-        }
+        this.players = players;
+        //dealer = new Dealer(this.players);
     }
 
     public int getRoundNum(){
@@ -39,12 +37,17 @@ public class Game {
 
     }
 
-    public void progressRound(int round){
-        if(roundNum<=MAX_ROUND){
-            roundNum +=1;
-            Dealer dealer = new Dealer();
-            dealer.decideOrder();
+    public void progressRound(){
+        while (roundNum<=10){
+            if(roundNum>1)decideOrder();
+            dealer = new Dealer(this.players);
+            playRound();
         }
+        System.out.println("Game Finished.");
+    }
+
+    public void decideOrder() {
+        players.add(players.remove(0));
     }
 
     public void decideRankCutPlayer(){
@@ -60,8 +63,57 @@ public class Game {
     }
 
     //1ラウンドの流れを記述
-    public void playRound(){
+    public void playRound() {
+        System.out.println("Starting Round " + roundNum);
+
+        // 手札を配布
+        dealer.dealInitialCards(5);
+        System.out.println("Initial hands dealt.");
+        dealer.showAllHands(); // デバッグ用
+
+        //アクションを行う
+
+        // 手札交換情報を受け取る（サーバ経由）
+        System.out.println("Waiting for players to select cards to exchange...");
+        waitForExchangeRequests(); // プレイヤーから交換情報を待つ
+
+        // 手札の交換を実行
         dealer.executeChangeHand(exchangeRequests);
+        System.out.println("Cards exchanged.");
+        dealer.showAllHands(); // デバッグ用
+
+        //スキルを使用する
+
+
+        // 最後のベットを行う
+
+        // 勝者を決定
+        dealer.decideWinner();
+        System.out.println("Winner decided.");
+        dealer.showWinners(); // デバッグ用
+
+        // ラウンド終了処理
+
+        if (roundNum >= MAX_ROUND) {
+            System.out.println("Game Over.");
+        } else {
+            System.out.println("Round " + roundNum + " completed.");
+        }
+        roundNum++;
+    }
+
+
+    private void waitForExchangeRequests() {
+        // 仮のデータ取得 (実際はサーバから取得)
+        String jsonInput = "[" +
+                "{\"userID\": 1, \"exchangeCardIndex\": [0, 2, 4]}," +
+                "{\"userID\": 2, \"exchangeCardIndex\": [1, 3]}," +
+                "{\"userID\": 3, \"exchangeCardIndex\": []}," +
+                "{\"userID\": 4, \"exchangeCardIndex\": [0, 1]}" +
+                "]";
+
+        // JSONを解析し、交換リクエストを格納
+        transformExchangeRequests(jsonInput);
     }
 
 

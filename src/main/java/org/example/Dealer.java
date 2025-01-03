@@ -31,8 +31,11 @@ public class Dealer {
     private ArrayList<Skill_disableHand> skills_disableHand;
     private ArrayList<Skill_exchangingHandsAgain> skills_exchangingHandsAgain;
 
-    public Dealer() {
+    public Dealer(ArrayList<Player> users) {
         players = new ArrayList<>();
+        for(Player player : users ){
+            addPlayer(player);
+        }
         deck = new Deck();
         deck.shuffle();
         action = new Action(this);

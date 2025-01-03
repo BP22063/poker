@@ -44,22 +44,9 @@ public class Main {
 
         Game game1 = new Game(players);
 
-        game1.getDealer().dealInitialCards(5);
-        game1.getDealer().showAllHands();
+        game1.progressRound();
 
 
-        String jsonInput = "["
-                + "{\"userID\": 1, \"exchangeCardIndex\": [0, 2, 4]},"
-                + "{\"userID\": 2, \"exchangeCardIndex\": [1, 3]},"
-                + "{\"userID\": 3, \"exchangeCardIndex\": []},"
-                + "{\"userID\": 4, \"exchangeCardIndex\": [0, 1]}"
-                + "]";
-
-        game1.transformExchangeRequests(jsonInput);
-
-        game1.playRound();
-
-        game1.getDealer().showAllHands();
 
 
     }
