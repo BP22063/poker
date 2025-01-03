@@ -14,6 +14,8 @@ public class Game {
     private static final int MAX_ROUND = 10;
 
     List<Map<String, Object>> exchangeRequests;
+
+    List<Map<String, Object>> actionRequests;
     private int roundNum;
     private int gameID;
     public ArrayList<Player> players;
@@ -71,7 +73,17 @@ public class Game {
         System.out.println("Initial hands dealt.");
         dealer.showAllHands(); // デバッグ用
 
-        //アクションを行う
+        while (players.stream().anyMatch(Player::isInRound)) {
+
+
+            // アクション情報を受け取る
+            System.out.println("Waiting for players to select actions...");
+
+
+            // アクションを行う
+            dealer.executeActions(actionRequests);
+
+        }
 
         // 手札交換情報を受け取る（サーバ経由）
         System.out.println("Waiting for players to select cards to exchange...");
@@ -116,11 +128,28 @@ public class Game {
         transformExchangeRequests(jsonInput);
     }
 
+    private void waitingForActionRequests() {
+        // 仮のデータ取得 (実際はサーバから取得)
+        String jsonInput = "[" +
+                "{\"userID\": 1, \"actionNumber\": 0, \"betChip\": 10}," +
+                "{\"userID\": 2, \"actionNumber\": 0, \"betChip\": 10}," +
+                "{\"userID\": 1, \"actionNumber\": 1, \"betChip\": 0}," +
+                "{\"userID\": 1, \"actionNumber\": 1, \"betChip\": 0}," +
+                "]";
+
+        // JSONを解析し、交換リクエストを格納
+        transformActionRequests(jsonInput);
+    }
+
 
 
     Type listType = new TypeToken<List<Map<String, Object>>>() {}.getType();
     public void transformExchangeRequests(String jsonInput){
         exchangeRequests = gson.fromJson(jsonInput, listType);
+    }
+
+    public void transformActionRequests(String jsonInput){
+        actionRequests = gson.fromJson(jsonInput, listType);
     }
 
     public Dealer getDealer() {

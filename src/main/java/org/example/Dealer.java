@@ -218,6 +218,16 @@ public class Dealer {
         }
     }
 
+
+    public void executeActions(List<Map<String, Object>> actionRequests){
+        for(Map<String,Object>request : actionRequests) {
+            int userID = ((Double) request.get("userID")).intValue();
+            int actionNumber = ((Double) request.get("actionNumber")).intValue();
+            int betChip = ((Double) request.get("betChip")).intValue();
+            performAction(userID, actionNumber, betChip);
+        }
+    }
+
     // ユーザIDを対応するユーザに変換
     private Player getUserByID(int userID){
 

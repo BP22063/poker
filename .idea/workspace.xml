@@ -4,19 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="DealerとPlayerでスキル配布(provideSkill)の実装">
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Actionクラスと関連するDealerクラスの変更">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48______2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_26_22_48_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53_の_チェックアウト_前の未コミットの変更_[変更]1/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53_の_チェックアウト_前の未コミットの変更_[変更]1/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53_の_チェックアウト_前の未コミットの変更_[変更]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_2_01_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +48,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Game" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -88,11 +102,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.RoleControl" />
         <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.RoleControl" />
-        <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.RoleControl" />
+        <item itemvalue="アプリケーション.Main" />
+        <item itemvalue="アプリケーション.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -150,47 +164,7 @@
       <option name="project" value="LOCAL" />
       <updated>1735290582857</updated>
     </task>
-    <task id="LOCAL-00007" summary="Actionクラスと関連するDealerクラスの変更">
-      <option name="closed" value="true" />
-      <created>1735292284132</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1735292284132</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整">
-      <option name="closed" value="true" />
-      <created>1735294183193</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1735294183193</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Skillクラスの作成、コンストラクタとgetterの設定">
-      <option name="closed" value="true" />
-      <created>1735551033927</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1735551033927</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Skill_handSwapの実装">
-      <option name="closed" value="true" />
-      <created>1735554405483</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1735554405483</updated>
-    </task>
-    <task id="LOCAL-00011" summary="DealerとPlayerでスキル配布(provideSkill)の実装">
-      <option name="closed" value="true" />
-      <created>1735572634680</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1735572634680</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +172,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -210,10 +196,6 @@
     <MESSAGE value="Dealerクラス(collectInitialChip,performAction)の実装&#10;Actionクラスの引数の変更" />
     <MESSAGE value="Gameクラスの追加、コンストラクタとgetterの設定" />
     <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
-    <MESSAGE value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
-    <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
-    <MESSAGE value="Skill_handSwapの実装" />
-    <MESSAGE value="DealerとPlayerでスキル配布(provideSkill)の実装" />
-    <option name="LAST_COMMIT_MESSAGE" value="DealerとPlayerでスキル配布(provideSkill)の実装" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actionクラスと関連するDealerクラスの変更" />
   </component>
 </project>
