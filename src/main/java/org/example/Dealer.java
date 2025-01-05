@@ -305,10 +305,13 @@ public class Dealer {
         for(Player player: players){
             player.setRolePoint( roleControl.judgeRole(player.hand) );
 
-            // 無効役判定
-            for( String disableHand : this.disableHands ){
-                if( player.getRolePoint() == getRolePoint(disableHand)){
-                    player.setRolePoint(0);
+
+            if(disableHands != null) {
+                // 無効役判定
+                for (String disableHand : this.disableHands) {
+                    if (player.getRolePoint() == getRolePoint(disableHand)) {
+                        player.setRolePoint(0);
+                    }
                 }
             }
         }
