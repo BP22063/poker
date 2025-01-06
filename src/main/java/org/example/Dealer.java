@@ -1,6 +1,12 @@
 package org.example;
 
-import java.util.ArrayList;
+import org.example.Skills.Skill_disableHand;
+import org.example.Skills.Skill_disableSkill;
+import org.example.Skills.Skill_exchangingHandsAgain;
+import org.example.Skills.Skill_handSwap;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Dealer {
 
@@ -11,34 +17,55 @@ public class Dealer {
     private Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
-    private ArrayList<Integer> usedSkills;
+    private ArrayList<Integer> usedSkills; // ラウンド内で選択されたスキルのID
+    private ArrayList<Object> skills; // ラウンド内で使用されるスキルのインスタンスを保持
+    private ArrayList<Integer>exchangeCardIndex;
     ArrayList<Player> winners;
     private Action action;
 
+    private static final int SKILL_NUM = 3; // 一人当たりのスキル配布数
+    private static final int SKILL_KIND_NUM = 4; // スキルの種類数
 
+    // 使用される各スキルを格納
+    private ArrayList<Skill_disableSkill> skills_disableSkill;
+    private ArrayList<Skill_disableHand> skills_disableHand;
+    private ArrayList<Skill_exchangingHandsAgain> skills_exchangingHandsAgain;
+    private ArrayList<Skill_handSwap>  skills_handSwap ;
 
-    //private Skill_handSwap  skill_handSwap ;
-
-    //private Skill_disableHand skill_disableHand;
-
-
-    //private Skill_exchangingHandsAgain skill_exchangingHandsAgain;
-
-    public Dealer() {
+    public Dealer(ArrayList<Player> users) {
         players = new ArrayList<>();
+        for(Player player : users ){
+            addPlayer(player);
+        }
         deck = new Deck();
         deck.shuffle();
         action = new Action(this);
+
+        skills_disableSkill = new ArrayList<>();
+        skills_disableHand = new ArrayList<>();
+        skills_exchangingHandsAgain = new ArrayList<>();
+        skills_handSwap = new ArrayList<>();
     }
 
     public void decideOrder() {
         players.add(players.remove(0));
     }
 
-    public void provideSkill(int Skill) {
+    // 各プレイヤーにスキルを配布
+    // 配布されるスキルはランダム
+    public void provideSkill() {
 
+        Random random = new Random();
+
+        for ( int i=0; i<SKILL_NUM; i++ ) {
+            for (Player player : this.players) {
+                player.addSkill(random.nextInt(Integer.valueOf(random.nextInt(SKILL_KIND_NUM))));
+            }
+        }
     }
 
+    // 各プレイヤーに同数のチップを配布
+    // ゲーム開始時に使用
     public void collectInitialChip() {
 
         for( Player player : this.players ){
@@ -63,14 +90,34 @@ public class Dealer {
         }
     }
 
-    public void changeCard(int playerIndex, int cardIndex) {
-        if (playerIndex >= 0 && playerIndex < players.size()) {
-            Player player = players.get(playerIndex);
+    //1枚ずつカード交換
+    public void changeCard(int userID, int cardIndex) {
+
+            Player player = getUserByID(userID);
             Card oldCard = player.hand.get(cardIndex);
             Card newCard = deck.draw();
 
             player.exchangeCard_player(cardIndex, newCard);
             deck.discard(oldCard);  // 捨て札に追加
+    }
+    //手札の中から交換したいカードを交換
+    public void changeHand(int userID,ArrayList<Integer> exchangeCardIndex){
+        for(int index:exchangeCardIndex){
+            changeCard(userID,index);
+        }
+    }
+
+    //プレイヤー4人がカードを交換
+    public void executeChangeHand(List<Map<String,Object>> exchangeRequests){
+        for(Map<String,Object>request : exchangeRequests){
+            int userID = ((Double) request.get("userID")).intValue();
+            List<Integer> exchangeCardIndex = ((List<Double>) request.get("exchangeCardIndex"))
+                    .stream()
+                    .map(Double::intValue)
+                    .collect(Collectors.toList());
+
+
+            changeHand(userID,new ArrayList<>(exchangeCardIndex));
         }
     }
 
@@ -79,20 +126,65 @@ public class Dealer {
 
     }
 
-
-
-    private void adaptSkill() {
-
+    // スキルの情報に応じてインスタンスを生成
+    private void adaptSkill(Player player){
+        player.removeSkill(0);
+        this.skills_disableSkill.add(new Skill_disableSkill());
     }
 
+    private void adaptSkill(Player player,String disableHand){
+        player.removeSkill(1);
+        this.skills_disableHand.add(new Skill_disableHand(disableHand));
+    }
+
+    private void adaptSkill(Player player,ArrayList<Integer> cardIndexList){
+        player.removeSkill(2);
+        this.skills_exchangingHandsAgain.add(new Skill_exchangingHandsAgain(player,this,cardIndexList));
+    }
+
+    private void adaptSkill(Player player,Player swapPlayer){
+        player.removeSkill(3);
+        this.skills_handSwap.add(new Skill_handSwap(player,swapPlayer));
+    }
+
+    // スキルを実行
     public void useSkills() {
 
+        // この時点でスキルリスト作成,adaptSkillが完了している
+
+        // スキル無効が選択されていない
+        if(skills_disableSkill.isEmpty()){
+
+            // 手札無効
+            if(!skills_disableHand.isEmpty()){
+                for ( Skill_disableHand skill : skills_disableHand ){
+                    skill.useSkill_disableHand(); // 不要
+                    this.disableHands.add(skill.getDisableHand());
+                }
+            }
+
+            // 再度手札交換
+            if(!skills_exchangingHandsAgain.isEmpty()){
+                for ( Skill_exchangingHandsAgain skill : skills_exchangingHandsAgain ){
+                    skill.useSkill_exchangingHandsAgain();
+                }
+            }
+
+            // 他プレイヤーと手札交換
+            if(!skills_handSwap.isEmpty()){
+                for ( Skill_handSwap skill : skills_handSwap ){
+                    skill.useSkill_handSwap();
+                }
+            }
+        }
     }
 
     public void sendApplicationCommunication(String JSON) {
 
     }
 
+    // actionNumberの値によってベット、パス、レイズ、コール、ドロップの操作を実行する
+    // 0:ベット　1:パス　2:レイズ　3:コール　4:ドロップ
     public void performAction(int userID, int actionNumber, int betChip) {
 
         Player player = getUserByID(userID);
@@ -127,6 +219,16 @@ public class Dealer {
 
             default:
                 break;
+        }
+    }
+
+
+    public void executeActions(List<Map<String, Object>> actionRequests){
+        for(Map<String,Object>request : actionRequests) {
+            int userID = ((Double) request.get("userID")).intValue();
+            int actionNumber = ((Double) request.get("actionNumber")).intValue();
+            int betChip = ((Double) request.get("betChip")).intValue();
+            performAction(userID, actionNumber, betChip);
         }
     }
 
@@ -202,6 +304,16 @@ public class Dealer {
 
         for(Player player: players){
             player.setRolePoint( roleControl.judgeRole(player.hand) );
+
+
+            if(disableHands != null) {
+                // 無効役判定
+                for (String disableHand : this.disableHands) {
+                    if (player.getRolePoint() == getRolePoint(disableHand)) {
+                        player.setRolePoint(0);
+                    }
+                }
+            }
         }
 
         for(Player player:players){
@@ -261,6 +373,39 @@ public class Dealer {
         return roleName;
     }
 
+    // 役名→ポイント数（無効役は考慮しない）
+    public int getRolePoint(String roleName){
+
+        switch(roleName){
+            case "RoyalStraightFlush":
+                return 10;
+            case "StraightFlush":
+                return 9;
+            case "4cards":
+                return 8;
+            case "FullHouse":
+                return 7;
+            case "Flush":
+                return 6;
+            case "Straight":
+                return 5;
+            case "3cards":
+                return 4;
+            case "2pair":
+                return 3;
+            case "1pair":
+                return 2;
+            case "high card":
+                return 1;
+        }
+
+        return 0;
+    }
+
+    //Skill_exchangingHandsAgain用
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
 
 
 

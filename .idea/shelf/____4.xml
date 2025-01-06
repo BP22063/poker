@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+<changelist name="リベース_前の未コミットの変更_[変更]4" date="1735889718390" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]4/shelved.patch" />
+  <option name="DESCRIPTION" value="リベース 前の未コミットの変更 [変更]" />
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/shelf/2024_12_27_13_53_の_チェックアウト_前の未コミットの変更_[変更]1/Player.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/shelf/2024_12_27_13_53_の_チェックアウト_前の未コミットの変更_[変更]1/Dealer.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/Main.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/Main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]4/Main.class" />
+  </binary>
+=======
+<changelist name="リベース_前の未コミットの変更_[変更]4" date="1735800912529" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]4/shelved.patch" />
+  <option name="DESCRIPTION" value="リベース 前の未コミットの変更 [変更]" />
+>>>>>>> origin/Skill
+</changelist>

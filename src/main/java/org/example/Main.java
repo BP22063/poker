@@ -1,22 +1,13 @@
 package org.example;
 
+import java.util.ArrayList;
+
 // Shift を 2 回押して 'どこでも検索' ダイアログを開き、`show whitespaces` と入力して
 // Enter キーを押します。これでコードに空白文字が表示されます。
 public class Main {
     public static void main(String[] args) {
-        // ハイライトされたテキストにキャレットがある状態で Alt+Enter を押して
-        // IntelliJ IDEA が提案する修正方法を表示します。
-        System.out.printf("Hello and welcome!");
 
-        // コードを実行するには Shift+F10 を押すか、ガターにある緑の矢印ボタンをクリックします。
-        for (int i = 1; i <= 5; i++) {
-
-            // Shift+F9 を押してコードのデバッグを開始します。ブレークポイントを 1 つ設定しましたが、
-            // Ctrl+F8 を押すといつでも他のブレークポイントを追加できます。
-            System.out.println("i = " + i);
-        }
-
-
+        /*
         //テスト用コード
         Dealer dealer = new Dealer();
 
@@ -29,18 +20,34 @@ public class Main {
         System.out.println("-- Game 1 --");
         System.out.println("Dealer: " + dealer.getCurrentDealer().getName());
         dealer.dealInitialCards(5);
-        /*
+
         dealer.showAllHands();
 
         System.out.println("\n-- Aliceが2枚目を交換 --");
-        dealer.changeCard(0, 1);
+        dealer.changeCard(1, 1);
         dealer.showAllHands();
 
-         */
+
 
         System.out.println("勝者を決定");
         dealer.decideWinner();
         dealer.showWinners();
         dealer.showAllHands();
+
+         */
+
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(new Player(1, "Alice"));
+        players.add(new Player(2, "Bob"));
+        players.add(new Player(3, "Charlie"));
+        players.add(new Player(4, "Daisy"));
+
+        Game game1 = new Game(players);
+
+        game1.progressRound();
+
+
+
+
     }
 }
