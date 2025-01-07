@@ -182,37 +182,25 @@ public class Dealer {
     // actionNumberの値によってベット、パス、レイズ、コール、ドロップの操作を実行する
     // 0:ベット　1:パス　2:レイズ　3:コール　4:ドロップ
     public void performAction(int userID, int actionNumber, int betChip) {
-
         Player player = getUserByID(userID);
 
-        switch (actionNumber){
-
-            // bet
-            case 0:
-                this.action.executeBet(player,betChip);
+        switch (actionNumber) {
+            case 0: // ベット
+                action.executeBet(player, betChip);
                 break;
-
-            // pass
-            case 1:
-                this.action.executePass();
+            case 1: // パス
+                action.executePass();
                 break;
-
-            // raise
-            case 2:
-                int raiseAmount = 0; // 要変更　ここでraiseの増加量の問い合わせをする？
-                this.action.executeRaise(player,betChip,raiseAmount);
+            case 2: // レイズ
+                int raiseAmount = 10; // 仮の値
+                action.executeRaise(player, betChip, raiseAmount);
                 break;
-
-            // call
-            case 3:
-                this.action.executeCall(player);
+            case 3: // コール
+                action.executeCall(player);
                 break;
-
-            // drop
-            case 4:
-                this.action.executeDrop(player);
+            case 4: // フォールド
+                action.executeDrop(player);
                 break;
-
             default:
                 break;
         }
@@ -229,20 +217,12 @@ public class Dealer {
     }
 
     // ユーザIDを対応するユーザに変換
-    private Player getUserByID(int userID){
-
-        for ( Player player : this.players ){
-            if( userID == player.getUserID()){
+    public Player getUserByID(int userID) {
+        for (Player player : players) {
+            if (player.getUserID() == userID) {
                 return player;
             }
         }
-
-        for ( Player player : this.rankList ){
-            if( userID == player.getUserID()){
-                return player;
-            }
-        }
-
         return null;
     }
 

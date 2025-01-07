@@ -21,6 +21,14 @@ public class Game {
     public ArrayList<Player> players;
     private Dealer dealer;
 
+    private PokerWebSocketServer webSocketServer;
+
+    private int currentPlayerIndex;
+
+    public void setWebSocketServer(PokerWebSocketServer server) {
+        this.webSocketServer = server;
+    }
+
     public Game(ArrayList<Player> players){
         this.roundNum = 1;
         this.players = players;
@@ -64,6 +72,36 @@ public class Game {
 
     }
 
+    public void handleAction(int userID, int actionNumber, int betChip) {
+        Player player = dealer.getUserByID(userID);
+        dealer.performAction(userID, actionNumber, betChip);
+        webSocketServer.broadcast("actionResult", player.getName() + " performed action " + actionNumber);
+
+        if (dealer.getPlayers().stream().anyMatch(Player::isInRound)) {
+            moveToNextPlayer();
+        } else {
+            endRound();
+        }
+    }
+
+    private void moveToNextPlayer() {
+        currentPlayerIndex = (currentPlayerIndex + 1) % dealer.getPlayers().size();
+        Player currentPlayer = dealer.getPlayers().get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+    }
+
+    private void endRound() {
+        dealer.decideWinner();
+        webSocketServer.broadcast("roundEnded", "The round has ended.");
+        dealer.showWinners();
+
+        if (dealer.getPlayers().size() > 1) {
+            progressRound();
+        } else {
+            webSocketServer.broadcast("gameOver", "The game is over!");
+        }
+    }
+
     //1ラウンドの流れを記述
     public void playRound() {
         System.out.println("Starting Round " + roundNum);
@@ -74,15 +112,11 @@ public class Game {
         dealer.showAllHands(); // デバッグ用
 
         while (players.stream().anyMatch(Player::isInRound)) {
-
-
             // アクション情報を受け取る
             System.out.println("Waiting for players to select actions...");
 
-
             // アクションを行う
             dealer.executeActions(actionRequests);
-
         }
 
         // 手札交換情報を受け取る（サーバ経由）
