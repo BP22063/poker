@@ -104,10 +104,6 @@ public class Player {
         System.out.println(name + "'s Hand: " + hand);//テスト用
     }
 
-    public int removeSkill() {
-        return 0;
-    }
-
     public void provideChips() {
 
     }
