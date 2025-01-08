@@ -90,6 +90,10 @@ public class Game {
                 // カード交換フェーズの処理
                 handleCardExchangePhase();
                 break;
+            case USE_SKILLS:
+                //スキル使用フェーズの処理
+
+                break;
             case FINAL_BETTING:
                 // 最終ベットフェーズの処理
                 break;
@@ -233,6 +237,8 @@ public class Game {
         System.out.println("Sending updated hand to user " + userId);
         // 実際にはWebSocketを使ってデータを送信する処理を実装
     }
+
+    private void handle
 
     private void handleRoundEnd(){
         dealer.decideWinner();
