@@ -1,11 +1,14 @@
 package org.example;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.Gson;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -40,10 +43,14 @@ public class PokerWebSocketServer {
             case "playerAction":
                 handlePlayerAction(json);
                 break;
+            case "changeCards":
+                handleChangeCards(json);
             default:
                 System.out.println("Unknown action: " + action);
         }
     }
+
+
 
     private void handleRegistration(Session session, JsonObject json) {
         String name = json.get("name").getAsString();
@@ -69,6 +76,20 @@ public class PokerWebSocketServer {
 
         game.handleAction(userID, actionNumber, betChip);
     }
+
+    private void handleChangeCards(JsonObject json) {
+        int userID = json.get("userID").getAsInt();
+        JsonArray jsonArray = json.get("exchangeCardIndex").getAsJsonArray();
+        ArrayList<Integer> exchangeCardIndex = new ArrayList<>();
+
+        for (JsonElement element : jsonArray) {
+            exchangeCardIndex.add(element.getAsInt());
+        }
+
+        game.handleChangeCards(userID,exchangeCardIndex);
+    }
+
+
 
     public void sendToPlayer(Player player, String type, String message) {
         playerSessions.forEach((session, p) -> {
