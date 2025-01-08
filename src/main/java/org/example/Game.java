@@ -126,7 +126,7 @@ public class Game {
         waitForExchangeRequests(); // プレイヤーから交換情報を待つ
 
         // 手札の交換を実行
-        dealer.executeChangeHand(exchangeRequests);
+
         System.out.println("Cards exchanged.");
         dealer.showAllHands(); // デバッグ用
 
