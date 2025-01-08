@@ -143,7 +143,8 @@ public class Game {
         dealer.showAllHands(); // デバッグ用
 
         //スキルを使用する
-
+        System.out.println("Players use skill.");
+        dealer.useSkills();
 
         // 最後のベットを行う
 
