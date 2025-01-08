@@ -108,22 +108,27 @@ public class Dealer {
     }
 
     //プレイヤー4人がカードを交換
-    public void executeChangeHand(List<Map<String,Object>> exchangeRequests){
-        for(Map<String,Object>request : exchangeRequests){
-            int userID = ((Double) request.get("userID")).intValue();
-            List<Integer> exchangeCardIndex = ((List<Double>) request.get("exchangeCardIndex"))
-                    .stream()
-                    .map(Double::intValue)
-                    .collect(Collectors.toList());
 
-
-            changeHand(userID,new ArrayList<>(exchangeCardIndex));
-        }
-    }
 
     // いらないかも（Playerのコンストラクタで初期チップを設定できるため）
     public void provideChip(Player players) {
 
+    }
+
+    public void adaptSkill(Player player, Object... args) {
+        if (args.length == 0) {
+            adaptSkill(player);
+        } else if (args.length == 1) {
+            if (args[0] instanceof String) {
+                adaptSkill(player, (String) args[0]);
+            } else if (args[0] instanceof Player) {
+                adaptSkill(player, (Player) args[0]);
+            }
+        } else if (args.length == 1 && args[0] instanceof ArrayList) {
+            adaptSkill(player, (ArrayList<Integer>) args[0]);
+        } else {
+            throw new IllegalArgumentException("Invalid arguments for adaptSkill method");
+        }
     }
 
     // スキルの情報に応じてインスタンスを生成
