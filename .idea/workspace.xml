@@ -4,42 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="DealerとPlayerでスキル配布(provideSkill)の実装">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_48______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_23_24______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_23_24______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_03_14_17______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_03_14_17______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____8.xml" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="WebSocketServer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/WebSocketServerLauncher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Game" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,7 +61,7 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="アプリケーション.Main">
+  <component name="RunManager" selected="アプリケーション.WebSocketServerLauncher">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="poker" />
@@ -117,13 +88,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebSocketServerLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.WebSocketServerLauncher" />
+      <module name="poker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.WebSocketServerLauncher" />
         <item itemvalue="アプリケーション.RoleControl" />
         <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.RoleControl" />
         <item itemvalue="アプリケーション.Main" />
-        <item itemvalue="アプリケーション.RoleControl" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1735572634680</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="WebSocketServer">
+      <created>1736312985232</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1736312985232</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,6 +236,7 @@
     <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
     <MESSAGE value="Skill_handSwapの実装" />
     <MESSAGE value="DealerとPlayerでスキル配布(provideSkill)の実装" />
-    <option name="LAST_COMMIT_MESSAGE" value="DealerとPlayerでスキル配布(provideSkill)の実装" />
+    <MESSAGE value="WebSocketServer" />
+    <option name="LAST_COMMIT_MESSAGE" value="WebSocketServer" />
   </component>
 </project>

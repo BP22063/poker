@@ -115,7 +115,6 @@ public class Game {
             // アクション情報を受け取る
             System.out.println("Waiting for players to select actions...");
 
-
             // アクションを行う
             dealer.executeActions(actionRequests);
 
