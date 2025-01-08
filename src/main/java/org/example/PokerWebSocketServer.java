@@ -45,6 +45,9 @@ public class PokerWebSocketServer {
                 break;
             case "changeCards":
                 handleChangeCards(json);
+                break;
+            case "useSkill":
+
             default:
                 System.out.println("Unknown action: " + action);
         }
@@ -89,9 +92,42 @@ public class PokerWebSocketServer {
         game.handleChangeCards(userID,exchangeCardIndex);
     }
 
-    private void handleUseSkill(JsonObject json){
-        int userID = json.get("useID").getAsInt();
+    private void handleUseSkill(JsonObject json) {
+        int userID = json.get("userID").getAsInt();
+        int skillID = json.get("skillID").getAsInt();
+        Object[] args;
+
+        switch (skillID) {
+            case 0:
+                // No additional arguments needed for skillID 0
+                args = new Object[]{};
+                break;
+            case 1:
+                // For skillID 1, "disableHand" is needed
+                String disableHand = json.get("disableHand").getAsString();
+                args = new Object[]{disableHand};
+                break;
+            case 2:
+                // For skillID 2, "cardIndexList" is needed
+                JsonArray jsonArray = json.get("cardIndexList").getAsJsonArray();
+                List<Integer> cardIndexList = new ArrayList<>();
+                for (JsonElement element : jsonArray) {
+                    cardIndexList.add(element.getAsInt());
+                }
+                args = new Object[]{cardIndexList};
+                break;
+            case 3:
+                // For skillID 3, "swapPlayerID" is needed
+                int swapPlayerID = json.get("swapPlayerID").getAsInt();
+                args = new Object[]{swapPlayerID};
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown skillID: " + skillID);
+        }
+
+        game.handleUseSkills(userID, args);
     }
+
 
 
 

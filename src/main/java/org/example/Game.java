@@ -92,6 +92,7 @@ public class Game {
     public void handleUseSkills(int userID,Object... args){
         Player player = dealer.getUserByID(userID);
         dealer.adaptSkill(player,args);
+        dealer.useSkills();
     }
 
     private void moveToNextPlayer() {
