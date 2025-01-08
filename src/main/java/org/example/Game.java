@@ -19,7 +19,13 @@ public class Game {
     private int roundNum;
     private int gameID;
     public ArrayList<Player> players;
+    private PokerWebSocketServer webSocketServer;
     private Dealer dealer;
+    private int currentPlayerIndex;
+
+    public void setWebSocketServer(PokerWebSocketServer server) {
+        this.webSocketServer = server;
+    }
 
     public Game(ArrayList<Player> players){
         this.roundNum = 1;
@@ -62,6 +68,36 @@ public class Game {
 
     public void receiveNotification(){
 
+    }
+
+    public void handleAction(int userID, int actionNumber, int betChip) {
+        Player player = dealer.getUserByID(userID);
+        dealer.performAction(userID, actionNumber, betChip);
+        webSocketServer.broadcast("actionResult", player.getName() + " performed action " + actionNumber);
+
+        if (dealer.getPlayers().stream().anyMatch(Player::isInRound)) {
+            moveToNextPlayer();
+        } else {
+            endRound();
+        }
+    }
+
+    private void moveToNextPlayer() {
+        currentPlayerIndex = (currentPlayerIndex + 1) % dealer.getPlayers().size();
+        Player currentPlayer = dealer.getPlayers().get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+    }
+
+    private void endRound() {
+        dealer.decideWinner();
+        webSocketServer.broadcast("roundEnded", "The round has ended.");
+        dealer.showWinners();
+
+        if (dealer.getPlayers().size() > 1) {
+            progressRound();
+        } else {
+            webSocketServer.broadcast("gameOver", "The game is over!");
+        }
     }
 
     //1ラウンドの流れを記述
