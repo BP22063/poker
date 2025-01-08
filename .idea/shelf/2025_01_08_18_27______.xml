@@ -1,0 +1,19 @@
+<changelist name="2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]" date="1736328448628" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]/shelved.patch" />
+  <option name="DESCRIPTION" value="2025/01/08 18:27 の 更新 前の未コミットの変更 [変更]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/Game$1.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/Game$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]/Game$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/Dealer.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/Dealer.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]/Dealer.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/Game.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/Game.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]/Game.class" />
+  </binary>
+</changelist>

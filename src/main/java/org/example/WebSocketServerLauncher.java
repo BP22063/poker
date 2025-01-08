@@ -3,17 +3,22 @@ package org.example;
 import org.glassfish.tyrus.server.Server;
 
 public class WebSocketServerLauncher {
-    public static void main(String[] args) {
-        Server server = new Server("localhost", 8080, "/ws", PokerWebSocketServer.class);
 
+    static String contextRoot = "/poker";
+    static String protocol = "ws";
+    static int port = 8080;
+    public static void main(String[] args) {
+        Server server = new Server(protocol, port, contextRoot, null, PokerWebSocketServer.class);
+        System.out.println("server: " + server);
         try {
             server.start();
-            System.out.println("WebSocket server started on ws://localhost:8080/ws");
-            Thread.currentThread().join(); // サーバーを停止させない
+            System.in.read();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             server.stop();
         }
     }
+
 }
+

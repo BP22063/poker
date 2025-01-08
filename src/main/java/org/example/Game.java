@@ -19,10 +19,8 @@ public class Game {
     private int roundNum;
     private int gameID;
     public ArrayList<Player> players;
-    private Dealer dealer;
-
     private PokerWebSocketServer webSocketServer;
-
+    private Dealer dealer;
     private int currentPlayerIndex;
 
     public void setWebSocketServer(PokerWebSocketServer server) {
@@ -84,6 +82,19 @@ public class Game {
         }
     }
 
+    public void handleChangeCards(int userID,ArrayList<Integer>excangeCardIndex){
+        Player player = dealer.getUserByID(userID);
+        dealer.changeHand(userID,excangeCardIndex);
+        webSocketServer.sendToPlayer(player,"updateHand",gson.toJson(player.hand));
+
+    }
+
+    public void handleUseSkills(int userID,Object... args){
+        Player player = dealer.getUserByID(userID);
+        dealer.adaptSkill(player,args);
+        dealer.useSkills();
+    }
+
     private void moveToNextPlayer() {
         currentPlayerIndex = (currentPlayerIndex + 1) % dealer.getPlayers().size();
         Player currentPlayer = dealer.getPlayers().get(currentPlayerIndex);
@@ -112,11 +123,14 @@ public class Game {
         dealer.showAllHands(); // デバッグ用
 
         while (players.stream().anyMatch(Player::isInRound)) {
+
+
             // アクション情報を受け取る
             System.out.println("Waiting for players to select actions...");
 
             // アクションを行う
             dealer.executeActions(actionRequests);
+
         }
 
         // 手札交換情報を受け取る（サーバ経由）
@@ -124,12 +138,13 @@ public class Game {
         waitForExchangeRequests(); // プレイヤーから交換情報を待つ
 
         // 手札の交換を実行
-        dealer.executeChangeHand(exchangeRequests);
+
         System.out.println("Cards exchanged.");
         dealer.showAllHands(); // デバッグ用
 
         //スキルを使用する
-
+        System.out.println("Players use skill.");
+        dealer.useSkills();
 
         // 最後のベットを行う
 
