@@ -82,6 +82,19 @@ public class Game {
         }
     }
 
+    public void handleChangeCards(int userID,ArrayList<Integer>excangeCardIndex){
+        Player player = dealer.getUserByID(userID);
+        dealer.changeHand(userID,excangeCardIndex);
+        webSocketServer.sendToPlayer(player,"updateHand",gson.toJson(player.hand));
+
+    }
+
+    public void handleUseSkills(int userID,Object... args){
+        Player player = dealer.getUserByID(userID);
+        dealer.adaptSkill(player,args);
+        dealer.useSkills();
+    }
+
     private void moveToNextPlayer() {
         currentPlayerIndex = (currentPlayerIndex + 1) % dealer.getPlayers().size();
         Player currentPlayer = dealer.getPlayers().get(currentPlayerIndex);
