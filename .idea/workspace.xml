@@ -5,18 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="DealerとPlayerでスキル配布(provideSkill)の実装">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_48______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_23_24______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_23_24______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_03_14_17______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_03_14_17______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,23 +65,31 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2qSiPEBIfpachtsw28meUCnObta" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム/poker/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;モジュール&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Neko/Desktop/WebSocketServer",
+    "onboarding.tips.debug.path": "C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム/poker/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "プロジェクト",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="アプリケーション.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
