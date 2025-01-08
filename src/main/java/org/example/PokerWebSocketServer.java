@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,8 @@ public class PokerWebSocketServer {
                 handleChangeCards(json);
                 break;
             case "useSkill":
+                handleUseSkill(json);
+                break;
 
             default:
                 System.out.println("Unknown action: " + action);
@@ -57,7 +60,9 @@ public class PokerWebSocketServer {
 
     private void handleRegistration(Session session, JsonObject json) {
         String name = json.get("name").getAsString();
-        Player player = new Player(playerSessions.size() + 1, name);
+        int userID = json.get("useID").getAsInt();
+        //Player player = new Player(playerSessions.size() + 1, name);
+        Player player = new Player(userID, name);
         playerSessions.put(session, player);
         System.out.println("Player " + name + " registered.");
 
@@ -158,4 +163,29 @@ public class PokerWebSocketServer {
             }
         });
     }
+
+    public void broadcastPlayersData() {
+        Gson gson = new Gson();
+        JsonObject jsonObject = new JsonObject();
+
+        // Create a list of all players from the map
+        List<Player> players = new ArrayList<>(playerSessions.values());
+
+        // Convert players list to JSON
+        jsonObject.add("players", gson.toJsonTree(players));
+        String playersJson = gson.toJson(jsonObject);
+
+        // Send the JSON to all sessions
+        for (Session session : playerSessions.keySet()) {
+            try {
+                session.getBasicRemote().sendText(playersJson);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void updatePlayerData(Session session, Player updatedPlayer) {
+        playerSessions.put(session, updatedPlayer);
+    }
+
 }
