@@ -121,8 +121,8 @@ public class Dealer {
         } else if (args.length == 1) {
             if (args[0] instanceof String) {
                 adaptSkill(player, (String) args[0]);
-            } else if (args[0] instanceof Player) {
-                adaptSkill(player, (Player) args[0]);
+            } else if (args[0] instanceof Integer) {
+                adaptSkill(player, (Integer) args[0]);
             }
         } else if (args.length == 1 && args[0] instanceof ArrayList) {
             adaptSkill(player, (ArrayList<Integer>) args[0]);
@@ -147,9 +147,9 @@ public class Dealer {
         this.skills_exchangingHandsAgain.add(new Skill_exchangingHandsAgain(player,this,cardIndexList));
     }
 
-    private void adaptSkill(Player player,Player swapPlayer){
+    private void adaptSkill(Player player,int opponent){
         player.removeSkill(3);
-        this.skills_handSwap.add(new Skill_handSwap(player,swapPlayer));
+        this.skills_handSwap.add(new Skill_handSwap(player,getUserByID(opponent)));
     }
 
     // スキルを実行
