@@ -89,6 +89,10 @@ public class PokerWebSocketServer {
         game.handleChangeCards(userID,exchangeCardIndex);
     }
 
+    private void handleUseSkill(JsonObject json){
+        int userID = json.get("useID").getAsInt();
+    }
+
 
 
     public void sendToPlayer(Player player, String type, String message) {

@@ -85,8 +85,13 @@ public class Game {
     public void handleChangeCards(int userID,ArrayList<Integer>excangeCardIndex){
         Player player = dealer.getUserByID(userID);
         dealer.changeHand(userID,excangeCardIndex);
-        webSocketServer.broadcast("changeResult",player.getName() + " performed action " + excangeCardIndex);
+        webSocketServer.sendToPlayer(player,"updateHand",gson.toJson(player.hand));
 
+    }
+
+    public void handleUseSkills(int userID,Object... args){
+        Player player = dealer.getUserByID(userID);
+        dealer.adaptSkill(player,args);
     }
 
     private void moveToNextPlayer() {
