@@ -95,6 +95,7 @@ public class Game {
                 break;
             case ROUND_END:
                 // ラウンド終了の処理
+                handleRoundEnd();
                 break;
         }
     }
@@ -112,34 +113,21 @@ public class Game {
         setState(GameState.START);
 
         while (players.stream().anyMatch(Player::isInRound)) {
-
-
             // アクション情報を受け取る
             System.out.println("Waiting for players to select actions...");
-
-
             // アクションを行う
             dealer.executeActions(actionRequests);
-
         }
-
         // 手札交換情報を受け取る（サーバ経由）
         setState(GameState.EXCHANGING_CARDS);
-
-
         // 手札の交換を実行
-
         dealer.showAllHands(); // デバッグ用
-
         //スキルを使用する
-
 
         // 最後のベットを行う
 
         // 勝者を決定
-        dealer.decideWinner();
-        System.out.println("Winner decided.");
-        dealer.showWinners(); // デバッグ用
+        setState(GameState.ROUND_END);
 
         // ラウンド終了処理
 
@@ -201,20 +189,15 @@ public class Game {
 
         for (Player player : players) {
             System.out.println("Requesting card exchange from: " + player.getName());
-
             // 1. ゲーム状態をクライアントに送信
             sendGameStateToClient(player.getUserID());
-
             // 2. プレイヤーからのカード交換情報を受信
             List<Integer> exchangeCardIndices = receiveCardExchangeFromPlayer(player);
-
             // 3. カード交換の実行
             dealer.changeHand(player.getUserID(), new ArrayList<>(exchangeCardIndices));
-
             // 4. 交換後の情報をクライアントに送信
             sendUpdatedHandToClient(player.getUserID());
         }
-
         System.out.println("Card exchange phase ended.");
     }
 
@@ -226,18 +209,15 @@ public class Game {
 
     private List<Integer> receiveCardExchangeFromPlayer(Player player) {
         System.out.println("Receiving card exchange from player: " + player.getName());
-
         // デバッグ用のJSONデータ
         String jsonInput = "{" +
                 "\"userID\": " + player.getUserID() + "," +
                 "\"exchangeCardIndex\": [0, 2, 4]" +
                 "}";
-
         // Gsonを使用してJSONデータを解析
         Gson gson = new Gson();
         JsonObject jsonObject = JsonParser.parseString(jsonInput).getAsJsonObject();
         JsonArray exchangeCardArray = jsonObject.getAsJsonArray("exchangeCardIndex");
-
         // インデックスをリストに変換
         List<Integer> exchangeCardIndices = new ArrayList<>();
         for (int i = 0; i < exchangeCardArray.size(); i++) {
@@ -254,6 +234,10 @@ public class Game {
         // 実際にはWebSocketを使ってデータを送信する処理を実装
     }
 
-
+    private void handleRoundEnd(){
+        dealer.decideWinner();
+        System.out.println("Winner decided.");
+        dealer.showWinners(); // デバッグ用
+    }
 
 }
