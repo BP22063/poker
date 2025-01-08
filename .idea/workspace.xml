@@ -4,66 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="ルームマネジ変更">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_12______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_12_の_更新_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_34______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_34_の_更新_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_12______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_12_の_更新_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_43______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_43_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_44______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_44_の_更新_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_48______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_48_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_52______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_06_21_52_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_21_44______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_21_44_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_22_48______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_22_48_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_01______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_01_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_55_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_55_の_チェックアウト_前の未コミットの変更_[変更]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_1_55______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_1_55_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54_の_チェックアウト_前の未コミットの変更_[変更]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_55______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_55_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_56______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_56_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_59______.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_59_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="DealerとPlayerでスキル配布(provideSkill)の実装">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_08______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_08______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_03______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_03______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_03______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_03______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_15______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_15______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_51______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_52______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_00______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_00______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_00______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_00______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_00______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_00______2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_35______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_19_10______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_17_59______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_30_18_04______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_01_14_31______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_01_14_31______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37______.xml" afterDir="false" />
@@ -83,6 +37,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/____8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +56,21 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Dealer" />
+        <entry key="$PROJECT_DIR$" value="Game" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2qSiPEBIfpachtsw28meUCnObta" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -113,17 +78,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム/poker/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;モジュール&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Neko/Desktop/WebSocketServer",
+    "onboarding.tips.debug.path": "C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム/poker/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "プロジェクト",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="アプリケーション.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
@@ -255,31 +221,7 @@
       <option name="project" value="LOCAL" />
       <updated>1735572634680</updated>
     </task>
-    <task id="LOCAL-00012" summary="commit">
-      <option name="closed" value="true" />
-      <created>1736301489475</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1736301489475</updated>
-    </task>
-    <task id="LOCAL-00013" summary="useSkill4人分に変更">
-      <option name="closed" value="true" />
-      <created>1736303497059</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1736303497059</updated>
-    </task>
-    <task id="LOCAL-00014" summary="ルームマネジ変更">
-      <option name="closed" value="true" />
-      <created>1736310357427</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1736310357427</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,9 +245,6 @@
     <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
     <MESSAGE value="Skill_handSwapの実装" />
     <MESSAGE value="DealerとPlayerでスキル配布(provideSkill)の実装" />
-    <MESSAGE value="commit" />
-    <MESSAGE value="useSkill4人分に変更" />
-    <MESSAGE value="ルームマネジ変更" />
-    <option name="LAST_COMMIT_MESSAGE" value="ルームマネジ変更" />
+    <option name="LAST_COMMIT_MESSAGE" value="DealerとPlayerでスキル配布(provideSkill)の実装" />
   </component>
 </project>
