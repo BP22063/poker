@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Player {
 
@@ -121,5 +122,9 @@ public class Player {
 
     public void setisInRound(boolean isInRound) {
         this.isInRound = isInRound;
+    }
+
+    public List<Integer> getSkills() {
+        return this.skill;
     }
 }

@@ -2,9 +2,9 @@ package org.example;
 
 public enum GameState {
     START,
-    BETTING,
-    EXCHANGING_CARDS,
-    USE_SKILLS,
+    BET_PASS,
+    RAISE_CALL_FOLD,
+    EXCHANGE_HAND,
     FINAL_BETTING,
-    ROUND_END
+    SELECT_SKILL
 }

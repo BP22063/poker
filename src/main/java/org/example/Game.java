@@ -22,6 +22,7 @@ public class Game {
     private PokerWebSocketServer webSocketServer;
     private Dealer dealer;
     private int currentPlayerIndex;
+    private GameState currentGameState;
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -32,6 +33,12 @@ public class Game {
         this.players = players;
         //dealer = new Dealer(this.players);
     }
+
+    public void updateGameState(GameState newState) {
+        this.currentGameState = newState;
+        webSocketServer.broadcast("updateGameState", newState.toString());
+    }
+
 
     public int getRoundNum(){
         return this.roundNum;
@@ -73,27 +80,49 @@ public class Game {
     public void handleAction(int userID, int actionNumber, int betChip) {
         Player player = dealer.getUserByID(userID);
         dealer.performAction(userID, actionNumber, betChip);
+
+        // クライアントにアクション結果を通知
         webSocketServer.broadcast("actionResult", player.getName() + " performed action " + actionNumber);
 
-        if (dealer.getPlayers().stream().anyMatch(Player::isInRound)) {
-            moveToNextPlayer();
-        } else {
+        // 全員のアクションが完了した場合、次のフェーズへ進行
+        if (allPlayersActed()) {
+            if (currentGameState == GameState.BET_PASS) {
+                startPhase2();
+            } else if (currentGameState == GameState.FINAL_BETTING) {
+                startPhase5();
+            }
+        }
+    }
+
+
+    public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
+        Player player = dealer.getUserByID(userID);
+        dealer.changeHand(userID, exchangeCardIndex);
+
+        // クライアントに更新された手札を送信
+        webSocketServer.sendToPlayer(player, "updateHand", gson.toJson(player.hand));
+
+        // 全員がカード交換を完了したら次のフェーズへ
+        if (allPlayersExchanged()) {
+            startPhase4();
+        }
+    }
+
+
+    public void handleSkillUse(int userID, Object... args) {
+        Player player = dealer.getUserByID(userID);
+        dealer.adaptSkill(player, args);
+        dealer.useSkills();
+
+        // スキル使用結果をクライアントに通知
+        webSocketServer.broadcast("skillUsed", player.getName() + " used a skill.");
+
+        // 全員がスキルを選択した場合、ラウンド終了
+        if (allPlayersSelectedSkill()) {
             endRound();
         }
     }
 
-    public void handleChangeCards(int userID,ArrayList<Integer>excangeCardIndex){
-        Player player = dealer.getUserByID(userID);
-        dealer.changeHand(userID,excangeCardIndex);
-        webSocketServer.sendToPlayer(player,"updateHand",gson.toJson(player.hand));
-
-    }
-
-    public void handleUseSkills(int userID,Object... args){
-        Player player = dealer.getUserByID(userID);
-        dealer.adaptSkill(player,args);
-        dealer.useSkills();
-    }
 
     private void moveToNextPlayer() {
         currentPlayerIndex = (currentPlayerIndex + 1) % dealer.getPlayers().size();
@@ -106,100 +135,139 @@ public class Game {
         webSocketServer.broadcast("roundEnded", "The round has ended.");
         dealer.showWinners();
 
-        if (dealer.getPlayers().size() > 1) {
-            progressRound();
-        } else {
+        if (roundNum >= MAX_ROUND || dealer.getPlayers().size() <= 1) {
             webSocketServer.broadcast("gameOver", "The game is over!");
+        } else {
+            roundNum++;
+            playRound(); // 次のラウンドへ進む
         }
     }
+
 
     //1ラウンドの流れを記述
     public void playRound() {
         System.out.println("Starting Round " + roundNum);
 
-        // 手札を配布
-        dealer.dealInitialCards(5);
-        System.out.println("Initial hands dealt.");
-        dealer.showAllHands(); // デバッグ用
+        // フェーズ: START
+        updateGameState(GameState.START);
+        webSocketServer.broadcast("roundStart", "Round " + roundNum + " has started.");
 
-        while (players.stream().anyMatch(Player::isInRound)) {
+        // フェーズ: BET_PASS
+        startPhase1();
 
+        // フェーズ: RAISE_CALL_FOLD
+        startPhase2();
 
-            // アクション情報を受け取る
-            System.out.println("Waiting for players to select actions...");
+        // フェーズ: EXCHANGE_HAND
+        startPhase3();
 
-            // アクションを行う
-            dealer.executeActions(actionRequests);
+        // フェーズ: FINAL_BETTING
+        startPhase4();
 
-        }
-
-        // 手札交換情報を受け取る（サーバ経由）
-        System.out.println("Waiting for players to select cards to exchange...");
-        waitForExchangeRequests(); // プレイヤーから交換情報を待つ
-
-        // 手札の交換を実行
-
-        System.out.println("Cards exchanged.");
-        dealer.showAllHands(); // デバッグ用
-
-        //スキルを使用する
-        System.out.println("Players use skill.");
-        dealer.useSkills();
-
-        // 最後のベットを行う
-
-        // 勝者を決定
-        dealer.decideWinner();
-        System.out.println("Winner decided.");
-        dealer.showWinners(); // デバッグ用
+        // フェーズ: SELECT_SKILL
+        startPhase5();
 
         // ラウンド終了処理
-
-        if (roundNum >= MAX_ROUND) {
-            System.out.println("Game Over.");
-        } else {
-            System.out.println("Round " + roundNum + " completed.");
-        }
-        roundNum++;
+        endRound();
     }
 
+    private void startPhase1() {
+        updateGameState(GameState.BET_PASS);
+        webSocketServer.broadcast("startPhase1", "Place your bets or pass.");
+
+        // ベット処理を待機
+        waitForActions();
+    }
+
+    private void startPhase2() {
+        updateGameState(GameState.RAISE_CALL_FOLD);
+        webSocketServer.broadcast("startPhase2", "Raise, Call, or Fold.");
+
+        // アクション処理を待機
+        waitForActions();
+    }
+
+    private void startPhase3() {
+        updateGameState(GameState.EXCHANGE_HAND);
+        webSocketServer.broadcast("startPhase3", "Select cards to exchange.");
+
+        // カード交換リクエストを待機
+        waitForExchangeRequests();
+    }
+
+    private void startPhase4() {
+        updateGameState(GameState.FINAL_BETTING);
+        webSocketServer.broadcast("startPhase4", "Final betting: Raise, Call, or Fold.");
+
+        // ベット処理を待機
+        waitForActions();
+    }
+
+    private void startPhase5() {
+        updateGameState(GameState.SELECT_SKILL);
+        webSocketServer.broadcast("startPhase5", "Choose a skill to use.");
+
+        // スキル選択リクエストを待機
+        waitForSkillRequests();
+    }
+
+    private void waitForActions() {
+        while (!allPlayersActed()) {
+            try {
+                Thread.sleep(30000); // プレイヤーの入力を待機
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     private void waitForExchangeRequests() {
-        // 仮のデータ取得 (実際はサーバから取得)
-        String jsonInput = "[" +
-                "{\"userID\": 1, \"exchangeCardIndex\": [0, 2, 4]}," +
-                "{\"userID\": 2, \"exchangeCardIndex\": [1, 3]}," +
-                "{\"userID\": 3, \"exchangeCardIndex\": []}," +
-                "{\"userID\": 4, \"exchangeCardIndex\": [0, 1]}" +
-                "]";
-
-        // JSONを解析し、交換リクエストを格納
-        transformExchangeRequests(jsonInput);
+        while (!allPlayersExchanged()) {
+            try {
+                Thread.sleep(30000); // プレイヤーの入力を待機
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    private void waitingForActionRequests() {
-        // 仮のデータ取得 (実際はサーバから取得)
-        String jsonInput = "[" +
-                "{\"userID\": 1, \"actionNumber\": 0, \"betChip\": 10}," +
-                "{\"userID\": 2, \"actionNumber\": 0, \"betChip\": 10}," +
-                "{\"userID\": 1, \"actionNumber\": 1, \"betChip\": 0}," +
-                "{\"userID\": 1, \"actionNumber\": 1, \"betChip\": 0}," +
-                "]";
-
-        // JSONを解析し、交換リクエストを格納
-        transformActionRequests(jsonInput);
+    private void waitForSkillRequests() {
+        while (!allPlayersSelectedSkill()) {
+            try {
+                Thread.sleep(30000); // プレイヤーの入力を待機
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-
-
-    Type listType = new TypeToken<List<Map<String, Object>>>() {}.getType();
-    public void transformExchangeRequests(String jsonInput){
-        exchangeRequests = gson.fromJson(jsonInput, listType);
+    private boolean allPlayersActed() {
+        for (Player player : dealer.getPlayers()) {
+            if (player.isInRound() && player.getBetChip() == 0) {
+                return false; // まだアクションしていないプレイヤーがいる
+            }
+        }
+        return true; // 全員がアクションを完了
     }
 
-    public void transformActionRequests(String jsonInput){
-        actionRequests = gson.fromJson(jsonInput, listType);
+    private boolean allPlayersExchanged() {
+        for (Player player : dealer.getPlayers()) {
+            if (player.isInRound() && player.hand.size() < 5) {
+                return false; // 交換が完了していないプレイヤーがいる
+            }
+        }
+        return true; // 全員が交換を完了
     }
+
+    private boolean allPlayersSelectedSkill() {
+        for (Player player : dealer.getPlayers()) {
+            if (player.isInRound() && player.getSkills().isEmpty()) {
+                return false; // スキル選択が完了していないプレイヤーがいる
+            }
+        }
+        return true; // 全員がスキル選択を完了
+    }
+
 
     public Dealer getDealer() {
         return dealer; // 現在のDealerを返す

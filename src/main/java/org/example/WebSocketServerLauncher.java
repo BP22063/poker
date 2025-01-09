@@ -4,21 +4,26 @@ import org.glassfish.tyrus.server.Server;
 
 public class WebSocketServerLauncher {
 
-    static String contextRoot = "/poker";
-    static String protocol = "ws";
-    static int port = 8080;
-    public static void main(String[] args) {
-        Server server = new Server(protocol, port, contextRoot, null, PokerWebSocketServer.class);
-        System.out.println("server: " + server);
+    public static void main(String[] args) throws Exception {
+        // サーバ設定
+        String host = "localhost";
+        int port = 8080;
+        String contextRoot = "/";
+
+        // Serverインスタンス作成
+        Server server = new Server(host, port, contextRoot, null, PokerWebSocketServer.class);
+
+        System.out.println("WebSocket server starting on ws://" + host + ":" + port + contextRoot + "sample");
+
         try {
             server.start();
-            System.in.read();
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Press any key to stop the server...");
+            System.in.read(); // ユーザーのキー入力を待機
         } finally {
             server.stop();
+            System.out.println("WebSocket server stopped.");
         }
     }
-
 }
+
 
