@@ -5,15 +5,15 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.Gson;
 
-import javax.websocket.*;
-import javax.websocket.server.ServerEndpoint;
+import jakarta.websocket.*;
+import jakarta.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@ServerEndpoint("/poker")
+@ServerEndpoint("/sample")
 public class PokerWebSocketServer {
     private static final Map<Session, Player> playerSessions = new ConcurrentHashMap<>();
     private static final Gson gson = new Gson();
@@ -56,12 +56,16 @@ public class PokerWebSocketServer {
         }
     }
 
+    @OnError
+    public void onError(jakarta.websocket.Session session, Throwable error) {
+        System.out.println("[WebSocketServerSample] onError:" + session.getId());
+    }
+
 
 
     private void handleRegistration(Session session, JsonObject json) {
         String name = json.get("name").getAsString();
         int userID = json.get("useID").getAsInt();
-        //Player player = new Player(playerSessions.size() + 1, name);
         Player player = new Player(userID, name);
         playerSessions.put(session, player);
         System.out.println("Player " + name + " registered.");
@@ -80,7 +84,7 @@ public class PokerWebSocketServer {
     private void handlePlayerAction(JsonObject json) {
         int userID = json.get("userID").getAsInt();
         int actionNumber = json.get("actionNumber").getAsInt();
-        int betChip = json.get("betChip").getAsInt();
+        int betChip = json.has("betChip") ? json.get("betChip").getAsInt() : 0;
 
         game.handleAction(userID, actionNumber, betChip);
     }
@@ -94,7 +98,7 @@ public class PokerWebSocketServer {
             exchangeCardIndex.add(element.getAsInt());
         }
 
-        game.handleChangeCards(userID,exchangeCardIndex);
+        game.handleCardExchange(userID,exchangeCardIndex);
     }
 
     private void handleUseSkill(JsonObject json) {
@@ -130,7 +134,7 @@ public class PokerWebSocketServer {
                 throw new IllegalArgumentException("Unknown skillID: " + skillID);
         }
 
-        game.handleUseSkills(userID, args);
+        game.handleSkillUse(userID, args);
     }
 
 
@@ -188,4 +192,14 @@ public class PokerWebSocketServer {
         playerSessions.put(session, updatedPlayer);
     }
 
+    public void broadcastGameState(GameState state) {
+        broadcast("gameStateUpdate", "Current phase: " + state.toString());
+    }
+
+    public void notifyActionResult(Player player, String result) {
+        broadcast("actionResult", player.getName() + " " + result);
+    }
+
 }
+
+

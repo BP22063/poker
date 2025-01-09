@@ -80,27 +80,49 @@ public class Game {
     public void handleAction(int userID, int actionNumber, int betChip) {
         Player player = dealer.getUserByID(userID);
         dealer.performAction(userID, actionNumber, betChip);
+
+        // クライアントにアクション結果を通知
         webSocketServer.broadcast("actionResult", player.getName() + " performed action " + actionNumber);
 
-        if (dealer.getPlayers().stream().anyMatch(Player::isInRound)) {
-            moveToNextPlayer();
-        } else {
+        // 全員のアクションが完了した場合、次のフェーズへ進行
+        if (allPlayersActed()) {
+            if (currentGameState == GameState.BET_PASS) {
+                startPhase2();
+            } else if (currentGameState == GameState.FINAL_BETTING) {
+                startPhase5();
+            }
+        }
+    }
+
+
+    public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
+        Player player = dealer.getUserByID(userID);
+        dealer.changeHand(userID, exchangeCardIndex);
+
+        // クライアントに更新された手札を送信
+        webSocketServer.sendToPlayer(player, "updateHand", gson.toJson(player.hand));
+
+        // 全員がカード交換を完了したら次のフェーズへ
+        if (allPlayersExchanged()) {
+            startPhase4();
+        }
+    }
+
+
+    public void handleSkillUse(int userID, Object... args) {
+        Player player = dealer.getUserByID(userID);
+        dealer.adaptSkill(player, args);
+        dealer.useSkills();
+
+        // スキル使用結果をクライアントに通知
+        webSocketServer.broadcast("skillUsed", player.getName() + " used a skill.");
+
+        // 全員がスキルを選択した場合、ラウンド終了
+        if (allPlayersSelectedSkill()) {
             endRound();
         }
     }
 
-    public void handleChangeCards(int userID,ArrayList<Integer>excangeCardIndex){
-        Player player = dealer.getUserByID(userID);
-        dealer.changeHand(userID,excangeCardIndex);
-        webSocketServer.sendToPlayer(player,"updateHand",gson.toJson(player.hand));
-
-    }
-
-    public void handleUseSkills(int userID,Object... args){
-        Player player = dealer.getUserByID(userID);
-        dealer.adaptSkill(player,args);
-        dealer.useSkills();
-    }
 
     private void moveToNextPlayer() {
         currentPlayerIndex = (currentPlayerIndex + 1) % dealer.getPlayers().size();
@@ -192,7 +214,7 @@ public class Game {
     private void waitForActions() {
         while (!allPlayersActed()) {
             try {
-                Thread.sleep(100); // プレイヤーの入力を待機
+                Thread.sleep(30000); // プレイヤーの入力を待機
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -202,7 +224,7 @@ public class Game {
     private void waitForExchangeRequests() {
         while (!allPlayersExchanged()) {
             try {
-                Thread.sleep(100); // プレイヤーの入力を待機
+                Thread.sleep(30000); // プレイヤーの入力を待機
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -212,7 +234,7 @@ public class Game {
     private void waitForSkillRequests() {
         while (!allPlayersSelectedSkill()) {
             try {
-                Thread.sleep(100); // プレイヤーの入力を待機
+                Thread.sleep(30000); // プレイヤーの入力を待機
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
