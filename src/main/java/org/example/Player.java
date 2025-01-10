@@ -17,6 +17,7 @@ public class Player {
     public ArrayList<Card> hand;
     private ArrayList<Integer> skill;
     private boolean isInRound;
+    public int flag_exchangeCard;
     //private Card[] 手札;
 
     public Player(int userID,String name){

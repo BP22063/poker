@@ -1,9 +1,7 @@
 package org.example;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -53,7 +51,7 @@ public class Game {
     }
 
     public void progressRound(){
-        while (roundNum<=10){
+        while (roundNum<=10 || dealer.collectInitialChip()){
             if(roundNum>1)decideOrder();
             dealer = new Dealer(this.players);
             playRound();
@@ -132,15 +130,29 @@ public class Game {
 
     private void endRound() {
         dealer.decideWinner();
+        dealer.distributeBetChip();
         webSocketServer.broadcast("roundEnded", "The round has ended.");
         dealer.showWinners();
 
         if (roundNum >= MAX_ROUND || dealer.getPlayers().size() <= 1) {
             webSocketServer.broadcast("gameOver", "The game is over!");
+            endGame();
         } else {
             roundNum++;
-            playRound(); // 次のラウンドへ進む
+            //playRound(); // 次のラウンドへ進む
         }
+    }
+
+    public void endGame() {
+        ArrayList<Player> ranking = new ArrayList<>(players); // playersの内容をコピー
+
+        // Comparatorを使用してhaveChipの値で降順にソート
+        Collections.sort(ranking, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return p2.getHaveChip() - p1.getHaveChip();
+            }
+        });
     }
 
 
@@ -252,12 +264,14 @@ public class Game {
 
     private boolean allPlayersExchanged() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.hand.size() < 5) {
+            if (player.isInRound() && player.flag_exchangeCard == 0) {
                 return false; // 交換が完了していないプレイヤーがいる
             }
         }
         return true; // 全員が交換を完了
     }
+
+
 
     private boolean allPlayersSelectedSkill() {
         for (Player player : dealer.getPlayers()) {

@@ -42,6 +42,8 @@ public class Dealer {
         deck.shuffle();
         action = new Action(this);
 
+        InitializeFlag();
+
         skills_disableSkill = new ArrayList<>();
         skills_disableHand = new ArrayList<>();
         skills_exchangingHandsAgain = new ArrayList<>();
@@ -69,21 +71,29 @@ public class Dealer {
 
     // 各プレイヤーに同数のチップを配布
     // ゲーム開始時に使用
-    public void collectInitialChip() {
+    public boolean collectInitialChip() {
 
         for( Player player : this.players ){
 
             // 最初のチップを払えない
             if(INITIAL_BET_CHIP > player.getHaveChip()){
                 // 順位の決定
+                /*
                 this.rankList.add(player);
                 this.players.remove(player);
+
+                 */
+
+                return false;
 
             }else{
                 player.setHaveChip( player.getHaveChip() - INITIAL_BET_CHIP );
                 totalFieldBetChip += INITIAL_BET_CHIP;
+
+
             }
         }
+        return true;
     }
 
     public void provideCard() {
@@ -108,6 +118,14 @@ public class Dealer {
     public void changeHand(int userID,ArrayList<Integer> exchangeCardIndex){
         for(int index:exchangeCardIndex){
             changeCard(userID,index);
+        }
+        Player player = getUserByID(userID);
+        player.flag_exchangeCard = 1;
+    }
+
+    public void InitializeFlag(){
+        for(Player player : players){
+            player.flag_exchangeCard = 0;
         }
     }
 
