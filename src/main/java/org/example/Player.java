@@ -74,6 +74,9 @@ public class Player {
     public void removeSkill(int skillID){
         this.skill.remove(Integer.valueOf(skillID));
     }
+    public List<Card> getHand() {
+        return this.hand; // 手札を保持する List<Card> フィールド
+    }
 
     public void updatePlayerInformation() {
 

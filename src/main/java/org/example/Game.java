@@ -28,6 +28,27 @@ public class Game {
         this.webSocketServer = server;
     }
 
+    public List<Player> getPlayers() {
+        return this.players; // プレイヤーリスト (List<Player>) を保持していると仮定
+    }
+
+    public Player getCurrentPlayer() {
+        return players.get(currentPlayerIndex); // currentPlayerIndex で現在のプレイヤーを追跡
+    }
+
+    public int getRound() {
+        return this.roundNum; // 現在のラウンドを管理する変数
+    }
+
+    public int getFieldBetChip() {
+        return dealer.getFieldBetChip(); // Dealer クラスに最高ベット額を管理するメソッドがあると仮定
+    }
+
+    public int getTotalFieldBetChip() {
+        return dealer.getTotalFieldBetChip(); // 総ポット金額を管理するフィールド
+    }
+
+
     public Game(ArrayList<Player> players){
         this.roundNum = 1;
         this.players = players;
@@ -36,7 +57,7 @@ public class Game {
 
     public void updateGameState(GameState newState) {
         this.currentGameState = newState;
-        webSocketServer.broadcast("updateGameState", newState.toString());
+        webSocketServer.broadcastGameStateWithDetails(newState);
     }
 
 
@@ -165,6 +186,9 @@ public class Game {
         dealer.performAction(userID, actionNumber, betChip);
         webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
 
+        // 更新情報を送信
+        webSocketServer.broadcastGameStateWithDetails(currentGameState);
+
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {
             startPhase2();
@@ -207,6 +231,9 @@ public class Game {
         dealer.changeHand(userID, exchangeCardIndex);
         webSocketServer.sendToPlayer(currentPlayer, "updateHand", gson.toJson(currentPlayer.hand));
 
+        // 更新情報を送信
+        webSocketServer.broadcastGameStateWithDetails(currentGameState);
+
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {
             startPhase4();
@@ -248,6 +275,9 @@ public class Game {
         dealer.adaptSkill(currentPlayer, args);
         dealer.useSkills();
         webSocketServer.broadcast("skillUsed", currentPlayer.getName() + " used a skill.");
+
+        // 更新情報を送信
+        webSocketServer.broadcastGameStateWithDetails(currentGameState);
 
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {
