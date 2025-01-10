@@ -5,19 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Gameの流れを実装しました。">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_08______.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_15_23_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_09_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_37_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_48______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_17_48_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_12______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_12_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_34______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_34_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47______1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_47_の_チェックアウト_前の未コミットの変更_[変更]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48______2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48_の_チェックアウト_前の未コミットの変更_[変更]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_18_48_の_チェックアウト_前の未コミットの変更_[変更]2/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_23_24______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_02_23_24_の_チェックアウト_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_03_14_17______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_03_14_17_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]5/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]6/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]7/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]8/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/WebSocketServerLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/WebSocketServerLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/PokerWebSocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/PokerWebSocketServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/WebSocketServerLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/WebSocketServerLauncher.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +275,21 @@
       <option name="project" value="LOCAL" />
       <updated>1736354953312</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Gameの流れを実装しました。">
+      <created>1736400712624</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1736400712624</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Gameの流れを実装しました。">
+      <created>1736400716347</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736400716347</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -19,7 +19,9 @@ public class Game {
     public ArrayList<Player> players;
     private PokerWebSocketServer webSocketServer;
     private Dealer dealer;
-    private int currentPlayerIndex;
+    private int currentPlayerIndex = 0;
+
+    private List<Player> playersInRound = new ArrayList<>();
     private GameState currentGameState;
 
     public void setWebSocketServer(PokerWebSocketServer server) {
@@ -75,58 +77,15 @@ public class Game {
 
     }
 
-    public void handleAction(int userID, int actionNumber, int betChip) {
-        Player player = dealer.getUserByID(userID);
-        dealer.performAction(userID, actionNumber, betChip);
-
-        // クライアントにアクション結果を通知
-        webSocketServer.broadcast("actionResult", player.getName() + " performed action " + actionNumber);
-
-        // 全員のアクションが完了した場合、次のフェーズへ進行
-        if (allPlayersActed()) {
-            if (currentGameState == GameState.BET_PASS) {
-                startPhase2();
-            } else if (currentGameState == GameState.FINAL_BETTING) {
-                startPhase5();
-            }
-        }
-    }
-
-
-    public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
-        Player player = dealer.getUserByID(userID);
-        dealer.changeHand(userID, exchangeCardIndex);
-
-        // クライアントに更新された手札を送信
-        webSocketServer.sendToPlayer(player, "updateHand", gson.toJson(player.hand));
-
-        // 全員がカード交換を完了したら次のフェーズへ
-        if (allPlayersExchanged()) {
-            startPhase4();
-        }
-    }
-
-
-    public void handleSkillUse(int userID, Object... args) {
-        Player player = dealer.getUserByID(userID);
-        dealer.adaptSkill(player, args);
-        dealer.useSkills();
-
-        // スキル使用結果をクライアントに通知
-        webSocketServer.broadcast("skillUsed", player.getName() + " used a skill.");
-
-        // 全員がスキルを選択した場合、ラウンド終了
-        if (allPlayersSelectedSkill()) {
-            endRound();
-        }
-    }
-
 
     private void moveToNextPlayer() {
-        currentPlayerIndex = (currentPlayerIndex + 1) % dealer.getPlayers().size();
-        Player currentPlayer = dealer.getPlayers().get(currentPlayerIndex);
+        currentPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size();
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+
+        // 次のプレイヤーにターン開始を通知
         webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
     }
+
 
     private void endRound() {
         dealer.decideWinner();
@@ -183,45 +142,121 @@ public class Game {
         endRound();
     }
 
-    private void startPhase1() {
+    public void startPhase1() {
         updateGameState(GameState.BET_PASS);
-        webSocketServer.broadcast("startPhase1", "Place your bets or pass.");
+        webSocketServer.broadcast("startPhase1", "Phase 1: Bet or Pass.");
+        playersInRound = new ArrayList<>(players); // 全員が対象
+        currentPlayerIndex = 0;
 
-        // ベット処理を待機
-        waitForActions();
+        // 最初のプレイヤーにターンを開始
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
     }
 
-    private void startPhase2() {
+    public void handleAction(int userID, int actionNumber, int betChip) {
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+
+        if (currentPlayer.getUserID() != userID) {
+            webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
+            return;
+        }
+
+        // アクションを処理
+        dealer.performAction(userID, actionNumber, betChip);
+        webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
+
+        // 次のプレイヤーに進むかフェーズ終了
+        if (currentPlayerIndex == playersInRound.size() - 1) {
+            startPhase2();
+        } else {
+            moveToNextPlayer();
+        }
+    }
+
+
+    public void startPhase2() {
         updateGameState(GameState.RAISE_CALL_FOLD);
-        webSocketServer.broadcast("startPhase2", "Raise, Call, or Fold.");
+        webSocketServer.broadcast("startPhase2", "Phase 2: Raise, Call, or Fold.");
+        currentPlayerIndex = 0;
 
-        // アクション処理を待機
-        waitForActions();
+        // 最初のプレイヤーにターンを開始
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
     }
 
-    private void startPhase3() {
+
+    public void startPhase3() {
         updateGameState(GameState.EXCHANGE_HAND);
-        webSocketServer.broadcast("startPhase3", "Select cards to exchange.");
+        webSocketServer.broadcast("startPhase3", "Phase 3: Exchange cards.");
+        playersInRound = new ArrayList<>(players); // 全員が対象
+        currentPlayerIndex = 0;
 
-        // カード交換リクエストを待機
-        waitForExchangeRequests();
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
     }
 
-    private void startPhase4() {
-        updateGameState(GameState.FINAL_BETTING);
-        webSocketServer.broadcast("startPhase4", "Final betting: Raise, Call, or Fold.");
+    public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
 
-        // ベット処理を待機
-        waitForActions();
+        if (currentPlayer.getUserID() != userID) {
+            webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
+            return;
+        }
+
+        // カード交換処理
+        dealer.changeHand(userID, exchangeCardIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "updateHand", gson.toJson(currentPlayer.hand));
+
+        // 次のプレイヤーに進むかフェーズ終了
+        if (currentPlayerIndex == playersInRound.size() - 1) {
+            startPhase4();
+        } else {
+            moveToNextPlayer();
+        }
     }
 
-    private void startPhase5() {
+
+    public void startPhase4() {
+        updateGameState(GameState.RAISE_CALL_FOLD);
+        webSocketServer.broadcast("startPhase4", "Phase 4: Raise, Call, or Fold.");
+        currentPlayerIndex = 0;
+
+        // 最初のプレイヤーにターンを開始
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+    }
+
+    public void startPhase5() {
         updateGameState(GameState.SELECT_SKILL);
-        webSocketServer.broadcast("startPhase5", "Choose a skill to use.");
+        webSocketServer.broadcast("startPhase5", "Phase 5: Select a skill.");
+        playersInRound = new ArrayList<>(players); // 全員が対象
+        currentPlayerIndex = 0;
 
-        // スキル選択リクエストを待機
-        waitForSkillRequests();
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
     }
+
+    public void handleSkillUse(int userID, Object... args) {
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+
+        if (currentPlayer.getUserID() != userID) {
+            webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
+            return;
+        }
+
+        // スキル使用処理
+        dealer.adaptSkill(currentPlayer, args);
+        dealer.useSkills();
+        webSocketServer.broadcast("skillUsed", currentPlayer.getName() + " used a skill.");
+
+        // 次のプレイヤーに進むかフェーズ終了
+        if (currentPlayerIndex == playersInRound.size() - 1) {
+            endRound();
+        } else {
+            moveToNextPlayer();
+        }
+    }
+
 
     private void waitForActions() {
         while (!allPlayersActed()) {
