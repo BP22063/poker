@@ -43,6 +43,7 @@ public class Main {
         players.add(new Player(4, "Daisy"));
 
         Dealer d1 = new Dealer(players);
+        d1.collectInitialChip();
 
         d1.performAction(1,0,100);
         System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
@@ -63,6 +64,18 @@ public class Main {
         d1.performAction(1,3,0);
         System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
         System.out.println("fieldBetChip : "+d1.fieldBetChip);
+
+        d1.dealInitialCards(5);
+
+
+        d1.decideWinner();
+        d1.showWinners();
+        d1.showAllHands();
+        d1.distributeBetChip();
+
+        for(Player player : players){
+            System.out.println("HaveChip : "+ player.getHaveChip());
+        }
 
         /*
         Game game1 = new Game(players);

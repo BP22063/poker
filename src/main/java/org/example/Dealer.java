@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class Dealer {
 
-    private static final int INITIAL_BET_CHIP = 1; // 初期ベットチップ数
+    private static final int INITIAL_BET_CHIP = 50; // 初期ベットチップ数
 
     private ArrayList<Player> players;
     public int fieldBetChip;
@@ -81,6 +81,7 @@ public class Dealer {
 
             }else{
                 player.setHaveChip( player.getHaveChip() - INITIAL_BET_CHIP );
+                totalFieldBetChip += INITIAL_BET_CHIP;
             }
         }
     }
@@ -213,6 +214,7 @@ public class Dealer {
                 break;
             case 4: // フォールド
                 action.executeDrop(player);
+                players.remove(player);
                 break;
             default:
                 break;
@@ -403,6 +405,15 @@ public class Dealer {
     public ArrayList<Player> getPlayers() {
         return players;
     }
+
+    public void distributeBetChip(){
+        int distributeChip = totalFieldBetChip / winners.size();
+
+        for(Player player : winners){
+            player.setHaveChip(player.getHaveChip()+distributeChip);
+        }
+    }
+
 
 
 
