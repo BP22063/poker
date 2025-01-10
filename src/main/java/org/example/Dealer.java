@@ -14,6 +14,7 @@ public class Dealer {
 
     private ArrayList<Player> players;
     public int fieldBetChip;
+    public int totalFieldBetChip;
     private Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
@@ -45,6 +46,8 @@ public class Dealer {
         skills_disableHand = new ArrayList<>();
         skills_exchangingHandsAgain = new ArrayList<>();
         skills_handSwap = new ArrayList<>();
+        fieldBetChip = 0;
+        totalFieldBetChip = 0;
     }
 
     public void decideOrder() {
@@ -201,8 +204,9 @@ public class Dealer {
                 action.executePass();
                 break;
             case 2: // レイズ
-                int raiseAmount = 10; // 仮の値
-                action.executeRaise(player, betChip, raiseAmount);
+                //int raiseAmount = 10; // 仮の値
+                //action.executeRaise(player, betChip, raiseAmount);
+                action.executeRaise(player, fieldBetChip, betChip);
                 break;
             case 3: // コール
                 action.executeCall(player);
