@@ -53,6 +53,10 @@ public class Game {
         this.roundNum = 1;
         this.players = players;
         //dealer = new Dealer(this.players);
+        //プレイヤーの配置位置
+        for(int i=1;i<players.size();i++){
+            players.get(i).setPosition(i);
+        }
     }
 
     public void updateGameState(GameState newState) {

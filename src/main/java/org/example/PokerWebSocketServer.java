@@ -174,12 +174,13 @@ public class PokerWebSocketServer {
         // フェーズ情報
         gameState.addProperty("phase", phase.toString());
 
-        // 全プレイヤーの名前とID
+        // 全プレイヤーの名前とIDと配置位置の情報
         JsonArray playersArray = new JsonArray();
         for (Player player : game.getPlayers()) {
             JsonObject playerJson = new JsonObject();
             playerJson.addProperty("name", player.getName());
             playerJson.addProperty("id", player.getUserID());
+            playerJson.addProperty("position",player.getPotision());
             playersArray.add(playerJson);
         }
         gameState.add("players", playersArray);
