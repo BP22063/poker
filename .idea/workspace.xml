@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Gameの流れを実装しました。">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ActionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ActionTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,9 +62,9 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="アプリケーション.WebSocketServerLauncher">
-    <configuration name="RoleControl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.RoleControl" />
+  <component name="RunManager" selected="JUnit.ActionTest">
+    <configuration name="WebSocketServerLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.WebSocketServerLauncher" />
       <module name="poker" />
       <extension name="coverage">
         <pattern>
@@ -76,15 +76,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketServerLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.WebSocketServerLauncher" />
+    <configuration name="ActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="poker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ActionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActionTest" />
         <item itemvalue="アプリケーション.WebSocketServerLauncher" />
         <item itemvalue="JUnit.RoleControlTest" />
         <item itemvalue="JUnit.RoleControlTest.test_straightFlush" />
         <item itemvalue="JUnit.RoleControlTest.test_onePair" />
-        <item itemvalue="アプリケーション.RoleControl" />
       </list>
     </recent_temporary>
   </component>
@@ -244,21 +240,7 @@
       <option name="project" value="LOCAL" />
       <updated>1736354953312</updated>
     </task>
-    <task id="LOCAL-00015" summary="Gameの流れを実装しました。">
-      <created>1736400712624</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1736400712624</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Gameの流れを実装しました。">
-      <created>1736400716347</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1736400716347</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
