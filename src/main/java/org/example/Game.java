@@ -78,9 +78,12 @@ public class Game {
     }
 
     public void progressRound(){
-        while (roundNum<=10 || dealer.collectInitialChip()){
+        while (roundNum<=10){
             if(roundNum>1)decideOrder();
             dealer = new Dealer(this.players);
+            if(!dealer.collectInitialChip()){
+                break;
+            }
             playRound();
         }
         System.out.println("Game Finished.");
@@ -110,6 +113,7 @@ public class Game {
         // 次のプレイヤーにターン開始を通知
         webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
     }
+
 
 
     private void endRound() {
@@ -269,7 +273,7 @@ public class Game {
 
     public void handleSkillUse(int userID, Object... args) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        currentPlayer.flag_skill = 1;
+        //currentPlayer.flag_skill = 1;
 
         if (currentPlayer.getUserID() != userID) {
             webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
@@ -325,7 +329,7 @@ public class Game {
 
     private boolean allPlayersActed() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.getBetChip() == 0) {
+            if (player.isInRound() && player.flag_action == 0) {
                 return false; // まだアクションしていないプレイヤーがいる
             }
         }

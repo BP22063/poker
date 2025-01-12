@@ -40,6 +40,7 @@ public class Dealer {
         }
         deck = new Deck();
         deck.shuffle();
+        dealInitialCards();
         action = new Action(this);
 
         InitializeFlag();
@@ -135,7 +136,7 @@ public class Dealer {
         for(Player player : players){
             player.flag_exchangeCard = 0;
             player.flag_action = 0;
-            player.flag_skill = 0;
+            //player.flag_skill = 0;
         }
     }
 
@@ -278,7 +279,8 @@ public class Dealer {
         players.add(player);
     }
 
-    public void dealInitialCards(int cardsPerPlayer) {
+    public void dealInitialCards() {
+        int cardsPerPlayer = 5;
         for (Player player : players) {
             player.clearCard();
             for (int i = 0; i < cardsPerPlayer; i++) {

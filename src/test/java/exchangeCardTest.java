@@ -21,7 +21,6 @@ public class exchangeCardTest {
         ArrayList<Integer> exchangeCardIndex = new ArrayList<>(Arrays.asList(0,1,3));
 
         Dealer d1 = new Dealer(players);
-        d1.dealInitialCards(5);
 
         ArrayList<Card> Hand = new ArrayList<Card>(player1.hand);
 

@@ -65,7 +65,6 @@ public class Main {
         System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
         System.out.println("fieldBetChip : "+d1.fieldBetChip);
 
-        d1.dealInitialCards(5);
 
 
         d1.decideWinner();

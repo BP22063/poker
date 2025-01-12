@@ -19,7 +19,7 @@ public class Player {
     private boolean isInRound;
     public int flag_exchangeCard;
     public int flag_action;
-    public int flag_skill;
+    //public int flag_skill;
     private int position;
     //private Card[] 手札;
 
