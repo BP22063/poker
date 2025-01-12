@@ -255,7 +255,7 @@ public class Game {
 
     public void startPhase4() {
         updateGameState(GameState.SELECT_SKILL);
-        webSocketServer.broadcast("startPhase5", "Phase 5: Select a skill.");
+        webSocketServer.broadcast("startPhase4", "Phase 4: Select a skill.");
         playersInRound = new ArrayList<>(players); // 全員が対象
         currentPlayerIndex = 0;
 
@@ -288,7 +288,7 @@ public class Game {
     }
     public void startPhase5() {
         updateGameState(GameState.RAISE_CALL_FOLD);
-        webSocketServer.broadcast("startPhase4", "Phase 5: Raise, Call, or Fold.");
+        webSocketServer.broadcast("startPhase5", "Phase 5: Raise, Call, or Fold.");
         currentPlayerIndex = 0;
 
         // 最初のプレイヤーにターンを開始
