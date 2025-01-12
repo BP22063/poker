@@ -168,6 +168,69 @@ public class PokerWebSocketServer {
         });
     }
 
+    public void broadcastGameStateWithDetails(GameState phase) {
+        JsonObject gameState = new JsonObject();
+
+        // フェーズ情報
+        gameState.addProperty("phase", phase.toString());
+
+        // 全プレイヤーの名前とIDと配置位置の情報
+        JsonArray playersArray = new JsonArray();
+        for (Player player : game.getPlayers()) {
+            JsonObject playerJson = new JsonObject();
+            playerJson.addProperty("name", player.getName());
+            playerJson.addProperty("id", player.getUserID());
+            playerJson.addProperty("position",player.getPotision());
+            playersArray.add(playerJson);
+        }
+        gameState.add("players", playersArray);
+
+        // 他プレイヤーの情報
+        JsonArray othersArray = new JsonArray();
+        for (Player player : game.getPlayers()) {
+            if (player != game.getCurrentPlayer()) {
+                JsonObject otherJson = new JsonObject();
+                otherJson.addProperty("id", player.getUserID());
+                otherJson.addProperty("chips", player.getHaveChip());
+                JsonArray skillsArray = new JsonArray();
+                for (Integer skill : player.getSkills()) {
+                    skillsArray.add(skill);
+                }
+                otherJson.add("skills", skillsArray);
+                othersArray.add(otherJson);
+            }
+        }
+        gameState.add("others", othersArray);
+
+        // ゲーム全体の情報
+        JsonObject stateJson = new JsonObject();
+        stateJson.addProperty("round", game.getRound());
+        stateJson.addProperty("highestBet", game.getFieldBetChip());
+        stateJson.addProperty("totalPot", game.getTotalFieldBetChip());
+        gameState.add("gameState", stateJson);
+
+        // 自分の情報
+        Player currentPlayer = game.getCurrentPlayer();
+        JsonObject selfJson = new JsonObject();
+        selfJson.addProperty("id", currentPlayer.getUserID());
+        selfJson.addProperty("chips", currentPlayer.getHaveChip());
+        JsonArray selfSkillsArray = new JsonArray();
+        for (Integer skill : currentPlayer.getSkills()) {
+            selfSkillsArray.add(skill);
+        }
+        selfJson.add("skills", selfSkillsArray);
+        JsonArray handArray = new JsonArray();
+        for (Card card : currentPlayer.getHand()) {
+            handArray.add(card.toString()); // カードの情報を文字列化
+        }
+        selfJson.add("hand", handArray);
+        gameState.add("self", selfJson);
+
+        // 全プレイヤーに送信
+        broadcast("gameStateUpdate", gameState.toString());
+    }
+
+
     public void broadcastPlayersData() {
         Gson gson = new Gson();
         JsonObject jsonObject = new JsonObject();

@@ -42,9 +42,46 @@ public class Main {
         players.add(new Player(3, "Charlie"));
         players.add(new Player(4, "Daisy"));
 
+        Dealer d1 = new Dealer(players);
+        d1.collectInitialChip();
+
+        d1.performAction(1,0,100);
+        System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
+        System.out.println("fieldBetChip : "+d1.fieldBetChip);
+
+        d1.performAction(2,2,200);
+        System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
+        System.out.println("fieldBetChip : "+d1.fieldBetChip);
+
+        d1.performAction(3,3,0);
+        System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
+        System.out.println("fieldBetChip : "+d1.fieldBetChip);
+
+        d1.performAction(4,4,0);
+        System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
+        System.out.println("fieldBetChip : "+d1.fieldBetChip);
+
+        d1.performAction(1,3,0);
+        System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
+        System.out.println("fieldBetChip : "+d1.fieldBetChip);
+
+
+
+        d1.decideWinner();
+        d1.showWinners();
+        d1.showAllHands();
+        d1.distributeBetChip();
+
+        for(Player player : players){
+            System.out.println("HaveChip : "+ player.getHaveChip());
+        }
+
+        /*
         Game game1 = new Game(players);
 
         game1.progressRound();
+
+         */
 
 
 

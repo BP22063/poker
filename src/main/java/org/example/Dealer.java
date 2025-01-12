@@ -10,10 +10,11 @@ import java.util.stream.Collectors;
 
 public class Dealer {
 
-    private static final int INITIAL_BET_CHIP = 1; // 初期ベットチップ数
+    private static final int INITIAL_BET_CHIP = 50; // 初期ベットチップ数
 
     private ArrayList<Player> players;
     public int fieldBetChip;
+    public int totalFieldBetChip;
     private Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
@@ -39,12 +40,25 @@ public class Dealer {
         }
         deck = new Deck();
         deck.shuffle();
+        dealInitialCards();
         action = new Action(this);
+
+        InitializeFlag();
 
         skills_disableSkill = new ArrayList<>();
         skills_disableHand = new ArrayList<>();
         skills_exchangingHandsAgain = new ArrayList<>();
         skills_handSwap = new ArrayList<>();
+        fieldBetChip = 0;
+        totalFieldBetChip = 0;
+    }
+
+    public int getFieldBetChip() {
+        return this.fieldBetChip;
+    }
+
+    public int getTotalFieldBetChip() {
+        return this.totalFieldBetChip;
     }
 
     public void decideOrder() {
@@ -66,20 +80,29 @@ public class Dealer {
 
     // 各プレイヤーに同数のチップを配布
     // ゲーム開始時に使用
-    public void collectInitialChip() {
+    public boolean collectInitialChip() {
 
         for( Player player : this.players ){
 
             // 最初のチップを払えない
             if(INITIAL_BET_CHIP > player.getHaveChip()){
                 // 順位の決定
+                /*
                 this.rankList.add(player);
                 this.players.remove(player);
 
+                 */
+
+                return false;
+
             }else{
                 player.setHaveChip( player.getHaveChip() - INITIAL_BET_CHIP );
+                totalFieldBetChip += INITIAL_BET_CHIP;
+
+
             }
         }
+        return true;
     }
 
     public void provideCard() {
@@ -104,6 +127,16 @@ public class Dealer {
     public void changeHand(int userID,ArrayList<Integer> exchangeCardIndex){
         for(int index:exchangeCardIndex){
             changeCard(userID,index);
+        }
+        Player player = getUserByID(userID);
+        player.flag_exchangeCard = 1;
+    }
+
+    public void InitializeFlag(){
+        for(Player player : players){
+            player.flag_exchangeCard = 0;
+            player.flag_action = 0;
+            //player.flag_skill = 0;
         }
     }
 
@@ -192,6 +225,7 @@ public class Dealer {
     // 0:ベット　1:パス　2:レイズ　3:コール　4:ドロップ
     public void performAction(int userID, int actionNumber, int betChip) {
         Player player = getUserByID(userID);
+        player.flag_action = 1;
 
         switch (actionNumber) {
             case 0: // ベット
@@ -201,29 +235,22 @@ public class Dealer {
                 action.executePass();
                 break;
             case 2: // レイズ
-                int raiseAmount = 10; // 仮の値
-                action.executeRaise(player, betChip, raiseAmount);
+                //int raiseAmount = 10; // 仮の値
+                //action.executeRaise(player, betChip, raiseAmount);
+                action.executeRaise(player, fieldBetChip, betChip);
                 break;
             case 3: // コール
                 action.executeCall(player);
                 break;
             case 4: // フォールド
                 action.executeDrop(player);
+                players.remove(player);
                 break;
             default:
                 break;
         }
     }
 
-
-    public void executeActions(List<Map<String, Object>> actionRequests){
-        for(Map<String,Object>request : actionRequests) {
-            int userID = ((Double) request.get("userID")).intValue();
-            int actionNumber = ((Double) request.get("actionNumber")).intValue();
-            int betChip = ((Double) request.get("betChip")).intValue();
-            performAction(userID, actionNumber, betChip);
-        }
-    }
 
     // ユーザIDを対応するユーザに変換
     public Player getUserByID(int userID){
@@ -252,7 +279,8 @@ public class Dealer {
         players.add(player);
     }
 
-    public void dealInitialCards(int cardsPerPlayer) {
+    public void dealInitialCards() {
+        int cardsPerPlayer = 5;
         for (Player player : players) {
             player.clearCard();
             for (int i = 0; i < cardsPerPlayer; i++) {
@@ -399,6 +427,15 @@ public class Dealer {
     public ArrayList<Player> getPlayers() {
         return players;
     }
+
+    public void distributeBetChip(){
+        int distributeChip = totalFieldBetChip / winners.size();
+
+        for(Player player : winners){
+            player.setHaveChip(player.getHaveChip()+distributeChip);
+        }
+    }
+
 
 
 

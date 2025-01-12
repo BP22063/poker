@@ -17,6 +17,10 @@ public class Player {
     public ArrayList<Card> hand;
     private ArrayList<Integer> skill;
     private boolean isInRound;
+    public int flag_exchangeCard;
+    public int flag_action;
+    //public int flag_skill;
+    private int position;
     //private Card[] 手札;
 
     public Player(int userID,String name){
@@ -73,6 +77,9 @@ public class Player {
     public void removeSkill(int skillID){
         this.skill.remove(Integer.valueOf(skillID));
     }
+    public List<Card> getHand() {
+        return this.hand; // 手札を保持する List<Card> フィールド
+    }
 
     public void updatePlayerInformation() {
 
@@ -126,5 +133,12 @@ public class Player {
 
     public List<Integer> getSkills() {
         return this.skill;
+    }
+
+    public void setPosition(int i){
+        this.position = i;
+    }
+    public int getPotision(){
+        return this.position;
     }
 }
