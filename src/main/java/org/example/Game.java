@@ -23,6 +23,7 @@ public class Game {
 
     private List<Player> playersInRound = new ArrayList<>();
     private GameState currentGameState;
+    private int BettingTimes = 0;
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -161,11 +162,12 @@ public class Game {
         // フェーズ: EXCHANGE_HAND
         startPhase3();
 
-        // フェーズ: FINAL_BETTING
+        // フェーズ: SELECT_SKILL
         startPhase4();
 
-        // フェーズ: SELECT_SKILL
+        // フェーズ: FINAL_BETTING
         startPhase5();
+
 
         // ラウンド終了処理
         endRound();
@@ -209,7 +211,7 @@ public class Game {
     public void startPhase2() {
         updateGameState(GameState.RAISE_CALL_FOLD);
         webSocketServer.broadcast("startPhase2", "Phase 2: Raise, Call, or Fold.");
-        currentPlayerIndex = 0;
+        currentPlayerIndex = 0;//ここは親からではなく、最初にベットした人の次になるはず
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
@@ -218,6 +220,7 @@ public class Game {
 
 
     public void startPhase3() {
+        BettingTimes = 1;
         updateGameState(GameState.EXCHANGE_HAND);
         webSocketServer.broadcast("startPhase3", "Phase 3: Exchange cards.");
         playersInRound = new ArrayList<>(players); // 全員が対象
@@ -250,18 +253,7 @@ public class Game {
         }
     }
 
-
     public void startPhase4() {
-        updateGameState(GameState.RAISE_CALL_FOLD);
-        webSocketServer.broadcast("startPhase4", "Phase 4: Raise, Call, or Fold.");
-        currentPlayerIndex = 0;
-
-        // 最初のプレイヤーにターンを開始
-        Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
-    }
-
-    public void startPhase5() {
         updateGameState(GameState.SELECT_SKILL);
         webSocketServer.broadcast("startPhase5", "Phase 5: Select a skill.");
         playersInRound = new ArrayList<>(players); // 全員が対象
@@ -270,7 +262,6 @@ public class Game {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
     }
-
     public void handleSkillUse(int userID, Object... args) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         //currentPlayer.flag_skill = 1;
@@ -290,11 +281,24 @@ public class Game {
 
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {
-            endRound();
+            startPhase5();
         } else {
             moveToNextPlayer();
         }
     }
+    public void startPhase5() {
+        updateGameState(GameState.RAISE_CALL_FOLD);
+        webSocketServer.broadcast("startPhase4", "Phase 5: Raise, Call, or Fold.");
+        currentPlayerIndex = 0;
+
+        // 最初のプレイヤーにターンを開始
+        Player currentPlayer = playersInRound.get(currentPlayerIndex);
+        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+    }
+
+
+
+
 
 
     private void waitForActions() {
