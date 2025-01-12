@@ -224,6 +224,7 @@ public class Dealer {
     // 0:ベット　1:パス　2:レイズ　3:コール　4:ドロップ
     public void performAction(int userID, int actionNumber, int betChip) {
         Player player = getUserByID(userID);
+        player.flag_action = 1;
 
         switch (actionNumber) {
             case 0: // ベット

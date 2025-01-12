@@ -265,6 +265,7 @@ public class Game {
 
     public void handleSkillUse(int userID, Object... args) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
+        currentPlayer.flag_skill = 1;
 
         if (currentPlayer.getUserID() != userID) {
             webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
