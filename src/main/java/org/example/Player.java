@@ -18,6 +18,8 @@ public class Player {
     private ArrayList<Integer> skill;
     private boolean isInRound;
     public int flag_exchangeCard;
+    public int flag_action;
+    public int flag_skill;
     //private Card[] 手札;
 
     public Player(int userID,String name){

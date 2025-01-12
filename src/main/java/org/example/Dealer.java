@@ -134,6 +134,8 @@ public class Dealer {
     public void InitializeFlag(){
         for(Player player : players){
             player.flag_exchangeCard = 0;
+            player.flag_action = 0;
+            player.flag_skill = 0;
         }
     }
 
