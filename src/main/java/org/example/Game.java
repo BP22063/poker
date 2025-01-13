@@ -20,10 +20,12 @@ public class Game {
     private PokerWebSocketServer webSocketServer;
     private Dealer dealer;
     private int currentPlayerIndex = 0;
+    private int bettingTimes = 0;
 
     private List<Player> playersInRound = new ArrayList<>();
     private GameState currentGameState;
-    private int BettingTimes = 0;
+    private Player raisingPlayer = null;
+
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -50,12 +52,12 @@ public class Game {
     }
 
 
-    public Game(ArrayList<Player> players){
+    public Game(ArrayList<Player> players) {
         this.roundNum = 1;
         this.players = players;
         //dealer = new Dealer(this.players);
         //プレイヤーの配置位置
-        for(int i=1;i<players.size();i++){
+        for (int i = 1; i < players.size(); i++) {
             players.get(i).setPosition(i);
         }
     }
@@ -66,23 +68,23 @@ public class Game {
     }
 
 
-    public int getRoundNum(){
+    public int getRoundNum() {
         return this.roundNum;
     }
 
-    public int getGameID(){
+    public int getGameID() {
         return this.gameID;
     }
 
-    public void checkRound(int round){
+    public void checkRound(int round) {
 
     }
 
-    public void progressRound(){
-        while (roundNum<=10){
-            if(roundNum>1)decideOrder();
+    public void progressRound() {
+        while (roundNum <= 10) {
+            if (roundNum > 1) decideOrder();
             dealer = new Dealer(this.players);
-            if(!dealer.collectInitialChip()){
+            if (!dealer.collectInitialChip()) {
                 break;
             }
             playRound();
@@ -94,15 +96,15 @@ public class Game {
         players.add(players.remove(0));
     }
 
-    public void decideRankCutPlayer(){
+    public void decideRankCutPlayer() {
 
     }
 
-    public void renewRound(ArrayList<Player> rankList){
+    public void renewRound(ArrayList<Player> rankList) {
 
     }
 
-    public void receiveNotification(){
+    public void receiveNotification() {
 
     }
 
@@ -116,7 +118,6 @@ public class Game {
     }
 
 
-
     private void endRound() {
         dealer.decideWinner();
         dealer.distributeBetChip();
@@ -128,7 +129,7 @@ public class Game {
             endGame();
         } else {
             roundNum++;
-            //playRound(); // 次のラウンドへ進む
+            playRound(); // 次のラウンドへ進む
         }
     }
 
@@ -147,6 +148,9 @@ public class Game {
 
     //1ラウンドの流れを記述
     public void playRound() {
+
+        this.bettingTimes = 0;
+
         System.out.println("Starting Round " + roundNum);
 
         // フェーズ: START
@@ -156,21 +160,6 @@ public class Game {
         // フェーズ: BET_PASS
         startPhase1();
 
-        // フェーズ: RAISE_CALL_FOLD
-        startPhase2();
-
-        // フェーズ: EXCHANGE_HAND
-        startPhase3();
-
-        // フェーズ: SELECT_SKILL
-        startPhase4();
-
-        // フェーズ: FINAL_BETTING
-        startPhase5();
-
-
-        // ラウンド終了処理
-        endRound();
     }
 
     public void startPhase1() {
@@ -195,16 +184,49 @@ public class Game {
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
         webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
-
         // 更新情報を送信
         webSocketServer.broadcastGameStateWithDetails(currentGameState);
 
-        // 次のプレイヤーに進むかフェーズ終了
-        if (currentPlayerIndex == playersInRound.size() - 1) {
-            startPhase2();
-        } else {
-            moveToNextPlayer();
+        if (bettingTimes == 0) {
+            if (actionNumber == 0) {
+                bettingTimes += 1;
+                startPhase2();
+            } else {
+                moveToNextPlayer();
+            }
         }
+
+        if (bettingTimes == 1) {
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+                startPhase3();
+                this.bettingTimes = 2;
+                raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+        }
+
+        if (bettingTimes == 2){
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+                endRound();
+                this.bettingTimes = 2;
+                raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+        }
+
+
     }
 
 
@@ -220,7 +242,6 @@ public class Game {
 
 
     public void startPhase3() {
-        BettingTimes = 1;
         updateGameState(GameState.EXCHANGE_HAND);
         webSocketServer.broadcast("startPhase3", "Phase 3: Exchange cards.");
         playersInRound = new ArrayList<>(players); // 全員が対象
