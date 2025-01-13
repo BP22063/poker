@@ -204,7 +204,7 @@ public class Dealer {
                 for ( Skill_disableHand skill : skills_disableHand ){
                     //skill.useSkill_disableHand(); // 不要
                     this.disableHands.add(skill.getDisableHand());
-                    System.out.println("無効："+disableHands);
+                    //System.out.println("無効："+disableHands);
                 }
             }
 
@@ -429,6 +429,8 @@ public class Dealer {
                 return 2;
             case "high card":
                 return 1;
+            case "Drop":
+                return 0;
         }
 
         return 0;

@@ -288,9 +288,93 @@ public class DealerTest {
 
         d1.decideWinner();
         d1.showWinners();
+    }
 
+    @Test
+    void skillTest3(){
+        ArrayList<Player> players = new ArrayList<>();
+        Player player1 = new Player(1,"a");
+        Player player2 = new Player(2,"b");
+        Player player3 = new Player(3,"c");
+        Player player4 = new Player(4,"d");
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
 
+        Dealer d1 = new Dealer(players);
+        d1.collectInitialChip();
 
+        for(Player player : players){
+            player.skill.clear();
+        }
+        player1.skill.add(2);
+        player2.skill.add(2);
+        player3.skill.add(2);
+        player4.skill.add(2);
+
+        ArrayList<Integer> exchangeCardIndex = new ArrayList<>(Arrays.asList(0,1,3));
+        d1.adaptSkill(player1,exchangeCardIndex);
+        d1.adaptSkill(player2,exchangeCardIndex);
+        d1.adaptSkill(player3,exchangeCardIndex);
+        d1.adaptSkill(player4,exchangeCardIndex);
+
+        ArrayList<Card> Hand1 = new ArrayList<>(player1.hand);
+        ArrayList<Card> Hand2 = new ArrayList<>(player2.hand);
+        ArrayList<Card> Hand3 = new ArrayList<>(player3.hand);
+        ArrayList<Card> Hand4 = new ArrayList<>(player4.hand);
+
+        d1.showAllHands();
+        d1.useSkills();
+        d1.showAllHands();
+
+        assertThat(Hand1).isNotEqualTo(player1.hand);
+        assertThat(Hand2).isNotEqualTo(player2.hand);
+        assertThat(Hand3).isNotEqualTo(player3.hand);
+        assertThat(Hand4).isNotEqualTo(player4.hand);
+    }
+
+    @Test
+    void skillTest4(){
+        ArrayList<Player> players = new ArrayList<>();
+        Player player1 = new Player(1,"a");
+        Player player2 = new Player(2,"b");
+        Player player3 = new Player(3,"c");
+        Player player4 = new Player(4,"d");
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
+
+        Dealer d1 = new Dealer(players);
+        d1.collectInitialChip();
+
+        for(Player player : players){
+            player.skill.clear();
+        }
+        player1.skill.add(3);
+        player2.skill.add(3);
+        player3.skill.add(3);
+        player4.skill.add(3);
+
+        d1.adaptSkill(player1,2);
+        d1.adaptSkill(player2,3);
+        d1.adaptSkill(player3,4);
+        d1.adaptSkill(player4,1);
+
+        ArrayList<Card> Hand1 = new ArrayList<>(player1.hand);
+        ArrayList<Card> Hand2 = new ArrayList<>(player2.hand);
+        ArrayList<Card> Hand3 = new ArrayList<>(player3.hand);
+        ArrayList<Card> Hand4 = new ArrayList<>(player4.hand);
+
+        d1.showAllHands();
+        d1.useSkills();
+        d1.showAllHands();
+
+        assertThat(player1.hand).isEqualTo(Hand1);
+        assertThat(player2.hand).isEqualTo(Hand3);
+        assertThat(player3.hand).isEqualTo(Hand4);
+        assertThat(player4.hand).isEqualTo(Hand2);
     }
 
 
