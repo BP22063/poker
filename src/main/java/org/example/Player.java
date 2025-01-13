@@ -2,9 +2,7 @@ package org.example;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Player {
 
@@ -15,12 +13,15 @@ public class Player {
     private int rank;
     private int rolePoint;
     public ArrayList<Card> hand;
-    private ArrayList<Integer> skill;
+    public ArrayList<Integer> skill;
     private boolean isInRound;
     public int flag_exchangeCard;
     public int flag_action;
     //public int flag_skill;
     private int position;
+
+    private static final int SKILL_NUM = 3; // 一人当たりのスキル配布数
+    private static final int SKILL_KIND_NUM = 4; // スキルの種類数
     //private Card[] 手札;
 
     public Player(int userID,String name){
@@ -30,6 +31,7 @@ public class Player {
         this.haveChip = 3000;
         this.betChip = 0;
         this.skill = new ArrayList<>();
+        provideSkill();
     }
 
     public int getUserID() {
@@ -72,10 +74,24 @@ public class Player {
     public void addSkill(int skillID){
         this.skill.add(Integer.valueOf(skillID));
     }
+    public void provideSkill() {
+        List<Integer> availableSkills = new ArrayList<>();
+        for (int i = 0; i < SKILL_KIND_NUM; i++) {
+            availableSkills.add(i);
+        }
+
+        Collections.shuffle(availableSkills); // リストをランダムにシャッフル
+
+        for (int i = 0; i < SKILL_NUM; i++) {
+            addSkill(availableSkills.get(i)); // 先頭から3つのスキルを追加
+        }
+    }
 
     // 使用したスキルを削除
-    public void removeSkill(int skillID){
-        this.skill.remove(Integer.valueOf(skillID));
+    public void removeSkill(int skillID) {
+        if (this.skill != null && this.skill.contains(skillID)) {
+            this.skill.remove(Integer.valueOf(skillID));
+        }
     }
     public List<Card> getHand() {
         return this.hand; // 手札を保持する List<Card> フィールド
@@ -141,4 +157,6 @@ public class Player {
     public int getPotision(){
         return this.position;
     }
+
+
 }
