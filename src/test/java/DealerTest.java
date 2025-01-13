@@ -1,5 +1,6 @@
 import org.example.Card;
 import org.example.Dealer;
+import org.example.Deck;
 import org.example.Player;
 import org.junit.jupiter.api.Test;
 
@@ -269,6 +270,7 @@ public class DealerTest {
             assertThat(p.skill.size()).isEqualTo(3);
         }
 
+        //役無効を複数追加する
         d1.adaptSkill(player1,"1pair");
         d1.adaptSkill(player2,"2pair");
         d1.adaptSkill(player3,"3cards");
@@ -281,11 +283,13 @@ public class DealerTest {
 
         d1.showAllHands();
         d1.useSkills();
+        //リストに追加されているか確認
         assertThat(d1.getDisableHands()).contains("1pair");
         assertThat(d1.getDisableHands()).contains("2pair");
         assertThat(d1.getDisableHands()).contains("3cards");
         assertThat(d1.getDisableHands()).contains("Straight");
 
+        //無効になった役の得点は１点になっている
         d1.decideWinner();
         d1.showWinners();
     }
@@ -308,6 +312,7 @@ public class DealerTest {
         for(Player player : players){
             player.skill.clear();
         }
+        //全員がもう一度手札交換を行う
         player1.skill.add(2);
         player2.skill.add(2);
         player3.skill.add(2);
@@ -328,6 +333,7 @@ public class DealerTest {
         d1.useSkills();
         d1.showAllHands();
 
+        //スキルを使用する前とカードが異なることを確認
         assertThat(Hand1).isNotEqualTo(player1.hand);
         assertThat(Hand2).isNotEqualTo(player2.hand);
         assertThat(Hand3).isNotEqualTo(player3.hand);
@@ -357,6 +363,7 @@ public class DealerTest {
         player3.skill.add(3);
         player4.skill.add(3);
 
+        //全員が他プレイヤーと手札を交換する
         d1.adaptSkill(player1,2);
         d1.adaptSkill(player2,3);
         d1.adaptSkill(player3,4);
@@ -371,10 +378,59 @@ public class DealerTest {
         d1.useSkills();
         d1.showAllHands();
 
+        //交換した後の手札と一致するか確認
         assertThat(player1.hand).isEqualTo(Hand1);
         assertThat(player2.hand).isEqualTo(Hand3);
         assertThat(player3.hand).isEqualTo(Hand4);
         assertThat(player4.hand).isEqualTo(Hand2);
+    }
+
+    @Test
+    void judgeTest(){
+
+
+        ArrayList<Player> players = new ArrayList<>();
+        Player player1 = new Player(1,"a");
+        Player player2 = new Player(2,"b");
+        Player player3 = new Player(3,"c");
+        Player player4 = new Player(4,"d");
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
+
+        Dealer d1 = new Dealer(players);
+        d1.collectInitialChip();
+        Deck deck = new Deck();
+
+        for(Player player : players){
+            player.hand.clear();
+        }
+
+        player1.hand.add(new Card("Hearts",1));
+        player1.hand.add(new Card("Hearts",10));
+        player1.hand.add(new Card("Hearts",11));
+        player1.hand.add(new Card("Hearts",12));
+        player1.hand.add(new Card("Hearts",13));
+
+        for(int i=0 ; i<5 ; i++){
+            player2.hand.add(deck.draw());
+        }
+
+        for(int i=0 ; i<5 ; i++){
+            player3.hand.add(deck.draw());
+        }
+
+        for(int i=0 ; i<5 ; i++){
+            player4.hand.add(deck.draw());
+        }
+
+        d1.decideWinner();
+        //役判定と得点の計算が行われ、正しい得点をプレイヤーが獲得しているか確認
+        assertThat(player1.getRolePoint()).isEqualTo(10);
+        d1.showWinners();
+
+
     }
 
 
