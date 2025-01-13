@@ -12,10 +12,10 @@ public class Dealer {
 
     private static final int INITIAL_BET_CHIP = 50; // 初期ベットチップ数
 
-    private ArrayList<Player> players;
+    public ArrayList<Player> players;
     public int fieldBetChip;
     public int totalFieldBetChip;
-    private Deck deck;
+    public Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
     private ArrayList<Integer> usedSkills; // ラウンド内で選択されたスキルのID
@@ -49,6 +49,7 @@ public class Dealer {
         skills_disableHand = new ArrayList<>();
         skills_exchangingHandsAgain = new ArrayList<>();
         skills_handSwap = new ArrayList<>();
+        disableHands = new ArrayList<>();
         fieldBetChip = 0;
         totalFieldBetChip = 0;
     }
@@ -151,18 +152,23 @@ public class Dealer {
     public void adaptSkill(Player player, Object... args) {
         if (args.length == 0) {
             adaptSkill(player);
+
         } else if (args.length == 1) {
             if (args[0] instanceof String) {
                 adaptSkill(player, (String) args[0]);
+
             } else if (args[0] instanceof Integer) {
                 adaptSkill(player, (Integer) args[0]);
+
+            } else if (args[0] instanceof ArrayList) {
+                adaptSkill(player, (ArrayList<Integer>) args[0]);
+
             }
-        } else if (args.length == 1 && args[0] instanceof ArrayList) {
-            adaptSkill(player, (ArrayList<Integer>) args[0]);
         } else {
             throw new IllegalArgumentException("Invalid arguments for adaptSkill method");
         }
     }
+
 
     // スキルの情報に応じてインスタンスを生成
     private void adaptSkill(Player player){
@@ -196,8 +202,9 @@ public class Dealer {
             // 手札無効
             if(!skills_disableHand.isEmpty()){
                 for ( Skill_disableHand skill : skills_disableHand ){
-                    skill.useSkill_disableHand(); // 不要
+                    //skill.useSkill_disableHand(); // 不要
                     this.disableHands.add(skill.getDisableHand());
+                    System.out.println("無効："+disableHands);
                 }
             }
 
@@ -327,11 +334,11 @@ public class Dealer {
             player.setRolePoint( roleControl.judgeRole(player.hand) );
 
 
-            if(disableHands != null) {
+            if(!disableHands.isEmpty()) {
                 // 無効役判定
                 for (String disableHand : this.disableHands) {
                     if (player.getRolePoint() == getRolePoint(disableHand)) {
-                        player.setRolePoint(0);
+                        player.setRolePoint(1);
                     }
                 }
             }
@@ -434,6 +441,14 @@ public class Dealer {
         for(Player player : winners){
             player.setHaveChip(player.getHaveChip()+distributeChip);
         }
+    }
+
+    public ArrayList<Skill_disableSkill> getSkills_disableSkill(){
+        return this.skills_disableSkill;
+    }
+
+    public ArrayList<String> getDisableHands(){
+        return this.disableHands;
     }
 
 
