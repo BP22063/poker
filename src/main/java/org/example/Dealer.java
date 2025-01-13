@@ -324,7 +324,7 @@ public class Dealer {
 
     }
 
-    public void decideWinner(){
+    public List<Player> decideWinner(){
         //List<Integer> point = new ArrayList<>();
         winners = new ArrayList<>();
         RoleControl roleControl = new RoleControl();
@@ -356,6 +356,7 @@ public class Dealer {
             }
         }
 
+        return winners;
     }
 
     public void showWinners(){

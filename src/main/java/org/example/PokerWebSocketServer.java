@@ -214,6 +214,7 @@ public class PokerWebSocketServer {
         Player currentPlayer = game.getCurrentPlayer();
         JsonObject selfJson = new JsonObject();
         selfJson.addProperty("id", currentPlayer.getUserID());
+        selfJson.addProperty("bettingChips", currentPlayer.getBetChip());
         selfJson.addProperty("chips", currentPlayer.getHaveChip());
         JsonArray selfSkillsArray = new JsonArray();
         for (Integer skill : currentPlayer.getSkills()) {

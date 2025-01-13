@@ -157,6 +157,20 @@ public class Player {
     public int getPotision(){
         return this.position;
     }
+    public String getHandAsString() {
+        StringBuilder handString = new StringBuilder("[");
+        for (Card card : hand) { // hand はプレイヤーの手札
+            handString.append(card.toString()).append(", ");
+        }
+        if (!hand.isEmpty()) {
+            handString.setLength(handString.length() - 2); // 最後の ", " を削除
+        }
+        handString.append("]");
+        return handString.toString();
+    }
 
 
+    public void addChips(int chips) {
+        this.haveChip += chips;
+    }
 }

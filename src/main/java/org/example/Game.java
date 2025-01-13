@@ -4,6 +4,8 @@ import java.lang.reflect.Type;
 import java.util.*;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 public class Game {
@@ -100,8 +102,14 @@ public class Game {
 
     }
 
-    public void renewRound(ArrayList<Player> rankList) {
-
+    public void renewRound(ArrayList<Player> Players) {
+        for (Player player : players) {
+            player.setBetChip(0);
+            player.setRolePoint(0);
+        }
+        dealer.winners = null;
+        dealer.fieldBetChip = 0;
+        dealer.totalFieldBetChip = 0;
     }
 
     public void receiveNotification() {
@@ -119,31 +127,74 @@ public class Game {
 
 
     private void endRound() {
-        dealer.decideWinner();
-        dealer.distributeBetChip();
-        webSocketServer.broadcast("roundEnded", "The round has ended.");
-        dealer.showWinners();
+        // 勝者を決定
+        List<Player> winners = dealer.decideWinner();
 
-        if (roundNum >= MAX_ROUND || dealer.getPlayers().size() <= 1) {
-            webSocketServer.broadcast("gameOver", "The game is over!");
-            endGame();
+        // ラウンド結果を生成
+        JsonArray roundResults = new JsonArray();
+        for (Player player : players) {
+            JsonObject playerResult = new JsonObject();
+            playerResult.addProperty("name", player.getName());
+            playerResult.addProperty("hand", player.getHandAsString()); // 手札を文字列化して送信
+            playerResult.addProperty("role", dealer.getRoleName(player.getRolePoint())); // プレイヤーの役
+            roundResults.add(playerResult);
+        }
+
+        // 勝者情報を付加
+        JsonArray winnerArray = new JsonArray();
+        for (Player winner : winners) {
+            winnerArray.add(winner.getName());
+        }
+
+        JsonObject roundSummary = new JsonObject();
+        roundSummary.addProperty("action", "roundresults");
+        roundSummary.add("results", roundResults);
+        roundSummary.add("winners", winnerArray);
+
+        // 結果を全クライアントにブロードキャスト
+        webSocketServer.broadcast("roundresults", roundSummary.toString());
+
+        // ポットを分配（同点の場合、均等に分ける）
+        int share = dealer.totalFieldBetChip / winners.size();
+        for (Player winner : winners) {
+            winner.addChips(share);
+        }
+        dealer.fieldBetChip = 0;
+
+        // ラウンド数を更新
+        roundNum++;
+        if (roundNum > 10) { // 最大ラウンド数を超えた場合
+            endGame(); // ゲーム終了処理
         } else {
-            roundNum++;
-            playRound(); // 次のラウンドへ進む
+            renewRound(players);
+            playRound(); // 次のラウンドを開始
         }
     }
 
     public void endGame() {
+        // プレイヤーのランキングを生成
         ArrayList<Player> ranking = new ArrayList<>(players); // playersの内容をコピー
+        ranking.sort(Comparator.comparingInt(Player::getHaveChip).reversed()); // 所持チップ数で降順ソート
 
-        // Comparatorを使用してhaveChipの値で降順にソート
-        Collections.sort(ranking, new Comparator<Player>() {
-            @Override
-            public int compare(Player p1, Player p2) {
-                return p2.getHaveChip() - p1.getHaveChip();
-            }
-        });
+        // ゲーム結果を生成
+        JsonArray gameResults = new JsonArray();
+        int rank = 1;
+        for (Player player : ranking) {
+            JsonObject playerResult = new JsonObject();
+            playerResult.addProperty("rank", rank++);
+            playerResult.addProperty("name", player.getName());
+            playerResult.addProperty("chips", player.getHaveChip());
+            gameResults.add(playerResult);
+        }
+
+        JsonObject gameSummary = new JsonObject();
+        gameSummary.addProperty("action", "gameresults");
+        gameSummary.add("results", gameResults);
+
+        // ゲーム結果を全クライアントにブロードキャスト
+        webSocketServer.broadcast("gameresults", gameSummary.toString());
     }
+
 
 
     //1ラウンドの流れを記述
