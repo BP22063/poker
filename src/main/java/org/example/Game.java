@@ -12,10 +12,6 @@ public class Game {
 
     static Gson gson = new Gson();
     private static final int MAX_ROUND = 10;
-
-    List<Map<String, Object>> exchangeRequests;
-
-    List<Map<String, Object>> actionRequests;
     private int roundNum;
     private int gameID;
     public ArrayList<Player> players;
@@ -57,7 +53,7 @@ public class Game {
     public Game(ArrayList<Player> players) {
         this.roundNum = 1;
         this.players = players;
-        //dealer = new Dealer(this.players);
+        dealer = new Dealer(this.players);
         //プレイヤーの配置位置
         for (int i = 1; i < players.size(); i++) {
             players.get(i).setPosition(i);
@@ -83,15 +79,7 @@ public class Game {
     }
 
     public void progressRound() {
-        while (roundNum <= 10) {
-            if (roundNum > 1) decideOrder();
-            dealer = new Dealer(this.players);
-            if (!dealer.collectInitialChip()) {
-                break;
-            }
-            playRound();
-        }
-        System.out.println("Game Finished.");
+        playRound();
     }
 
     public void decideOrder() {
@@ -103,13 +91,11 @@ public class Game {
     }
 
     public void renewRound(ArrayList<Player> Players) {
-        for (Player player : players) {
+        for (Player player : Players) {
             player.setBetChip(0);
             player.setRolePoint(0);
         }
-        dealer.winners = null;
-        dealer.fieldBetChip = 0;
-        dealer.totalFieldBetChip = 0;
+        this.dealer = new Dealer(Players);
     }
 
     public void receiveNotification() {
@@ -166,6 +152,7 @@ public class Game {
         if (roundNum > 10) { // 最大ラウンド数を超えた場合
             endGame(); // ゲーム終了処理
         } else {
+            decideOrder();
             renewRound(players);
             playRound(); // 次のラウンドを開始
         }
@@ -204,6 +191,10 @@ public class Game {
 
         System.out.println("Starting Round " + roundNum);
 
+        if (!dealer.collectInitialChip()) {
+            endGame();
+        }
+
         // フェーズ: START
         updateGameState(GameState.START);
         webSocketServer.broadcast("roundStart", "Round " + roundNum + " has started.");
@@ -240,7 +231,7 @@ public class Game {
 
         if (bettingTimes == 0) {
             if (actionNumber == 0) {
-                bettingTimes += 1;
+                bettingTimes++;
                 startPhase2();
             } else {
                 moveToNextPlayer();
@@ -252,6 +243,10 @@ public class Game {
                 startPhase3();
                 this.bettingTimes = 2;
                 raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
             }
             if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
                 moveToNextPlayer();
@@ -265,8 +260,12 @@ public class Game {
         if (bettingTimes == 2){
             if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
                 endRound();
-                this.bettingTimes = 2;
+                this.bettingTimes = 0;
                 raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
             }
             if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
                 moveToNextPlayer();
@@ -276,8 +275,6 @@ public class Game {
                 moveToNextPlayer();
             }
         }
-
-
     }
 
 

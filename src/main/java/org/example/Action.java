@@ -52,6 +52,7 @@ public class Action {
 
     public void executeDrop(Player player) {
         player.setisInRound(false);
+        player.setRolePoint(0);
         System.out.println(player.getName() + " folds.");
     }
 }

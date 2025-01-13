@@ -398,6 +398,9 @@ public class Dealer {
             case 1:
                 roleName="high card";
                 break;
+            case 0:
+                roleName="Drop";
+                break;
         }
         return roleName;
     }
