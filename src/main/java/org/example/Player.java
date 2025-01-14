@@ -1,6 +1,4 @@
 package org.example;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import java.util.*;
 
@@ -139,11 +137,11 @@ public class Player {
         return name;
     }
 
-    public boolean isInRound() {
+    public boolean getIsInRound() {
         return isInRound;
     }
 
-    public void setisInRound(boolean isInRound) {
+    public void setIsInRound(boolean isInRound) {
         this.isInRound = isInRound;
     }
 
@@ -154,7 +152,7 @@ public class Player {
     public void setPosition(int i){
         this.position = i;
     }
-    public int getPotision(){
+    public int getPosition(){
         return this.position;
     }
     public String getHandAsString() {

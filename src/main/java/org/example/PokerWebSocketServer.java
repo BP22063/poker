@@ -181,7 +181,7 @@ public class PokerWebSocketServer {
             JsonObject playerJson = new JsonObject();
             playerJson.addProperty("name", player.getName());
             playerJson.addProperty("id", player.getUserID());
-            playerJson.addProperty("position",player.getPotision());
+            playerJson.addProperty("position",player.getPosition());
             playersArray.add(playerJson);
         }
         gameState.add("players", playersArray);

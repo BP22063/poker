@@ -1,12 +1,10 @@
 package org.example;
 
-import java.lang.reflect.Type;
 import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 
 public class Game {
 
@@ -402,7 +400,7 @@ public class Game {
 
     private boolean allPlayersActed() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.flag_action == 0) {
+            if (player.getIsInRound() && player.flag_action == 0) {
                 return false; // まだアクションしていないプレイヤーがいる
             }
         }
@@ -411,7 +409,7 @@ public class Game {
 
     private boolean allPlayersExchanged() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.flag_exchangeCard == 0) {
+            if (player.getIsInRound() && player.flag_exchangeCard == 0) {
                 return false; // 交換が完了していないプレイヤーがいる
             }
         }
@@ -422,7 +420,7 @@ public class Game {
 
     private boolean allPlayersSelectedSkill() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.getSkills().isEmpty()) {
+            if (player.getIsInRound() && player.getSkills().isEmpty()) {
                 return false; // スキル選択が完了していないプレイヤーがいる
             }
         }

@@ -24,7 +24,6 @@ public class DealerTest {
         players.add(player4);
 
         Dealer d1 = new Dealer(players);
-        d1.collectInitialChip();
 
         //初期チップ数が3000になっていることを確認
         for(Player p :players){
@@ -35,6 +34,9 @@ public class DealerTest {
         for(Player p :players){
             assertThat(p.skill.size()).isEqualTo(3);
         }
+
+        // 初期チップの回収
+        d1.collectInitialChip();
 
         //初期チップを回収できているか確認
         for(Player p :players){
