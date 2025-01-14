@@ -1,29 +1,27 @@
 package org.example;
 
-import java.lang.reflect.Type;
 import java.util.*;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 public class Game {
 
     static Gson gson = new Gson();
     private static final int MAX_ROUND = 10;
-
-    List<Map<String, Object>> exchangeRequests;
-
-    List<Map<String, Object>> actionRequests;
     private int roundNum;
     private int gameID;
     public ArrayList<Player> players;
     private PokerWebSocketServer webSocketServer;
     private Dealer dealer;
     private int currentPlayerIndex = 0;
+    private int bettingTimes = 0;
 
     private List<Player> playersInRound = new ArrayList<>();
     private GameState currentGameState;
-    private int BettingTimes = 0;
+    private Player raisingPlayer = null;
+
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -50,12 +48,12 @@ public class Game {
     }
 
 
-    public Game(ArrayList<Player> players){
+    public Game(ArrayList<Player> players) {
         this.roundNum = 1;
         this.players = players;
-        //dealer = new Dealer(this.players);
+        dealer = new Dealer(this.players);
         //プレイヤーの配置位置
-        for(int i=1;i<players.size();i++){
+        for (int i = 1; i < players.size(); i++) {
             players.get(i).setPosition(i);
         }
     }
@@ -66,43 +64,39 @@ public class Game {
     }
 
 
-    public int getRoundNum(){
+    public int getRoundNum() {
         return this.roundNum;
     }
 
-    public int getGameID(){
+    public int getGameID() {
         return this.gameID;
     }
 
-    public void checkRound(int round){
+    public void checkRound(int round) {
 
     }
 
-    public void progressRound(){
-        while (roundNum<=10){
-            if(roundNum>1)decideOrder();
-            dealer = new Dealer(this.players);
-            if(!dealer.collectInitialChip()){
-                break;
-            }
-            playRound();
-        }
-        System.out.println("Game Finished.");
+    public void progressRound() {
+        playRound();
     }
 
     public void decideOrder() {
         players.add(players.remove(0));
     }
 
-    public void decideRankCutPlayer(){
+    public void decideRankCutPlayer() {
 
     }
 
-    public void renewRound(ArrayList<Player> rankList){
-
+    public void renewRound(ArrayList<Player> Players) {
+        for (Player player : Players) {
+            player.setBetChip(0);
+            player.setRolePoint(0);
+        }
+        this.dealer = new Dealer(Players);
     }
 
-    public void receiveNotification(){
+    public void receiveNotification() {
 
     }
 
@@ -116,38 +110,88 @@ public class Game {
     }
 
 
-
     private void endRound() {
-        dealer.decideWinner();
-        dealer.distributeBetChip();
-        webSocketServer.broadcast("roundEnded", "The round has ended.");
-        dealer.showWinners();
+        // 勝者を決定
+        List<Player> winners = dealer.decideWinner();
 
-        if (roundNum >= MAX_ROUND || dealer.getPlayers().size() <= 1) {
-            webSocketServer.broadcast("gameOver", "The game is over!");
-            endGame();
+        // ラウンド結果を生成
+        JsonArray roundResults = new JsonArray();
+        for (Player player : players) {
+            JsonObject playerResult = new JsonObject();
+            playerResult.addProperty("name", player.getName());
+            playerResult.addProperty("hand", player.getHandAsString()); // 手札を文字列化して送信
+            playerResult.addProperty("role", dealer.getRoleName(player.getRolePoint())); // プレイヤーの役
+            roundResults.add(playerResult);
+        }
+
+        // 勝者情報を付加
+        JsonArray winnerArray = new JsonArray();
+        for (Player winner : winners) {
+            winnerArray.add(winner.getName());
+        }
+
+        JsonObject roundSummary = new JsonObject();
+        roundSummary.addProperty("action", "roundresults");
+        roundSummary.add("results", roundResults);
+        roundSummary.add("winners", winnerArray);
+
+        // 結果を全クライアントにブロードキャスト
+        webSocketServer.broadcast("roundresults", roundSummary.toString());
+
+        // ポットを分配（同点の場合、均等に分ける）
+        int share = dealer.totalFieldBetChip / winners.size();
+        for (Player winner : winners) {
+            winner.addChips(share);
+        }
+        dealer.fieldBetChip = 0;
+
+        // ラウンド数を更新
+        roundNum++;
+        if (roundNum > 10) { // 最大ラウンド数を超えた場合
+            endGame(); // ゲーム終了処理
         } else {
-            roundNum++;
-            //playRound(); // 次のラウンドへ進む
+            decideOrder();
+            renewRound(players);
+            playRound(); // 次のラウンドを開始
         }
     }
 
     public void endGame() {
+        // プレイヤーのランキングを生成
         ArrayList<Player> ranking = new ArrayList<>(players); // playersの内容をコピー
+        ranking.sort(Comparator.comparingInt(Player::getHaveChip).reversed()); // 所持チップ数で降順ソート
 
-        // Comparatorを使用してhaveChipの値で降順にソート
-        Collections.sort(ranking, new Comparator<Player>() {
-            @Override
-            public int compare(Player p1, Player p2) {
-                return p2.getHaveChip() - p1.getHaveChip();
-            }
-        });
+        // ゲーム結果を生成
+        JsonArray gameResults = new JsonArray();
+        int rank = 1;
+        for (Player player : ranking) {
+            JsonObject playerResult = new JsonObject();
+            playerResult.addProperty("rank", rank++);
+            playerResult.addProperty("name", player.getName());
+            playerResult.addProperty("chips", player.getHaveChip());
+            gameResults.add(playerResult);
+        }
+
+        JsonObject gameSummary = new JsonObject();
+        gameSummary.addProperty("action", "gameresults");
+        gameSummary.add("results", gameResults);
+
+        // ゲーム結果を全クライアントにブロードキャスト
+        webSocketServer.broadcast("gameresults", gameSummary.toString());
     }
+
 
 
     //1ラウンドの流れを記述
     public void playRound() {
+
+        this.bettingTimes = 0;
+
         System.out.println("Starting Round " + roundNum);
+
+        if (!dealer.collectInitialChip()) {
+            endGame();
+        }
 
         // フェーズ: START
         updateGameState(GameState.START);
@@ -156,21 +200,6 @@ public class Game {
         // フェーズ: BET_PASS
         startPhase1();
 
-        // フェーズ: RAISE_CALL_FOLD
-        startPhase2();
-
-        // フェーズ: EXCHANGE_HAND
-        startPhase3();
-
-        // フェーズ: SELECT_SKILL
-        startPhase4();
-
-        // フェーズ: FINAL_BETTING
-        startPhase5();
-
-
-        // ラウンド終了処理
-        endRound();
     }
 
     public void startPhase1() {
@@ -195,15 +224,54 @@ public class Game {
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
         webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
-
         // 更新情報を送信
         webSocketServer.broadcastGameStateWithDetails(currentGameState);
 
-        // 次のプレイヤーに進むかフェーズ終了
-        if (currentPlayerIndex == playersInRound.size() - 1) {
-            startPhase2();
-        } else {
-            moveToNextPlayer();
+        if (bettingTimes == 0) {
+            if (actionNumber == 0) {
+                bettingTimes++;
+                startPhase2();
+            } else {
+                moveToNextPlayer();
+            }
+        }
+
+        if (bettingTimes == 1) {
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+                startPhase3();
+                this.bettingTimes = 2;
+                raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+        }
+
+        if (bettingTimes == 2){
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+                endRound();
+                this.bettingTimes = 0;
+                raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
         }
     }
 
@@ -211,7 +279,7 @@ public class Game {
     public void startPhase2() {
         updateGameState(GameState.RAISE_CALL_FOLD);
         webSocketServer.broadcast("startPhase2", "Phase 2: Raise, Call, or Fold.");
-        currentPlayerIndex = 0;//ここは親からではなく、最初にベットした人の次になるはず
+        currentPlayerIndex = currentPlayerIndex + 1;//ここは親からではなく、最初にベットした人の次になるはず
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
@@ -220,7 +288,6 @@ public class Game {
 
 
     public void startPhase3() {
-        BettingTimes = 1;
         updateGameState(GameState.EXCHANGE_HAND);
         webSocketServer.broadcast("startPhase3", "Phase 3: Exchange cards.");
         playersInRound = new ArrayList<>(players); // 全員が対象
@@ -333,7 +400,7 @@ public class Game {
 
     private boolean allPlayersActed() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.flag_action == 0) {
+            if (player.getIsInRound() && player.flag_action == 0) {
                 return false; // まだアクションしていないプレイヤーがいる
             }
         }
@@ -342,7 +409,7 @@ public class Game {
 
     private boolean allPlayersExchanged() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.flag_exchangeCard == 0) {
+            if (player.getIsInRound() && player.flag_exchangeCard == 0) {
                 return false; // 交換が完了していないプレイヤーがいる
             }
         }
@@ -353,7 +420,7 @@ public class Game {
 
     private boolean allPlayersSelectedSkill() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.getSkills().isEmpty()) {
+            if (player.getIsInRound() && player.getSkills().isEmpty()) {
                 return false; // スキル選択が完了していないプレイヤーがいる
             }
         }

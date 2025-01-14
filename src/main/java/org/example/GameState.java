@@ -6,5 +6,6 @@ public enum GameState {
     RAISE_CALL_FOLD,
     EXCHANGE_HAND,
     FINAL_BETTING,
-    SELECT_SKILL
+    SELECT_SKILL,
+    END
 }

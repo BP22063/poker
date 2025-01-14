@@ -42,6 +42,11 @@ public class Main {
         players.add(new Player(3, "Charlie"));
         players.add(new Player(4, "Daisy"));
 
+        System.out.println(players.get(0).skill);
+        System.out.println(players.get(1).skill);
+        System.out.println(players.get(2).skill);
+        System.out.println(players.get(3).skill);
+
         Dealer d1 = new Dealer(players);
         d1.collectInitialChip();
 
@@ -56,10 +61,12 @@ public class Main {
         d1.performAction(3,3,0);
         System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
         System.out.println("fieldBetChip : "+d1.fieldBetChip);
+        d1.showAllHands();
 
         d1.performAction(4,4,0);
         System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);
         System.out.println("fieldBetChip : "+d1.fieldBetChip);
+        d1.showAllHands();
 
         d1.performAction(1,3,0);
         System.out.println("totalFieldBetChip : "+d1.totalFieldBetChip);

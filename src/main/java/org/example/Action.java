@@ -25,8 +25,8 @@ public class Action {
         System.out.println("pass.");
     }
 
-    public void executeRaise(Player player, int betChip, int raiseAmount) {
-        int totalBet = betChip + raiseAmount;
+    public void executeRaise(Player player, int fieldBetChip, int raiseAmount) {
+        int totalBet = fieldBetChip + raiseAmount;
         if (player.getHaveChip() >= totalBet) {
             player.setHaveChip(player.getHaveChip() - totalBet);
             player.setBetChip(totalBet);
@@ -44,14 +44,15 @@ public class Action {
             player.setHaveChip(player.getHaveChip() - callAmount);
             player.setBetChip((dealer.fieldBetChip));
             dealer.totalFieldBetChip += callAmount;
-            System.out.println(player.getName() + " calls " + callAmount + " chips.");
+            System.out.println(player.getName() + " calls " + dealer.fieldBetChip + " chips.");
         } else {
             System.out.println(player.getName() + " does not have enough chips to call.");
         }
     }
 
     public void executeDrop(Player player) {
-        player.setisInRound(false);
+        player.setIsInRound(false);
+        player.setRolePoint(0);
         System.out.println(player.getName() + " folds.");
     }
 }

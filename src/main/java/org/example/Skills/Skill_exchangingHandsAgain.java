@@ -19,6 +19,7 @@ public class Skill_exchangingHandsAgain{
         this.player = player;
         this.dealer = dealer;
         this.cardIndexList = cardIndexList;
+
     }
 
     public int getSkillID(){
@@ -36,7 +37,6 @@ public class Skill_exchangingHandsAgain{
             for(int cardIndex : cardIndexList) {
                 dealer.changeCard(player.getUserID(), cardIndex);
             }
-
     }
 
 }

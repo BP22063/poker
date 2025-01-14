@@ -50,6 +50,7 @@ public class PokerWebSocketServer {
             case "useSkill":
                 handleUseSkill(json);
                 break;
+            case "playerActionAgain":
 
             default:
                 System.out.println("Unknown action: " + action);
@@ -180,7 +181,7 @@ public class PokerWebSocketServer {
             JsonObject playerJson = new JsonObject();
             playerJson.addProperty("name", player.getName());
             playerJson.addProperty("id", player.getUserID());
-            playerJson.addProperty("position",player.getPotision());
+            playerJson.addProperty("position",player.getPosition());
             playersArray.add(playerJson);
         }
         gameState.add("players", playersArray);
@@ -213,6 +214,7 @@ public class PokerWebSocketServer {
         Player currentPlayer = game.getCurrentPlayer();
         JsonObject selfJson = new JsonObject();
         selfJson.addProperty("id", currentPlayer.getUserID());
+        selfJson.addProperty("bettingChips", currentPlayer.getBetChip());
         selfJson.addProperty("chips", currentPlayer.getHaveChip());
         JsonArray selfSkillsArray = new JsonArray();
         for (Integer skill : currentPlayer.getSkills()) {
