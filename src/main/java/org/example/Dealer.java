@@ -151,12 +151,13 @@ public class Dealer {
 
     public void adaptSkill(Player player, Object... args) {
         if (args.length == 0) {
-            adaptSkill(player);
+            //すきるを使用しない
 
         } else if (args.length == 1) {
             if(args[0] instanceof Double){
                 adaptSkill(player,(Double) args[0]);
-            }else if (args[0] instanceof String) {
+
+            } else if (args[0] instanceof String) {
                 adaptSkill(player, (String) args[0]);
 
             } else if (args[0] instanceof Integer) {
