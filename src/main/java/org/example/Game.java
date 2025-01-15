@@ -22,6 +22,7 @@ public class Game {
     private GameState currentGameState;
     private Player raisingPlayer = null;
 
+    public ArrayList<String> skillLogs = new ArrayList<>();
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -335,9 +336,11 @@ public class Game {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
-    public void handleSkillUse(int userID, Object... args) {
+    public void handleSkillUse(int userID,String log, Object... args) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         //currentPlayer.flag_skill = 1;
+
+        skillLogs.add(log);
 
         if (currentPlayer.getUserID() != userID) {
             webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
@@ -346,7 +349,7 @@ public class Game {
 
         // スキル使用処理
         dealer.adaptSkill(currentPlayer, args);
-        dealer.useSkills();
+
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.broadcast("skillUsed", currentPlayer.getName() + " used a skill.");
 
@@ -355,6 +358,10 @@ public class Game {
 
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {
+            dealer.useSkills();
+            for(String l : skillLogs) {
+                webSocketServer.broadcast("log",l );
+            }
             startPhase5();
         } else {
             moveToNextPlayer();
@@ -440,4 +447,7 @@ public class Game {
     }
 
 
+    public Player getPlayer(int userID){
+        return dealer.getUserByID(userID);
+    }
 }
