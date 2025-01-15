@@ -50,7 +50,7 @@ public class PokerWebSocketServer {
             case "useSkill":
                 handleUseSkill(json);
                 break;
-            case "playerActionAgain":
+            //case "playerActionAgain":
 
             default:
                 System.out.println("Unknown action: " + action);
@@ -105,21 +105,25 @@ public class PokerWebSocketServer {
     private void handleUseSkill(JsonObject json) {
         int userID = json.get("userID").getAsInt();
         int skillID = json.get("skillID").getAsInt();
+        String log;
         Object[] args;
 
         switch (skillID) {
             case -1:
                 args = new Object[]{};
+                log= game.getPlayer(userID).getName() + "did not select the skill.";
                 break;
             case 0:
                 // No additional arguments needed for skillID 0
                 double token = json.get("token").getAsDouble();
                 args = new Object[]{token};
+                log = game.getPlayer(userID).getName() + " selected the skill “disableSkill”.\n\"You cannot use skills this turn\"";
                 break;
             case 1:
                 // For skillID 1, "disableHand" is needed
                 String disableHand = json.get("disableHand").getAsString();
                 args = new Object[]{disableHand};
+                log = game.getPlayer(userID).getName() + " selected the skill “disableHand”. Hand: "+disableHand;
                 break;
             case 2:
                 // For skillID 2, "cardIndexList" is needed
@@ -129,17 +133,19 @@ public class PokerWebSocketServer {
                     cardIndexList.add(element.getAsInt());
                 }
                 args = new Object[]{cardIndexList};
+                log = game.getPlayer(userID).getName() + " selected the skill “exchangeHandsAgain” skill. Index: "+cardIndexList;
                 break;
             case 3:
                 // For skillID 3, "swapPlayerID" is needed
                 int swapPlayerID = json.get("swapPlayerID").getAsInt();
                 args = new Object[]{swapPlayerID};
+                log = game.getPlayer(userID).getName() + " sekected the skill “handSwap” skill. opponent: " +game.getPlayer(swapPlayerID);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown skillID: " + skillID);
         }
 
-        game.handleSkillUse(userID, args);
+        game.handleSkillUse(userID, log , args);
     }
 
 
