@@ -202,7 +202,7 @@ public class DealerTest {
             assertThat(p.skill.size()).isEqualTo(3);
         }
 
-        d1.adaptSkill(player1);
+        d1.adaptSkill(player1,0.5);
         d1.adaptSkill(player2,"1pair");
         d1.adaptSkill(player3,2);
         ArrayList<Integer> exchangeCardIndex = new ArrayList<>(Arrays.asList(0,1,3));
