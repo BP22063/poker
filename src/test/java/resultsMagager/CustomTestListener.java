@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomTestListener extends SummaryGeneratingListener implements TestExecutionListener{
+
     private final List<TestResult> results = new ArrayList<>();
 
 
@@ -17,7 +18,7 @@ public class CustomTestListener extends SummaryGeneratingListener implements Tes
     public void executionFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
         super.executionFinished(testIdentifier, testExecutionResult);
         if(testIdentifier.isTest()){
-            results.add(new TestResult(testIdentifier.getDisplayName(),testExecutionResult.toString()));
+            results.add(new TestResult(getClassName(testIdentifier) ,testIdentifier.getDisplayName(),testExecutionResult.toString()));
         }
     }
 
@@ -25,13 +26,23 @@ public class CustomTestListener extends SummaryGeneratingListener implements Tes
         return results;
     }
 
+    private String getClassName(TestIdentifier testIdentifier){
+        return testIdentifier.getParentId().toString().replaceAll(".*\\[class:([^\\]]+)\\].*", "$1");
+    }
+
     public static class TestResult {
+        private final String parent;
         private final String testName;
         private final String status;
 
-        public TestResult(String testName, String status) {
+        public TestResult(String parent, String testName, String status) {
+            this.parent = parent;
             this.testName = testName;
             this.status = status;
+        }
+
+        public String getParent() {
+            return parent;
         }
 
         public String getTestName() {
