@@ -4,48 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Cardテストを作成">
-      <change afterPath="$PROJECT_DIR$/src/test/java/AllTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_17_50______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_18_40______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_01_14_31______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_01_14_31______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_07_21_44______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_21_44______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_07_22_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_22_48______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_01______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_56______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_56______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_15_55______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_15_55______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_16_30______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_16_30______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_28______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_28______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_30______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_30______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_1_55______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_1_55______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_55______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_55______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_56______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_56______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_59______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_59______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_14_11_00______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_14_11_00______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____9.xml" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="テスト一括実行用のSuite(AllTestsクラス)を追加">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_disableSkill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Skills/Skill_disableSkill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AllTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AllTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AllTests" />
-        <item itemvalue="JUnit.GameStateTest" />
         <item itemvalue="JUnit.GameStateTest.test_enumValues" />
-        <item itemvalue="JUnit.CardTest" />
+        <item itemvalue="JUnit.GameStateTest" />
         <item itemvalue="JUnit.CardTest.test_card" />
+        <item itemvalue="JUnit.CardTest" />
+        <item itemvalue="JUnit.AllTests" />
       </list>
     </recent_temporary>
   </component>
@@ -339,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736836663571</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="テスト一括実行用のSuite(AllTestsクラス)を追加">
+      <option name="closed" value="true" />
+      <created>1736913738409</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1736913738409</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -387,7 +359,8 @@
     <MESSAGE value="Playerテストを編集" />
     <MESSAGE value="Deckテストを作成" />
     <MESSAGE value="Cardテストを作成" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cardテストを作成" />
+    <MESSAGE value="テスト一括実行用のSuite(AllTestsクラス)を追加" />
+    <option name="LAST_COMMIT_MESSAGE" value="テスト一括実行用のSuite(AllTestsクラス)を追加" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
