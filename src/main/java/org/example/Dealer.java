@@ -151,7 +151,7 @@ public class Dealer {
 
     public void adaptSkill(Player player, Object... args) {
         if (args.length == 0) {
-            //すきるを使用しない
+            //スキルを使用しない
 
         } else if (args.length == 1) {
             if(args[0] instanceof Double){
