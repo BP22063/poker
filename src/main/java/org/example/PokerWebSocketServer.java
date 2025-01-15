@@ -108,9 +108,13 @@ public class PokerWebSocketServer {
         Object[] args;
 
         switch (skillID) {
+            case -1:
+                args = new Object[]{};
+                break;
             case 0:
                 // No additional arguments needed for skillID 0
-                args = new Object[]{};
+                double token = json.get("token").getAsDouble();
+                args = new Object[]{token};
                 break;
             case 1:
                 // For skillID 1, "disableHand" is needed

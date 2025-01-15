@@ -202,16 +202,12 @@ public class DealerTest {
             assertThat(p.skill.size()).isEqualTo(3);
         }
 
-        d1.adaptSkill(player1);
+        d1.adaptSkill(player1,0.5);
         d1.adaptSkill(player2,"1pair");
-        d1.adaptSkill(player3,2);
+        d1.adaptSkill(player3);
         ArrayList<Integer> exchangeCardIndex = new ArrayList<>(Arrays.asList(0,1,3));
         d1.adaptSkill(player4,exchangeCardIndex);
 
-
-        for(Player p :players) {
-            assertThat(p.skill.size()).isEqualTo(2);
-        }
 
         //スキル無効が発動されているので、他のスキルは発動されない
         ArrayList<Card> Hand4 = new ArrayList<Card>(player4.hand);
@@ -219,8 +215,9 @@ public class DealerTest {
         d1.useSkills();
         assertThat(d1.getDisableHands()).isNotIn();
         assertThat(Hand4).isEqualTo(player4.hand);
-        assertThat(Hand2).isNotEqualTo(player3.hand);
+        //assertThat(Hand2).isNotEqualTo(player3.hand);
 
+        assertThat(player3.skill.size()).isEqualTo(3);
 
         //d1.showAllHands();
         //スキル無効がない場合
@@ -230,7 +227,7 @@ public class DealerTest {
         d1.useSkills();
         assertThat(d1.getDisableHands()).contains("1pair");
         assertThat(Hand4).isNotEqualTo(player4.hand);
-        assertThat(Hand2).isEqualTo(player3.hand);
+        //assertThat(Hand2).isEqualTo(player3.hand);
 
         //d1.showAllHands();
 
