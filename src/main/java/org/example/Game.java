@@ -106,7 +106,7 @@ public class Game {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
 
         // 次のプレイヤーにターン開始を通知
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
 
@@ -210,7 +210,7 @@ public class Game {
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
     public void handleAction(int userID, int actionNumber, int betChip) {
@@ -223,7 +223,8 @@ public class Game {
 
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
-        webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
+        webSocketServer.broadcast("log", currentPlayer.getName() + " performed action " + actionNumber);
         // 更新情報を送信
         webSocketServer.broadcastGameStateWithDetails(currentGameState);
 
@@ -283,7 +284,7 @@ public class Game {
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
 
@@ -294,7 +295,7 @@ public class Game {
         currentPlayerIndex = 0;
 
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
     public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
@@ -306,7 +307,12 @@ public class Game {
         }
 
         // カード交換処理
+        for (Integer cardIndex : exchangeCardIndex){
+            webSocketServer.broadcast("log", currentPlayer.getName() + "exchanged" + currentPlayer.getHand().get(cardIndex).toString());
+        }
         dealer.changeHand(userID, exchangeCardIndex);
+
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.sendToPlayer(currentPlayer, "updateHand", gson.toJson(currentPlayer.hand));
 
         // 更新情報を送信
@@ -327,7 +333,7 @@ public class Game {
         currentPlayerIndex = 0;
 
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
     public void handleSkillUse(int userID, Object... args) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
@@ -341,6 +347,7 @@ public class Game {
         // スキル使用処理
         dealer.adaptSkill(currentPlayer, args);
         dealer.useSkills();
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.broadcast("skillUsed", currentPlayer.getName() + " used a skill.");
 
         // 更新情報を送信
@@ -360,7 +367,7 @@ public class Game {
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
 
