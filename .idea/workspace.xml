@@ -4,44 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="WebSocketServer">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_15_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024_12_27_16_01______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_01_14_31______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_01_14_31______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_07_21_44______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_21_44______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_07_22_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_07_22_48______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_01______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_11______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_34______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_56______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_56______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_15_55______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_15_55______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_16_30______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_16_30______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_28______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_28______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_30______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_30______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_1_55______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_1_55______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_54______1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_55______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_55______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_56______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_56______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_59______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_9_59______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_14_11_00______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_14_11_00______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____9.xml" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="通信すり合わせ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Action.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +26,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -243,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1736312985232</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="通信すり合わせ">
+      <created>1736918203376</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1736918203376</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +238,7 @@
     <MESSAGE value="Skill_handSwapの実装" />
     <MESSAGE value="DealerとPlayerでスキル配布(provideSkill)の実装" />
     <MESSAGE value="WebSocketServer" />
-    <option name="LAST_COMMIT_MESSAGE" value="WebSocketServer" />
+    <MESSAGE value="通信すり合わせ" />
+    <option name="LAST_COMMIT_MESSAGE" value="通信すり合わせ" />
   </component>
 </project>

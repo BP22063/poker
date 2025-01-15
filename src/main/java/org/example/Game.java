@@ -224,7 +224,7 @@ public class Game {
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
-        webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
+        webSocketServer.broadcast("log", currentPlayer.getName() + " performed action " + actionNumber);
         // 更新情報を送信
         webSocketServer.broadcastGameStateWithDetails(currentGameState);
 
@@ -307,7 +307,11 @@ public class Game {
         }
 
         // カード交換処理
+        for (Integer cardIndex : exchangeCardIndex){
+            webSocketServer.broadcast("log", currentPlayer.getName() + "exchanged" + currentPlayer.getHand().get(cardIndex).toString());
+        }
         dealer.changeHand(userID, exchangeCardIndex);
+
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.sendToPlayer(currentPlayer, "updateHand", gson.toJson(currentPlayer.hand));
 
