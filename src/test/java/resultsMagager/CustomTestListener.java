@@ -18,7 +18,7 @@ public class CustomTestListener extends SummaryGeneratingListener implements Tes
     public void executionFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
         super.executionFinished(testIdentifier, testExecutionResult);
         if(testIdentifier.isTest()){
-            results.add(new TestResult(getClassName(testIdentifier) ,testIdentifier.getDisplayName(),testExecutionResult.toString()));
+            results.add(new TestResult(getClassName(testIdentifier) ,testIdentifier.getDisplayName(),testExecutionResult.getStatus().toString(), testExecutionResult.getThrowable().toString()));
         }
     }
 
@@ -30,27 +30,4 @@ public class CustomTestListener extends SummaryGeneratingListener implements Tes
         return testIdentifier.getParentId().toString().replaceAll(".*\\[class:([^\\]]+)\\].*", "$1");
     }
 
-    public static class TestResult {
-        private final String parent;
-        private final String testName;
-        private final String status;
-
-        public TestResult(String parent, String testName, String status) {
-            this.parent = parent;
-            this.testName = testName;
-            this.status = status;
-        }
-
-        public String getParent() {
-            return parent;
-        }
-
-        public String getTestName() {
-            return testName;
-        }
-
-        public String getStatus() {
-            return status;
-        }
-    }
 }

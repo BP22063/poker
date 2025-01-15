@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="テスト結果の出力用クラスを作成">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resultsMagager/CsvExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resultsMagager/CsvExporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resultsMagager/CustomTestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resultsMagager/CustomTestListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CsvExporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CsvExporter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener$TestResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener$TestResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test-results.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-results.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-results.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53_の_チェックアウト_前の未コミットの変更_[変更]/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024_12_27_13_53_の_チェックアウト_前の未コミットの変更_[変更]/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26_の_チェックアウト_前の未コミットの変更_[変更]/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26_の_チェックアウト_前の未コミットの変更_[変更]/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26_の_チェックアウト_前の未コミットの変更_[変更]1/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_26_の_チェックアウト_前の未コミットの変更_[変更]1/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27_の_チェックアウト_前の未コミットの変更_[変更]/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27_の_チェックアウト_前の未コミットの変更_[変更]/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27_の_チェックアウト_前の未コミットの変更_[変更]1/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27_の_チェックアウト_前の未コミットの変更_[変更]1/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27_の_チェックアウト_前の未コミットの変更_[変更]2/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_27_の_チェックアウト_前の未コミットの変更_[変更]2/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]/Dealer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27_の_更新_前の未コミットの変更_[変更]/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]4/Main.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
