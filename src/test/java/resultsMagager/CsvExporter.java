@@ -7,9 +7,9 @@ import java.util.List;
 public class CsvExporter {
     public static void exportToCsv(List<CustomTestListener.TestResult> results, String filePath) throws IOException {
         try (FileWriter writer = new FileWriter(filePath)) {
-            writer.write("TestName,Status\n");
+            writer.write("ClassName,TestName,Status\n");
             for (CustomTestListener.TestResult result : results) {
-                writer.write(result.getTestName() + "," + result.getStatus() + "\n");
+                writer.write( result.getParent() + "," + result.getTestName() + "," + result.getStatus() + "\n");
             }
         }
     }
