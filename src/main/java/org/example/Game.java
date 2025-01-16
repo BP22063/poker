@@ -61,6 +61,7 @@ public class Game {
 
     public void updateGameState(GameState newState) {
         this.currentGameState = newState;
+        System.out.println("Now GameState: " + newState.toString());
         for (Player player : this.players){
             webSocketServer.sendToPlayerGameStateWithDetails(player, newState);
         }
