@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="通信修正">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_28______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____9.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +60,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="アプリケーション.TestRunner">
+  <component name="RunManager" selected="JUnit.ActionTest.testExecuteCall_InsufficientChips">
     <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="resultsMagager.TestRunner" />
       <module name="poker" />
@@ -70,15 +74,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketServerLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.WebSocketServerLauncher" />
+    <configuration name="ActionTest.testExecuteCall_InsufficientChips" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="poker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ActionTest" />
+      <option name="METHOD_NAME" value="testExecuteCall_InsufficientChips" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -119,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActionTest.testExecuteCall_InsufficientChips" />
         <item itemvalue="アプリケーション.TestRunner" />
         <item itemvalue="JUnit.AllTests" />
         <item itemvalue="JUnit.RoleControlTest" />
         <item itemvalue="JUnit.RoleControlTest.test_handSizeError" />
-        <item itemvalue="アプリケーション.WebSocketServerLauncher" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1737036089497</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="通信修正">
+      <created>1737041780023</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1737041780023</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
