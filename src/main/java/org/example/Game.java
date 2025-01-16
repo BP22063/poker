@@ -62,7 +62,9 @@ public class Game {
 
     public void updateGameState(GameState newState) {
         this.currentGameState = newState;
-        webSocketServer.broadcastGameStateWithDetails(newState);
+        for (Player player : this.players){
+            webSocketServer.sendToPlayerGameStateWithDetails(player, newState);
+        }
     }
 
 
@@ -227,7 +229,9 @@ public class Game {
         dealer.performAction(userID, actionNumber, betChip);
         webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
         // 更新情報を送信
-        webSocketServer.broadcastGameStateWithDetails(currentGameState);
+        for (Player player : this.players){
+            webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
+        }
 
         if (bettingTimes == 0) {
             if (actionNumber == 0) {
@@ -312,7 +316,9 @@ public class Game {
         webSocketServer.sendToPlayer(currentPlayer, "updateHand", gson.toJson(currentPlayer.hand));
 
         // 更新情報を送信
-        webSocketServer.broadcastGameStateWithDetails(currentGameState);
+        for (Player player : this.players){
+            webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
+        }
 
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {
@@ -346,7 +352,9 @@ public class Game {
         webSocketServer.broadcast("skillUsed", currentPlayer.getName() + " used a skill.");
 
         // 更新情報を送信
-        webSocketServer.broadcastGameStateWithDetails(currentGameState);
+        for (Player player : this.players){
+            webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
+        }
 
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {

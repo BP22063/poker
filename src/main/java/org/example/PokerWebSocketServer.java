@@ -169,7 +169,7 @@ public class PokerWebSocketServer {
         });
     }
 
-    public void broadcastGameStateWithDetails(GameState phase) {
+    public void sendToPlayerGameStateWithDetails(Player self, GameState phase) {
         JsonObject gameState = new JsonObject();
 
         // フェーズ情報
@@ -211,18 +211,17 @@ public class PokerWebSocketServer {
         gameState.add("gameState", stateJson);
 
         // 自分の情報
-        Player currentPlayer = game.getCurrentPlayer();
         JsonObject selfJson = new JsonObject();
-        selfJson.addProperty("id", currentPlayer.getUserID());
-        selfJson.addProperty("bettingChips", currentPlayer.getBetChip());
-        selfJson.addProperty("chips", currentPlayer.getHaveChip());
+        selfJson.addProperty("id", self.getUserID());
+        selfJson.addProperty("bettingChips", self.getBetChip());
+        selfJson.addProperty("chips", self.getHaveChip());
         JsonArray selfSkillsArray = new JsonArray();
-        for (Integer skill : currentPlayer.getSkills()) {
+        for (Integer skill : self.getSkills()) {
             selfSkillsArray.add(skill);
         }
         selfJson.add("skills", selfSkillsArray);
         JsonArray handArray = new JsonArray();
-        for (Card card : currentPlayer.getHand()) {
+        for (Card card : self.getHand()) {
             handArray.add(card.toString()); // カードの情報を文字列化
         }
         selfJson.add("hand", handArray);

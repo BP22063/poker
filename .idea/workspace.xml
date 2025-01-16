@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Merge remote-tracking branch 'origin/develop' into develop&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/example/Main.java">
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Game、Dealer、Actionにおいて正しくgameが進行するように修正">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1736756789633</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Game、Dealer、Actionにおいて正しくgameが進行するように修正">
+      <created>1736759517575</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1736759517575</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,7 +325,8 @@
     <MESSAGE value="Gameの流れを実装しました。" />
     <MESSAGE value="アクションとフェーズ管理の修正" />
     <MESSAGE value="Merge remote-tracking branch 'origin/develop' into develop&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/example/Main.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/develop' into develop&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/example/Main.java" />
+    <MESSAGE value="Game、Dealer、Actionにおいて正しくgameが進行するように修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game、Dealer、Actionにおいて正しくgameが進行するように修正" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
