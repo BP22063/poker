@@ -199,7 +199,7 @@ public class PokerWebSocketServer {
         // 他プレイヤーの情報
         JsonArray othersArray = new JsonArray();
         for (Player player : game.getPlayers()) {
-            if (player != game.getCurrentPlayer()) {
+            if (player != self) {
                 JsonObject otherJson = new JsonObject();
                 otherJson.addProperty("id", player.getUserID());
                 otherJson.addProperty("chips", player.getHaveChip());
