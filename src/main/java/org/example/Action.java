@@ -46,12 +46,15 @@ public class Action {
             dealer.totalFieldBetChip += callAmount;
             System.out.println(player.getName() + " calls " + dealer.fieldBetChip + " chips.");
         } else {
-            System.out.println(player.getName() + " does not have enough chips to call.");
+            // all in
+            player.setBetChip(player.getBetChip()+player.getHaveChip());
+            player.setHaveChip(0);
+            System.out.println(player.getName() + " all in ");
         }
     }
 
     public void executeDrop(Player player) {
-        player.setisInRound(false);
+        player.setIsInRound(false);
         player.setRolePoint(0);
         System.out.println(player.getName() + " folds.");
     }

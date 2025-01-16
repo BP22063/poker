@@ -1,0 +1,9 @@
+<changelist name="リベース_前の未コミットの変更_[変更]2" date="1736916439467" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]2/shelved.patch" />
+  <option name="DESCRIPTION" value="リベース 前の未コミットの変更 [変更]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/AllTests.class" />
+    <option name="AFTER_PATH" value="target/test-classes/AllTests.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/リベース_前の未コミットの変更_[変更]2/AllTests.class" />
+  </binary>
+</changelist>

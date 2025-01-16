@@ -1,12 +1,10 @@
 package org.example;
 
-import java.lang.reflect.Type;
 import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 
 public class Game {
 
@@ -24,6 +22,7 @@ public class Game {
     private GameState currentGameState;
     private Player raisingPlayer = null;
 
+    public ArrayList<String> skillLogs = new ArrayList<>();
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -110,7 +109,7 @@ public class Game {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
 
         // 次のプレイヤーにターン開始を通知
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
 
@@ -214,7 +213,7 @@ public class Game {
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
     public void handleAction(int userID, int actionNumber, int betChip) {
@@ -227,7 +226,8 @@ public class Game {
 
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
-        webSocketServer.broadcast("actionResult", currentPlayer.getName() + " performed action " + actionNumber);
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
+        webSocketServer.broadcast("log", currentPlayer.getName() + " performed action " + actionNumber);
         // 更新情報を送信
         for (Player player : this.players){
             webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
@@ -289,7 +289,7 @@ public class Game {
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
 
@@ -300,7 +300,7 @@ public class Game {
         currentPlayerIndex = 0;
 
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
     public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
@@ -312,7 +312,12 @@ public class Game {
         }
 
         // カード交換処理
+        for (Integer cardIndex : exchangeCardIndex){
+            webSocketServer.broadcast("log", currentPlayer.getName() + "exchanged" + currentPlayer.getHand().get(cardIndex).toString());
+        }
         dealer.changeHand(userID, exchangeCardIndex);
+
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.sendToPlayer(currentPlayer, "updateHand", gson.toJson(currentPlayer.hand));
 
         // 更新情報を送信
@@ -335,11 +340,13 @@ public class Game {
         currentPlayerIndex = 0;
 
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
-    public void handleSkillUse(int userID, Object... args) {
+    public void handleSkillUse(int userID,String log, Object... args) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         //currentPlayer.flag_skill = 1;
+
+        skillLogs.add(log);
 
         if (currentPlayer.getUserID() != userID) {
             webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
@@ -348,7 +355,8 @@ public class Game {
 
         // スキル使用処理
         dealer.adaptSkill(currentPlayer, args);
-        dealer.useSkills();
+
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.broadcast("skillUsed", currentPlayer.getName() + " used a skill.");
 
         // 更新情報を送信
@@ -358,6 +366,10 @@ public class Game {
 
         // 次のプレイヤーに進むかフェーズ終了
         if (currentPlayerIndex == playersInRound.size() - 1) {
+            dealer.useSkills();
+            for(String l : skillLogs) {
+                webSocketServer.broadcast("log",l );
+            }
             startPhase5();
         } else {
             moveToNextPlayer();
@@ -370,7 +382,7 @@ public class Game {
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-        webSocketServer.sendToPlayer(currentPlayer, "currentTurn", "It's your turn!");
+        webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
 
@@ -410,7 +422,7 @@ public class Game {
 
     private boolean allPlayersActed() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.flag_action == 0) {
+            if (player.getIsInRound() && player.flag_action == 0) {
                 return false; // まだアクションしていないプレイヤーがいる
             }
         }
@@ -419,7 +431,7 @@ public class Game {
 
     private boolean allPlayersExchanged() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.flag_exchangeCard == 0) {
+            if (player.getIsInRound() && player.flag_exchangeCard == 0) {
                 return false; // 交換が完了していないプレイヤーがいる
             }
         }
@@ -430,7 +442,7 @@ public class Game {
 
     private boolean allPlayersSelectedSkill() {
         for (Player player : dealer.getPlayers()) {
-            if (player.isInRound() && player.getSkills().isEmpty()) {
+            if (player.getIsInRound() && player.getSkills().isEmpty()) {
                 return false; // スキル選択が完了していないプレイヤーがいる
             }
         }
@@ -443,4 +455,7 @@ public class Game {
     }
 
 
+    public Player getPlayer(int userID){
+        return dealer.getUserByID(userID);
+    }
 }

@@ -37,10 +37,6 @@ public class Skill_exchangingHandsAgain{
             for(int cardIndex : cardIndexList) {
                 dealer.changeCard(player.getUserID(), cardIndex);
             }
-
-        System.out.println("/n交換");
-        player.showHand_player();
-
     }
 
 }

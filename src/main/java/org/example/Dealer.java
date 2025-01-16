@@ -151,10 +151,13 @@ public class Dealer {
 
     public void adaptSkill(Player player, Object... args) {
         if (args.length == 0) {
-            adaptSkill(player);
+            //スキルを使用しない
 
         } else if (args.length == 1) {
-            if (args[0] instanceof String) {
+            if(args[0] instanceof Double){
+                adaptSkill(player,(Double) args[0]);
+
+            } else if (args[0] instanceof String) {
                 adaptSkill(player, (String) args[0]);
 
             } else if (args[0] instanceof Integer) {
@@ -171,7 +174,7 @@ public class Dealer {
 
 
     // スキルの情報に応じてインスタンスを生成
-    private void adaptSkill(Player player){
+    private void adaptSkill(Player player,Double tmp){
         player.removeSkill(0);
         this.skills_disableSkill.add(new Skill_disableSkill());
     }
@@ -204,7 +207,7 @@ public class Dealer {
                 for ( Skill_disableHand skill : skills_disableHand ){
                     //skill.useSkill_disableHand(); // 不要
                     this.disableHands.add(skill.getDisableHand());
-                    System.out.println("無効："+disableHands);
+                    //System.out.println("無効："+disableHands);
                 }
             }
 
@@ -429,6 +432,8 @@ public class Dealer {
                 return 2;
             case "high card":
                 return 1;
+            case "Drop":
+                return 0;
         }
 
         return 0;

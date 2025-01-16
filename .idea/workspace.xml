@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="Game、Dealer、Actionにおいて正しくgameが進行するように修正">
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="テスト結果の出力用クラスを作成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resultsMagager/CsvExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resultsMagager/CsvExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resultsMagager/CustomTestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resultsMagager/CustomTestListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CsvExporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CsvExporter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener$TestResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener$TestResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test-results.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-results.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-results.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +29,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="Game" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,21 +56,20 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/14488/Downloads/WebSocketServer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Neko/Desktop/WebSocketServer&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム/poker/src/main/java/org/example/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;プロジェクト&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="アプリケーション.WebSocketServerLauncher">
-    <configuration name="RoleControl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.RoleControl" />
+  <component name="RunManager" selected="アプリケーション.TestRunner">
+    <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="resultsMagager.TestRunner" />
       <module name="poker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="resultsMagager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,6 +90,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AllTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="poker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="resultsMagager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="resultsMagager" />
+      <option name="MAIN_CLASS_NAME" value="resultsMagager.AllTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RoleControlTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="poker" />
       <option name="PACKAGE_NAME" value="" />
@@ -93,21 +114,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoleControlTest.test_onePair" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RoleControlTest.test_handSizeError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="poker" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RoleControlTest" />
-      <option name="METHOD_NAME" value="test_onePair" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoleControlTest.test_straightFlush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="poker" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RoleControlTest" />
-      <option name="METHOD_NAME" value="test_straightFlush" />
+      <option name="METHOD_NAME" value="test_handSizeError" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -115,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.WebSocketServerLauncher" />
+        <item itemvalue="アプリケーション.TestRunner" />
+        <item itemvalue="JUnit.AllTests" />
         <item itemvalue="JUnit.RoleControlTest" />
-        <item itemvalue="JUnit.RoleControlTest.test_straightFlush" />
-        <item itemvalue="JUnit.RoleControlTest.test_onePair" />
-        <item itemvalue="アプリケーション.RoleControl" />
+        <item itemvalue="JUnit.RoleControlTest.test_handSizeError" />
+        <item itemvalue="アプリケーション.WebSocketServerLauncher" />
       </list>
     </recent_temporary>
   </component>
@@ -224,82 +235,25 @@
       <option name="project" value="LOCAL" />
       <updated>1736312985232</updated>
     </task>
-    <task id="LOCAL-00013" summary="コミット">
-      <option name="closed" value="true" />
-      <created>1736328657832</created>
+    <task id="LOCAL-00013" summary="通信すり合わせ">
+      <created>1736918203376</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1736328657832</updated>
+      <updated>1736918203376</updated>
     </task>
-    <task id="LOCAL-00014" summary="Gameの流れを実装しました。">
-      <created>1736354953312</created>
+    <task id="LOCAL-00014" summary="テスト結果の出力用クラスを作成">
+      <option name="closed" value="true" />
+      <created>1736920343845</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1736354953312</updated>
+      <updated>1736920343845</updated>
     </task>
-    <task id="LOCAL-00015" summary="Gameの流れを実装しました。">
-      <created>1736400712624</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1736400712624</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Gameの流れを実装しました。">
-      <created>1736400716347</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1736400716347</updated>
-    </task>
-    <task id="LOCAL-00017" summary="アクションとフェーズ管理の修正">
-      <created>1736749808659</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1736749808659</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Merge remote-tracking branch 'origin/develop' into develop&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/example/Main.java">
-      <created>1736752155213</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1736752155213</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Merge remote-tracking branch 'origin/develop' into develop&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/example/Main.java">
-      <created>1736756789633</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1736756789633</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Game、Dealer、Actionにおいて正しくgameが進行するように修正">
-      <created>1736759517575</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1736759517575</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Game" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -321,14 +275,16 @@
     <MESSAGE value="Skill_handSwapの実装" />
     <MESSAGE value="DealerとPlayerでスキル配布(provideSkill)の実装" />
     <MESSAGE value="WebSocketServer" />
-    <MESSAGE value="コミット" />
-    <MESSAGE value="Gameの流れを実装しました。" />
-    <MESSAGE value="アクションとフェーズ管理の修正" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/develop' into develop&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/example/Main.java" />
-    <MESSAGE value="Game、Dealer、Actionにおいて正しくgameが進行するように修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game、Dealer、Actionにおいて正しくgameが進行するように修正" />
+    <MESSAGE value="通信すり合わせ" />
+    <MESSAGE value="テスト結果の出力用クラスを作成" />
+    <option name="LAST_COMMIT_MESSAGE" value="テスト結果の出力用クラスを作成" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$PlayerTest_test_initialState.ic" NAME="PlayerTest.test_initialState のカバレッジ結果" MODIFIED="1736827783891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324677895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

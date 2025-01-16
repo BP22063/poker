@@ -96,7 +96,7 @@ public class ActionTest {
     void testExecuteDrop() {
         action.executeDrop(player);
 
-        assertFalse(player.isInRound(), "Player should no longer be in the round after dropping.");
+        assertFalse(player.getIsInRound(), "Player should no longer be in the round after dropping.");
     }
 
     @Test
