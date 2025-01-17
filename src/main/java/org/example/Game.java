@@ -287,7 +287,20 @@ public class Game {
                 break;
             }
 
-            case 2: {
+            case 2:
+                if (actionNumber == 0) {
+                    bettingTimes = 3;
+                    startPhase2();
+                } else {
+                    if (currentPlayerIndex == 3) {
+                        endRound();
+                    } else {
+                        moveToNextPlayer();
+                    }
+                }
+                break;
+
+            case 3: {
                 int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
                 Player nextPlayer = playersInRound.get(nextPlayerIndex);
 
@@ -413,7 +426,7 @@ public class Game {
     }
     public void startPhase5() {
         updateGameState(GameState.RAISE_CALL_FOLD);
-        webSocketServer.broadcast("startPhase5", "Phase 5: Raise, Call, or Fold.");
+        webSocketServer.broadcast("startPhase5", "Phase 2: Bet or Pass");
         currentPlayerIndex = 0;
 
         // 最初のプレイヤーにターンを開始

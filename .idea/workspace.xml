@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="PlayersInRoundの修正" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="currentPlayerIndex修正">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -384,7 +386,42 @@
       <option name="project" value="LOCAL" />
       <updated>1737131534880</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="PlayersInRoundの修正">
+      <created>1737131852858</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131852858</updated>
+    </task>
+    <task id="LOCAL-00037" summary="サーバログ">
+      <created>1737132026454</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132026454</updated>
+    </task>
+    <task id="LOCAL-00038" summary="サーバログ">
+      <created>1737132093728</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132093728</updated>
+    </task>
+    <task id="LOCAL-00039" summary="サーバログ">
+      <created>1737132333379</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132333379</updated>
+    </task>
+    <task id="LOCAL-00040" summary="currentPlayerIndex修正">
+      <created>1737132888874</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132888874</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,7 +450,6 @@
     <MESSAGE value="テスト結果の出力用クラスを作成" />
     <MESSAGE value="通信修正" />
     <MESSAGE value="レイズコールフォールド修正" />
-    <MESSAGE value="サーバログ" />
     <MESSAGE value="連続callで次のフェーズに移行するように変更" />
     <MESSAGE value="サーバログ変更" />
     <MESSAGE value="call" />
@@ -421,7 +457,9 @@
     <MESSAGE value="playersInRoundを更新するように修正" />
     <MESSAGE value="ちゃんとエラー吐くように" />
     <MESSAGE value="PlayersInRoundの修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="PlayersInRoundの修正" />
+    <MESSAGE value="サーバログ" />
+    <MESSAGE value="currentPlayerIndex修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="currentPlayerIndex修正" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
