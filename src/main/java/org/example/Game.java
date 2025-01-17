@@ -231,6 +231,7 @@ public class Game {
 
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
+        refreshPlayersInRound(playersInRound);
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.broadcast("log", currentPlayer.getName() + " performed action " + actionNumber);
         // 更新情報を送信
@@ -479,6 +480,14 @@ public class Game {
 
     public Dealer getDealer() {
         return dealer; // 現在のDealerを返す
+    }
+
+    public void refreshPlayersInRound(List<Player> playersInRound){
+        for (Player player : playersInRound){
+            if (!player.getIsInRound()){
+                playersInRound.remove(player);
+            }
+        }
     }
 
 
