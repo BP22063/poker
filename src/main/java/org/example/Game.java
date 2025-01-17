@@ -238,38 +238,42 @@ public class Game {
         }
 
         if (bettingTimes == 2){
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+            int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
+            Player nextPlayer = playersInRound.get(nextPlayerIndex);
+            if (nextPlayer == raisingPlayer && actionNumber != 2) {
                 endRound();
                 this.bettingTimes = 0;
                 raisingPlayer = null;
             }
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+            if (nextPlayer == raisingPlayer && actionNumber == 2) {
                 raisingPlayer = currentPlayer;
                 moveToNextPlayer();
             }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+            if (nextPlayer != raisingPlayer && actionNumber != 2) {
                 moveToNextPlayer();
             }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+            if (nextPlayer != raisingPlayer && actionNumber == 2) {
                 raisingPlayer = currentPlayer;
                 moveToNextPlayer();
             }
         }
 
         if (bettingTimes == 1) {
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+            int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
+            Player nextPlayer = playersInRound.get(nextPlayerIndex);
+            if (nextPlayer == raisingPlayer && actionNumber != 2) {
                 startPhase3();
                 this.bettingTimes = 2;
                 raisingPlayer = null;
             }
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+            if (nextPlayer == raisingPlayer && actionNumber == 2) {
                 raisingPlayer = currentPlayer;
                 moveToNextPlayer();
             }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+            if (nextPlayer != raisingPlayer && actionNumber != 2) {
                 moveToNextPlayer();
             }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+            if (nextPlayer != raisingPlayer && actionNumber == 2) {
                 raisingPlayer = currentPlayer;
                 moveToNextPlayer();
             }
