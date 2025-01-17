@@ -23,6 +23,7 @@ public class Game {
     private Player raisingPlayer = null;
 
     public ArrayList<String> skillLogs = new ArrayList<>();
+    private int continuousCallTimes = 0;
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -222,7 +223,6 @@ public class Game {
 
     public void handleAction(int userID, int actionNumber, int betChip) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-
         if (currentPlayer.getUserID() != userID) {
             webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
             return;
@@ -240,8 +240,14 @@ public class Game {
         if (bettingTimes == 2){
             int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
             Player nextPlayer = playersInRound.get(nextPlayerIndex);
-            if (nextPlayer == raisingPlayer && actionNumber != 2) {
+            if (actionNumber == 3) {
+                continuousCallTimes++;
+            } else {
+                continuousCallTimes = 0;
+            }
+            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()) {
                 endRound();
+                continuousCallTimes = 0;
                 this.bettingTimes = 0;
                 raisingPlayer = null;
             }
@@ -261,8 +267,14 @@ public class Game {
         if (bettingTimes == 1) {
             int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
             Player nextPlayer = playersInRound.get(nextPlayerIndex);
-            if (nextPlayer == raisingPlayer && actionNumber != 2) {
+            if (actionNumber == 3) {
+                continuousCallTimes++;
+            } else {
+                continuousCallTimes = 0;
+            }
+            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()) {
                 startPhase3();
+                continuousCallTimes = 0;
                 this.bettingTimes = 2;
                 raisingPlayer = null;
             }
