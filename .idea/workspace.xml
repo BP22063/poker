@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="ちゃんとエラー吐くように">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
-    </list>
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="PlayersInRoundの修正" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -365,7 +363,28 @@
       <option name="project" value="LOCAL" />
       <updated>1737131084860</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="ちゃんとエラー吐くように">
+      <created>1737131263335</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131263335</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ちゃんとエラー吐くように">
+      <created>1737131308372</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131308372</updated>
+    </task>
+    <task id="LOCAL-00035" summary="PlayersInRoundの修正">
+      <created>1737131534880</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131534880</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -401,7 +420,8 @@
     <MESSAGE value="handleAction修正" />
     <MESSAGE value="playersInRoundを更新するように修正" />
     <MESSAGE value="ちゃんとエラー吐くように" />
-    <option name="LAST_COMMIT_MESSAGE" value="ちゃんとエラー吐くように" />
+    <MESSAGE value="PlayersInRoundの修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="PlayersInRoundの修正" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

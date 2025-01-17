@@ -231,7 +231,7 @@ public class Game {
 
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
-        playersInRound.removeIf(player -> player.getIsInRound() == false);
+        playersInRound.removeIf(player -> !player.getIsInRound());
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.broadcast("log", currentPlayer.getName() + " performed action " + actionNumber);
         // 更新情報を送信
