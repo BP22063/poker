@@ -126,6 +126,7 @@ public class Dealer {
     }
     //手札の中から交換したいカードを交換
     public void changeHand(int userID,ArrayList<Integer> exchangeCardIndex){
+        System.out.println(userID + " changed hand.");
         for(int index:exchangeCardIndex){
             changeCard(userID,index);
         }

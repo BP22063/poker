@@ -320,7 +320,6 @@ public class Game {
     public void startPhase3() {
         updateGameState(GameState.EXCHANGE_HAND);
         webSocketServer.broadcast("startPhase3", "Phase 3: Exchange cards.");
-        playersInRound = new ArrayList<>(players); // 全員が対象
         currentPlayerIndex = 0;
 
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
@@ -329,7 +328,7 @@ public class Game {
 
     public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-
+        System.out.println("current player ID: " + currentPlayer.getUserID());
         if (currentPlayer.getUserID() != userID) {
             webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
             return;
@@ -340,7 +339,6 @@ public class Game {
             webSocketServer.broadcast("log", currentPlayer.getName() + "exchanged" + currentPlayer.getHand().get(cardIndex).toString());
         }
         dealer.changeHand(userID, exchangeCardIndex);
-
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
         webSocketServer.sendToPlayer(currentPlayer, "updateHand", gson.toJson(currentPlayer.hand));
 
