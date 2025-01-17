@@ -231,6 +231,9 @@ public class Game {
 
         // アクションを処理
         dealer.performAction(userID, actionNumber, betChip);
+        if (actionNumber == 4) {
+            currentPlayerIndex--;
+        }
         playersInRound.removeIf(player -> !player.getIsInRound());
         System.out.println("playersInRound(number): " + playersInRound.size());
         System.out.println("playersInRound(name): ");
