@@ -258,6 +258,8 @@ public class Game {
 
                 if (actionNumber == 3) {
                     continuousCallTimes++;
+                } else if (actionNumber == 4) {
+                    continuousCallTimes = continuousCallTimes;
                 } else {
                     continuousCallTimes = 0;
                 }
@@ -282,6 +284,8 @@ public class Game {
 
                 if (actionNumber == 3) {
                     continuousCallTimes++;
+                } else if (actionNumber == 4) {
+                    continuousCallTimes = continuousCallTimes;
                 } else {
                     continuousCallTimes = 0;
                 }
