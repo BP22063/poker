@@ -66,7 +66,7 @@ public class PokerWebSocketServer {
 
     private void handleRegistration(Session session, JsonObject json) {
         String name = json.get("name").getAsString();
-        int userID = json.get("useID").getAsInt();
+        int userID = json.get("userID").getAsInt();
         Player player = new Player(userID, name);
         playerSessions.put(session, player);
         System.out.println("Player " + name + " registered.");
