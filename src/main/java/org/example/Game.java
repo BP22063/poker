@@ -107,6 +107,7 @@ public class Game {
 
 
     private void moveToNextPlayer() {
+        System.out.println("moved to next player.");
         currentPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size();
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
 
@@ -237,72 +238,72 @@ public class Game {
             webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
         }
 
-        if (bettingTimes == 2){
-            int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
-            Player nextPlayer = playersInRound.get(nextPlayerIndex);
-            if (actionNumber == 3) {
-                continuousCallTimes++;
-            } else {
-                continuousCallTimes = 0;
-            }
-            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size() - 1) {
-                endRound();
-                continuousCallTimes = 0;
-                this.bettingTimes = 0;
-                raisingPlayer = null;
-            }
-            if (nextPlayer == raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-            if (nextPlayer != raisingPlayer && actionNumber != 2) {
-                moveToNextPlayer();
-            }
-            if (nextPlayer != raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-        }
+        switch (bettingTimes) {
+            case 0:
+                if (actionNumber == 0) {
+                    bettingTimes++;
+                    startPhase2();
+                } else {
+                    if (currentPlayerIndex == 3) {
+                        endRound();
+                    } else {
+                        moveToNextPlayer();
+                    }
+                }
+                break;
 
-        if (bettingTimes == 1) {
-            int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
-            Player nextPlayer = playersInRound.get(nextPlayerIndex);
-            if (actionNumber == 3) {
-                continuousCallTimes++;
-            } else {
-                continuousCallTimes = 0;
-            }
-            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size() - 1) {
-                startPhase3();
-                continuousCallTimes = 0;
-                this.bettingTimes = 2;
-                raisingPlayer = null;
-            }
-            if (nextPlayer == raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-            if (nextPlayer != raisingPlayer && actionNumber != 2) {
-                moveToNextPlayer();
-            }
-            if (nextPlayer != raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-        }
+            case 1: {
+                int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
+                Player nextPlayer = playersInRound.get(nextPlayerIndex);
 
-        if (bettingTimes == 0) {
-            if (actionNumber == 0) {
-                bettingTimes++;
-                startPhase2();
-            } else {
-                if(currentPlayerIndex == 3){
-                    endRound();
-                }else {
+                if (actionNumber == 3) {
+                    continuousCallTimes++;
+                } else {
+                    continuousCallTimes = 0;
+                }
+
+                if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size() - 1) {
+                    startPhase3();
+                    continuousCallTimes = 0;
+                    bettingTimes = 2;
+                    raisingPlayer = null;
+                } else if (nextPlayer == raisingPlayer && actionNumber == 2) {
+                    raisingPlayer = currentPlayer;
+                    moveToNextPlayer();
+                } else {
                     moveToNextPlayer();
                 }
+                break;
             }
+
+            case 2: {
+                int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
+                Player nextPlayer = playersInRound.get(nextPlayerIndex);
+
+                if (actionNumber == 3) {
+                    continuousCallTimes++;
+                } else {
+                    continuousCallTimes = 0;
+                }
+
+                if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size() - 1) {
+                    endRound();
+                    continuousCallTimes = 0;
+                    bettingTimes = 0;
+                    raisingPlayer = null;
+                } else if (nextPlayer == raisingPlayer && actionNumber == 2) {
+                    raisingPlayer = currentPlayer;
+                    moveToNextPlayer();
+                } else {
+                    moveToNextPlayer();
+                }
+                break;
+            }
+
+            default:
+                throw new IllegalStateException("Unexpected bettingTimes value: " + bettingTimes);
         }
+
     }
 
 
