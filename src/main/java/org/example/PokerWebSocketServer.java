@@ -61,7 +61,8 @@ public class PokerWebSocketServer {
 
     @OnError
     public void onError(jakarta.websocket.Session session, Throwable error) {
-        System.out.println("[WebSocketServerSample] onError:" + session.getId());
+        System.err.println("[WebSocketServerSample] onError:" + session.getId());
+        error.printStackTrace(); // スタックトレースを出力
     }
 
 

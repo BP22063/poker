@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="handleAction修正" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="playersInRoundを更新するように修正" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -349,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1737130489676</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="playersInRoundを更新するように修正">
+      <created>1737130895786</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1737130895786</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -383,7 +390,8 @@
     <MESSAGE value="サーバログ変更" />
     <MESSAGE value="call" />
     <MESSAGE value="handleAction修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="handleAction修正" />
+    <MESSAGE value="playersInRoundを更新するように修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="playersInRoundを更新するように修正" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
