@@ -115,37 +115,40 @@ public class Game {
 
 
     private void endRound() {
-        // 勝者を決定
-        List<Player> winners = dealer.decideWinner();
+        //４人パスだとおそらくbettingTimesは0のまま
+        if(bettingTimes != 0) {
+            // 勝者を決定
+            List<Player> winners = dealer.decideWinner();
 
-        // ラウンド結果を生成
-        JsonArray roundResults = new JsonArray();
-        for (Player player : players) {
-            JsonObject playerResult = new JsonObject();
-            playerResult.addProperty("name", player.getName());
-            playerResult.addProperty("hand", player.getHandAsString()); // 手札を文字列化して送信
-            playerResult.addProperty("role", dealer.getRoleName(player.getRolePoint())); // プレイヤーの役
-            roundResults.add(playerResult);
-        }
+            // ラウンド結果を生成
+            JsonArray roundResults = new JsonArray();
+            for (Player player : players) {
+                JsonObject playerResult = new JsonObject();
+                playerResult.addProperty("name", player.getName());
+                playerResult.addProperty("hand", player.getHandAsString()); // 手札を文字列化して送信
+                playerResult.addProperty("role", dealer.getRoleName(player.getRolePoint())); // プレイヤーの役
+                roundResults.add(playerResult);
+            }
 
-        // 勝者情報を付加
-        JsonArray winnerArray = new JsonArray();
-        for (Player winner : winners) {
-            winnerArray.add(winner.getName());
-        }
+            // 勝者情報を付加
+            JsonArray winnerArray = new JsonArray();
+            for (Player winner : winners) {
+                winnerArray.add(winner.getName());
+            }
 
-        JsonObject roundSummary = new JsonObject();
-        roundSummary.addProperty("action", "roundresults");
-        roundSummary.add("results", roundResults);
-        roundSummary.add("winners", winnerArray);
+            JsonObject roundSummary = new JsonObject();
+            roundSummary.addProperty("action", "roundresults");
+            roundSummary.add("results", roundResults);
+            roundSummary.add("winners", winnerArray);
 
-        // 結果を全クライアントにブロードキャスト
-        webSocketServer.broadcast("roundresults", roundSummary.toString());
+            // 結果を全クライアントにブロードキャスト
+            webSocketServer.broadcast("roundresults", roundSummary.toString());
 
-        // ポットを分配（同点の場合、均等に分ける）
-        int share = dealer.totalFieldBetChip / winners.size();
-        for (Player winner : winners) {
-            winner.addChips(share);
+            // ポットを分配（同点の場合、均等に分ける）
+            int share = dealer.totalFieldBetChip / winners.size();
+            for (Player winner : winners) {
+                winner.addChips(share);
+            }
         }
         dealer.fieldBetChip = 0;
 
@@ -234,22 +237,16 @@ public class Game {
             webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
         }
 
-        if (bettingTimes == 2){
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
-                endRound();
-                this.bettingTimes = 0;
-                raisingPlayer = null;
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
+        if (bettingTimes == 0) {
+            if (actionNumber == 0) {
+                bettingTimes++;
+                startPhase2();
+            } else {
+                if(currentPlayerIndex == 3){
+                    endRound();
+                }else {
+                    moveToNextPlayer();
+                }
             }
         }
 
@@ -272,15 +269,24 @@ public class Game {
             }
         }
 
-        if (bettingTimes == 0) {
-            if (actionNumber == 0) {
-                bettingTimes++;
-                startPhase2();
-            } else {
+        if (bettingTimes == 2){
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+                endRound();
+                this.bettingTimes = 0;
+                raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
                 moveToNextPlayer();
             }
         }
-
     }
 
 
