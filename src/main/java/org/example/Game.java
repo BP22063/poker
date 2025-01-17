@@ -293,7 +293,7 @@ public class Game {
     public void startPhase2() {
         updateGameState(GameState.RAISE_CALL_FOLD);
         webSocketServer.broadcast("startPhase2", "Phase 2: Raise, Call, or Fold.");
-        currentPlayerIndex = currentPlayerIndex + 1;//ここは親からではなく、最初にベットした人の次になるはず
+        currentPlayerIndex = (currentPlayerIndex + 1) % 4;//ここは親からではなく、最初にベットした人の次になるはず
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
