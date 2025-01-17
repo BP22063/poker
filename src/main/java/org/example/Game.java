@@ -482,7 +482,7 @@ public class Game {
         return dealer; // 現在のDealerを返す
     }
 
-    public void refreshPlayersInRound(List<Player> playersInRound){
+    public void refreshPlayersInRound(ArrayList<Player> playersInRound){
         for (Player player : playersInRound){
             if (!player.getIsInRound()){
                 playersInRound.remove(player);
