@@ -245,7 +245,7 @@ public class Game {
             } else {
                 continuousCallTimes = 0;
             }
-            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()-1) {
+            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()) {
                 endRound();
                 continuousCallTimes = 0;
                 this.bettingTimes = 0;
@@ -272,7 +272,7 @@ public class Game {
             } else {
                 continuousCallTimes = 0;
             }
-            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()-1) {
+            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()) {
                 startPhase3();
                 continuousCallTimes = 0;
                 this.bettingTimes = 2;
