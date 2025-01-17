@@ -234,11 +234,21 @@ public class Game {
             webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
         }
 
-        if (bettingTimes == 0) {
-            if (actionNumber == 0) {
-                bettingTimes++;
-                startPhase2();
-            } else {
+        if (bettingTimes == 2){
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
+                endRound();
+                this.bettingTimes = 0;
+                raisingPlayer = null;
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
                 moveToNextPlayer();
             }
         }
@@ -262,24 +272,15 @@ public class Game {
             }
         }
 
-        if (bettingTimes == 2){
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
-                endRound();
-                this.bettingTimes = 0;
-                raisingPlayer = null;
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
+        if (bettingTimes == 0) {
+            if (actionNumber == 0) {
+                bettingTimes++;
+                startPhase2();
+            } else {
                 moveToNextPlayer();
             }
         }
+
     }
 
 
