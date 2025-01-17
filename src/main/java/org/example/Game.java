@@ -425,7 +425,7 @@ public class Game {
         }
     }
     public void startPhase5() {
-        updateGameState(GameState.RAISE_CALL_FOLD);
+        updateGameState(GameState.BET_PASS);
         webSocketServer.broadcast("startPhase5", "Phase 2: Bet or Pass");
         currentPlayerIndex = 0;
 
