@@ -23,6 +23,7 @@ public class Game {
     private Player raisingPlayer = null;
 
     public ArrayList<String> skillLogs = new ArrayList<>();
+    private int continuousCallTimes = 0;
 
     public void setWebSocketServer(PokerWebSocketServer server) {
         this.webSocketServer = server;
@@ -222,7 +223,6 @@ public class Game {
 
     public void handleAction(int userID, int actionNumber, int betChip) {
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
-
         if (currentPlayer.getUserID() != userID) {
             webSocketServer.sendToPlayer(currentPlayer, "error", "Not your turn!");
             return;
@@ -237,6 +237,60 @@ public class Game {
             webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
         }
 
+        if (bettingTimes == 2){
+            int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
+            Player nextPlayer = playersInRound.get(nextPlayerIndex);
+            if (actionNumber == 3) {
+                continuousCallTimes++;
+            } else {
+                continuousCallTimes = 0;
+            }
+            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()) {
+                endRound();
+                continuousCallTimes = 0;
+                this.bettingTimes = 0;
+                raisingPlayer = null;
+            }
+            if (nextPlayer == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+            if (nextPlayer != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (nextPlayer != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+        }
+
+        if (bettingTimes == 1) {
+            int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
+            Player nextPlayer = playersInRound.get(nextPlayerIndex);
+            if (actionNumber == 3) {
+                continuousCallTimes++;
+            } else {
+                continuousCallTimes = 0;
+            }
+            if ((nextPlayer == raisingPlayer && actionNumber != 2) || continuousCallTimes == playersInRound.size()) {
+                startPhase3();
+                continuousCallTimes = 0;
+                this.bettingTimes = 2;
+                raisingPlayer = null;
+            }
+            if (nextPlayer == raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+            if (nextPlayer != raisingPlayer && actionNumber != 2) {
+                moveToNextPlayer();
+            }
+            if (nextPlayer != raisingPlayer && actionNumber == 2) {
+                raisingPlayer = currentPlayer;
+                moveToNextPlayer();
+            }
+        }
+
         if (bettingTimes == 0) {
             if (actionNumber == 0) {
                 bettingTimes++;
@@ -249,51 +303,13 @@ public class Game {
                 }
             }
         }
-
-        if (bettingTimes == 1) {
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
-                startPhase3();
-                this.bettingTimes = 2;
-                raisingPlayer = null;
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-        }
-
-        if (bettingTimes == 2){
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber != 2) {
-                endRound();
-                this.bettingTimes = 0;
-                raisingPlayer = null;
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) == raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber != 2) {
-                moveToNextPlayer();
-            }
-            if (playersInRound.get(currentPlayerIndex + 1) != raisingPlayer && actionNumber == 2) {
-                raisingPlayer = currentPlayer;
-                moveToNextPlayer();
-            }
-        }
     }
 
 
     public void startPhase2() {
         updateGameState(GameState.RAISE_CALL_FOLD);
         webSocketServer.broadcast("startPhase2", "Phase 2: Raise, Call, or Fold.");
-        currentPlayerIndex = currentPlayerIndex + 1;//ここは親からではなく、最初にベットした人の次になるはず
+        currentPlayerIndex = (currentPlayerIndex + 1) % 4;//ここは親からではなく、最初にベットした人の次になるはず
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);

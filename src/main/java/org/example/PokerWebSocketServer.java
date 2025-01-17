@@ -34,8 +34,10 @@ public class PokerWebSocketServer {
 
     @OnMessage
     public void onMessage(String message, Session session) {
+        System.out.println("have received a message.");
         JsonObject json = gson.fromJson(message, JsonObject.class);
         String action = json.get("action").getAsString();
+        System.out.println("Action: " + action);
 
         switch (action) {
             case "register":
@@ -66,7 +68,7 @@ public class PokerWebSocketServer {
 
     private void handleRegistration(Session session, JsonObject json) {
         String name = json.get("name").getAsString();
-        int userID = json.get("useID").getAsInt();
+        int userID = json.get("userID").getAsInt();
         Player player = new Player(userID, name);
         playerSessions.put(session, player);
         System.out.println("Player " + name + " registered.");

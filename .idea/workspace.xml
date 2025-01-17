@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="通信修正">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_28______.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/____9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
-    </list>
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="サーバログ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +24,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -258,7 +251,70 @@
       <option name="project" value="LOCAL" />
       <updated>1737041780023</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="通信修正">
+      <created>1737051021054</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1737051021054</updated>
+    </task>
+    <task id="LOCAL-00018" summary="通信修正">
+      <created>1737051276529</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1737051276529</updated>
+    </task>
+    <task id="LOCAL-00019" summary="レイズコールフォールド修正">
+      <created>1737099769493</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1737099769493</updated>
+    </task>
+    <task id="LOCAL-00020" summary="レイズコールフォールド修正">
+      <created>1737099967358</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1737099967358</updated>
+    </task>
+    <task id="LOCAL-00021" summary="レイズコールフォールド修正">
+      <created>1737100354185</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1737100354185</updated>
+    </task>
+    <task id="LOCAL-00022" summary="レイズコールフォールド修正">
+      <created>1737102865045</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1737102865045</updated>
+    </task>
+    <task id="LOCAL-00023" summary="レイズコールフォールド修正">
+      <created>1737103801479</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1737103801480</updated>
+    </task>
+    <task id="LOCAL-00024" summary="レイズコールフォールド修正">
+      <created>1737104365506</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1737104365506</updated>
+    </task>
+    <task id="LOCAL-00025" summary="サーバログ">
+      <created>1737104940036</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1737104940036</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,7 +342,9 @@
     <MESSAGE value="通信すり合わせ" />
     <MESSAGE value="テスト結果の出力用クラスを作成" />
     <MESSAGE value="通信修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="通信修正" />
+    <MESSAGE value="レイズコールフォールド修正" />
+    <MESSAGE value="サーバログ" />
+    <option name="LAST_COMMIT_MESSAGE" value="サーバログ" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
