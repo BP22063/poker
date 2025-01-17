@@ -425,8 +425,8 @@ public class Game {
         }
     }
     public void startPhase5() {
-        updateGameState(GameState.BET_PASS);
-        webSocketServer.broadcast("startPhase5", "Phase 2: Bet or Pass");
+        updateGameState(GameState.BET_CHECK);
+        webSocketServer.broadcast("startPhase5", "Phase 2: Bet or Check");
         currentPlayerIndex = 0;
 
         // 最初のプレイヤーにターンを開始
