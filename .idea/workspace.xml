@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="テスト結果の出力用クラスを作成">
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="通信修正">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_17_28______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____9.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resultsMagager/CsvExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resultsMagager/CsvExporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resultsMagager/CustomTestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resultsMagager/CustomTestListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CsvExporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CsvExporter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener$TestResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener$TestResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/resultsMagager/CustomTestListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test-results.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-results.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-results.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="アプリケーション.TestRunner">
+  <component name="RunManager" selected="JUnit.ActionTest.testExecuteCall_InsufficientChips">
     <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="resultsMagager.TestRunner" />
       <module name="poker" />
@@ -77,15 +74,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketServerLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.WebSocketServerLauncher" />
+    <configuration name="ActionTest.testExecuteCall_InsufficientChips" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="poker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ActionTest" />
+      <option name="METHOD_NAME" value="testExecuteCall_InsufficientChips" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ActionTest.testExecuteCall_InsufficientChips" />
         <item itemvalue="アプリケーション.TestRunner" />
         <item itemvalue="JUnit.AllTests" />
         <item itemvalue="JUnit.RoleControlTest" />
         <item itemvalue="JUnit.RoleControlTest.test_handSizeError" />
-        <item itemvalue="アプリケーション.WebSocketServerLauncher" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +244,21 @@
       <option name="project" value="LOCAL" />
       <updated>1736920343845</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="通信修正">
+      <created>1737036089497</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1737036089497</updated>
+    </task>
+    <task id="LOCAL-00016" summary="通信修正">
+      <created>1737041780023</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1737041780023</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,14 +285,15 @@
     <MESSAGE value="WebSocketServer" />
     <MESSAGE value="通信すり合わせ" />
     <MESSAGE value="テスト結果の出力用クラスを作成" />
-    <option name="LAST_COMMIT_MESSAGE" value="テスト結果の出力用クラスを作成" />
+    <MESSAGE value="通信修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="通信修正" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$PlayerTest_test_initialState.ic" NAME="PlayerTest.test_initialState のカバレッジ結果" MODIFIED="1736827783891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324677895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$PlayerTest_test_initialState.ic" NAME="PlayerTest.test_initialState のカバレッジ結果" MODIFIED="1736827783891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
