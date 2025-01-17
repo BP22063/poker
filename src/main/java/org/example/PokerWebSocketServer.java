@@ -34,8 +34,10 @@ public class PokerWebSocketServer {
 
     @OnMessage
     public void onMessage(String message, Session session) {
+        System.out.println("have received a message.");
         JsonObject json = gson.fromJson(message, JsonObject.class);
         String action = json.get("action").getAsString();
+        System.out.println("Action: " + action);
 
         switch (action) {
             case "register":
