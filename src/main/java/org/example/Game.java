@@ -204,7 +204,7 @@ public class Game {
 
         // フェーズ: START
         updateGameState(GameState.START);
-        webSocketServer.broadcast("roundStart", "Round " + roundNum + " has started.");
+        webSocketServer.broadcast("log", "Round " + roundNum + " has started.");
 
         // フェーズ: BET_PASS
         startPhase1();
@@ -240,8 +240,29 @@ public class Game {
         for (Player player : playersInRound) {
             System.out.println(player.getName());
         }
+        String action;
+        switch (actionNumber){
+            case 0:
+                action = "Bet";
+                break;
+            case 1:
+                action = "Pass";
+                break;
+            case 2:
+                action = "Raise";
+                break;
+            case 3:
+                action = "Call";
+                break;
+            case 4:
+                action = "Fold";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected actionNumber value: " + actionNumber);
+
+        }
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "your turn ended.");
-        webSocketServer.broadcast("log", currentPlayer.getName() + " performed action " + actionNumber);
+        webSocketServer.broadcast("log", currentPlayer.getName() + " performed action " + action);
         // 更新情報を送信
         for (Player player : this.players){
             webSocketServer.sendToPlayerGameStateWithDetails(player, currentGameState);
