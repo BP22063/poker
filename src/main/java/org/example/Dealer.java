@@ -126,6 +126,7 @@ public class Dealer {
     }
     //手札の中から交換したいカードを交換
     public void changeHand(int userID,ArrayList<Integer> exchangeCardIndex){
+        System.out.println(userID + " changed hand.");
         for(int index:exchangeCardIndex){
             changeCard(userID,index);
         }
@@ -138,6 +139,7 @@ public class Dealer {
             player.flag_exchangeCard = 0;
             player.flag_action = 0;
             //player.flag_skill = 0;
+            player.setIsInRound(true);
         }
     }
 

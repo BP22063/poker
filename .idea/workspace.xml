@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="サーバログ" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="BET_CHECK">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -314,7 +317,133 @@
       <option name="project" value="LOCAL" />
       <updated>1737104940036</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="連続callで次のフェーズに移行するように変更">
+      <created>1737105584484</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1737105584484</updated>
+    </task>
+    <task id="LOCAL-00027" summary="サーバログ変更">
+      <created>1737128912582</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1737128912582</updated>
+    </task>
+    <task id="LOCAL-00028" summary="call">
+      <created>1737128991182</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1737128991182</updated>
+    </task>
+    <task id="LOCAL-00029" summary="handleAction修正">
+      <created>1737130175754</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1737130175754</updated>
+    </task>
+    <task id="LOCAL-00030" summary="handleAction修正">
+      <created>1737130489676</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1737130489676</updated>
+    </task>
+    <task id="LOCAL-00031" summary="playersInRoundを更新するように修正">
+      <created>1737130895786</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1737130895786</updated>
+    </task>
+    <task id="LOCAL-00032" summary="ちゃんとエラー吐くように">
+      <created>1737131084860</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131084860</updated>
+    </task>
+    <task id="LOCAL-00033" summary="ちゃんとエラー吐くように">
+      <created>1737131263335</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131263335</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ちゃんとエラー吐くように">
+      <created>1737131308372</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131308372</updated>
+    </task>
+    <task id="LOCAL-00035" summary="PlayersInRoundの修正">
+      <created>1737131534880</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131534880</updated>
+    </task>
+    <task id="LOCAL-00036" summary="PlayersInRoundの修正">
+      <created>1737131852858</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1737131852858</updated>
+    </task>
+    <task id="LOCAL-00037" summary="サーバログ">
+      <created>1737132026454</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132026454</updated>
+    </task>
+    <task id="LOCAL-00038" summary="サーバログ">
+      <created>1737132093728</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132093728</updated>
+    </task>
+    <task id="LOCAL-00039" summary="サーバログ">
+      <created>1737132333379</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132333379</updated>
+    </task>
+    <task id="LOCAL-00040" summary="currentPlayerIndex修正">
+      <created>1737132888874</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1737132888874</updated>
+    </task>
+    <task id="LOCAL-00041" summary="スキル使用後">
+      <created>1737134156279</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1737134156279</updated>
+    </task>
+    <task id="LOCAL-00042" summary="スキル使用後">
+      <created>1737134271545</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1737134271545</updated>
+    </task>
+    <task id="LOCAL-00043" summary="BET_CHECK">
+      <created>1737134435835</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1737134435835</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,8 +472,18 @@
     <MESSAGE value="テスト結果の出力用クラスを作成" />
     <MESSAGE value="通信修正" />
     <MESSAGE value="レイズコールフォールド修正" />
+    <MESSAGE value="連続callで次のフェーズに移行するように変更" />
+    <MESSAGE value="サーバログ変更" />
+    <MESSAGE value="call" />
+    <MESSAGE value="handleAction修正" />
+    <MESSAGE value="playersInRoundを更新するように修正" />
+    <MESSAGE value="ちゃんとエラー吐くように" />
+    <MESSAGE value="PlayersInRoundの修正" />
     <MESSAGE value="サーバログ" />
-    <option name="LAST_COMMIT_MESSAGE" value="サーバログ" />
+    <MESSAGE value="currentPlayerIndex修正" />
+    <MESSAGE value="スキル使用後" />
+    <MESSAGE value="BET_CHECK" />
+    <option name="LAST_COMMIT_MESSAGE" value="BET_CHECK" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
