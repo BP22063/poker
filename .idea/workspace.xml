@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="データベースサーバへの書き込み">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="データベースサーバへの書き込み(修正)">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -451,7 +450,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737266364676</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="データベースサーバへの書き込み(修正)">
+      <option name="closed" value="true" />
+      <created>1737268414391</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1737268414391</updated>
+    </task>
+    <task id="LOCAL-00046" summary="データベースサーバへの書き込み(修正)">
+      <option name="closed" value="true" />
+      <created>1737268587106</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1737268587106</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,7 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RoleControlを編集" />
     <MESSAGE value="Dealerクラス(collectInitialChip,performAction)の実装&#10;Actionクラスの引数の変更" />
     <MESSAGE value="Gameクラスの追加、コンストラクタとgetterの設定" />
     <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
@@ -491,7 +505,8 @@
     <MESSAGE value="スキル使用後" />
     <MESSAGE value="BET_CHECK" />
     <MESSAGE value="データベースサーバへの書き込み" />
-    <option name="LAST_COMMIT_MESSAGE" value="データベースサーバへの書き込み" />
+    <MESSAGE value="データベースサーバへの書き込み(修正)" />
+    <option name="LAST_COMMIT_MESSAGE" value="データベースサーバへの書き込み(修正)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -564,6 +564,7 @@ public class Game {
             stmt.setInt(5, 0); // count3rd
             stmt.setInt(6, 0); // count4th
 
+            //順位ごとにそのカラムをインクリメント
             switch (rank) {
                 case 1: //1位
                     stmt.setInt(3, 1);
@@ -581,10 +582,11 @@ public class Game {
                     break;
             }
 
+            //クエリを実行
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace();//例外処理
         }
     }
 }
