@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="BET_CHECK">
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="データベースサーバへの書き込み">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
     </list>
@@ -443,7 +443,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737134435835</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="データベースサーバへの書き込み">
+      <option name="closed" value="true" />
+      <created>1737266364676</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1737266364676</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -458,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RoleControlを作成" />
     <MESSAGE value="RoleControlを編集" />
     <MESSAGE value="Dealerクラス(collectInitialChip,performAction)の実装&#10;Actionクラスの引数の変更" />
     <MESSAGE value="Gameクラスの追加、コンストラクタとgetterの設定" />
@@ -483,14 +490,15 @@
     <MESSAGE value="currentPlayerIndex修正" />
     <MESSAGE value="スキル使用後" />
     <MESSAGE value="BET_CHECK" />
-    <option name="LAST_COMMIT_MESSAGE" value="BET_CHECK" />
+    <MESSAGE value="データベースサーバへの書き込み" />
+    <option name="LAST_COMMIT_MESSAGE" value="データベースサーバへの書き込み" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$PlayerTest_test_initialState.ic" NAME="PlayerTest.test_initialState のカバレッジ結果" MODIFIED="1736827783891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

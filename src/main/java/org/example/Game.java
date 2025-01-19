@@ -543,25 +543,38 @@ public class Game {
         String USER = "group_a"; // ユーザー名
         String PASSWORD = "group_a"; // パスワード
 
-        String query = "INSERT INTO game_results (userName, userID, rank, rank, rank, rank) VALUES (userName, userID, count1st, count2nd, count3rd, count4th)";
+        String query = "INSERT INTO userinfo (userName, userID, count1st, count2nd, count3rd, count4th)"
+                + "VALUES (?, ?, ?, ?, ?, ?)"
+                + "ON DUPLICATE KEY UPDATE "
+                + "count1st = count1st + VALUES(count1st), "
+                + "count2nd = count2nd + VALUES(count2nd), "
+                + "count3rd = count3rd + VALUES(count3rd), "
+                + "count4th = count4th + VALUES(count4th)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, userName);
-            stmt.setInt(3, userID);
+            stmt.setInt(2, userID);
+
+            //count1st ～ count4th の初期値を0に設定
+            stmt.setInt(3, 0); // count1st
+            stmt.setInt(4, 0); // count2nd
+            stmt.setInt(5, 0); // count3rd
+            stmt.setInt(6, 0); // count4th
+
             switch (rank) {
                 case 1: //1位
-                    stmt.setInt(5, rank);
+                    stmt.setInt(3, 1);
                     break;
                 case 2: //2位
-                    stmt.setInt(6, rank);
+                    stmt.setInt(4, 1);
                     break;
                 case 3: //3位
-                    stmt.setInt(7, rank);
+                    stmt.setInt(5, 1);
                     break;
                 case 4: //4位
-                    stmt.setInt(8, rank);
+                    stmt.setInt(6, 1);
                     break;
                 default:
                     break;
