@@ -5,8 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="BET_CHECK">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_55______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_55______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_55______1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_10_55______1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_13_45______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_13_45______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_01______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_14_01______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_27______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_08_18_48______2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_09_21_38______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_09_21_38______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_18_23______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_12_18_23______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_14_11_00______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_14_11_00______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_14_15_03______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_14_15_03______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_11_07______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_15_11_07______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_13_45______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_15_13_45______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_13_46______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_15_13_46______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_14_50______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_15_14_50______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_14_50______2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_15_14_50______2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_14_51______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_15_14_51______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/____3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Game" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,6 +60,9 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2qSiPEBIfpachtsw28meUCnObta" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -56,7 +82,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ActionTest.testExecuteCall_InsufficientChips">
+  <component name="RunManager">
     <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="resultsMagager.TestRunner" />
       <module name="poker" />
@@ -486,11 +512,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="BET_CHECK" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$PlayerTest_test_initialState.ic" NAME="PlayerTest.test_initialState のカバレッジ結果" MODIFIED="1736827783891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

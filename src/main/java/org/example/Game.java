@@ -1,5 +1,9 @@
 package org.example;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.*;
 
 import com.google.gson.Gson;
@@ -179,6 +183,9 @@ public class Game {
             playerResult.addProperty("name", player.getName());
             playerResult.addProperty("chips", player.getHaveChip());
             gameResults.add(playerResult);
+
+            //データベースに書き込む
+            saveGameResultToDatabase(player.getName(), player.getUserID(), rank);
         }
 
         JsonObject gameSummary = new JsonObject();
@@ -529,4 +536,43 @@ public class Game {
     public Player getPlayer(int userID){
         return dealer.getUserByID(userID);
     }
+
+    private void saveGameResultToDatabase(String userName, int userID, int rank) {
+        String URL = "jdbc:mysql://sql.yamazaki.se.shibaura-it.ac.jp:13308/db_group_a"
+                + "?useUnicode=true&character_set_server=utf8mb4&useSSL=false"; // データベースURL
+        String USER = "group_a"; // ユーザー名
+        String PASSWORD = "group_a"; // パスワード
+
+        String query = "INSERT INTO game_results (player_name, rank) VALUES (userName, password, userID, totalMatch, count1st, count2nd, count3rd, count4th, loginState)";
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, userName);
+            stmt.setInt(3, userID);
+            switch (rank) {
+                case 1: //1位
+                    stmt.setInt(5, rank);
+                    break;
+                case 2: //2位
+                    stmt.setInt(6, rank);
+                    break;
+                case 3: //3位
+                    stmt.setInt(7, rank);
+                    break;
+                case 4: //4位
+                    stmt.setInt(8, rank);
+                    break;
+                default:
+                    break;
+            }
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
