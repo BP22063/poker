@@ -543,6 +543,7 @@ public class Game {
         String USER = "group_a"; // ユーザー名
         String PASSWORD = "group_a"; // パスワード
 
+        //該当カラムへ戦績更新
         String query = "INSERT INTO userinfo (userName, userID, count1st, count2nd, count3rd, count4th)"
                 + "VALUES (?, ?, ?, ?, ?, ?)"
                 + "ON DUPLICATE KEY UPDATE "
