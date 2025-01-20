@@ -8,6 +8,10 @@ import com.google.gson.Gson;
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -275,6 +279,85 @@ public class PokerWebSocketServer {
 
     public void notifyActionResult(Player player, String result) {
         broadcast("actionResult", player.getName() + " " + result);
+    }
+
+    // プレイヤーのゲーム結果を保存
+    private void saveGameResult(int userID, String userName, int rank) {
+        String URL = "jdbc:mysql://sql.yamazaki.se.shibaura-it.ac.jp:13308/db_group_a"
+                + "?useUnicode=true&character_set_server=utf8mb4&useSSL=false";
+        String USER = "group_a";
+        String PASSWORD = "group_a";
+
+        String query = "INSERT INTO userinfo (userName, userID, count1st, count2nd, count3rd, count4th) "
+                + "VALUES (?, ?, ?, ?, ?, ?) "
+                + "ON DUPLICATE KEY UPDATE "
+                + "count1st = count1st + VALUES(count1st), "
+                + "count2nd = count2nd + VALUES(count2nd), "
+                + "count3rd = count3rd + VALUES(count3rd), "
+                + "count4th = count4th + VALUES(count4th)";
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            // 初期値のセット
+            stmt.setString(1, userName);
+            stmt.setInt(2, userID);
+
+            // 全てのカラムを0で初期化
+            stmt.setInt(3, 0); // count1st
+            stmt.setInt(4, 0); // count2nd
+            stmt.setInt(5, 0); // count3rd
+            stmt.setInt(6, 0); // count4th
+
+            // rankに応じて特定のカラムを1に設定
+            switch (rank) {
+                case 1:
+                    stmt.setInt(3, 1); // count1st
+                    break;
+                case 2:
+                    stmt.setInt(4, 1); // count2nd
+                    break;
+                case 3:
+                    stmt.setInt(5, 1); // count3rd
+                    break;
+                case 4:
+                    stmt.setInt(6, 1); // count4th
+                    break;
+                default:
+                    System.err.println("無効なrank値: " + rank);
+                    return; // 処理を中断
+            }
+
+            // クエリを実行
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("Error saving game result to database: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // 他のメソッドにゲーム結果保存のロジックを統合
+    public void handleGameResult(Player player, int rank) {
+        try {
+            saveGameResult(player.getUserID(), player.getName(), rank);
+            broadcast("gameResult", "Player " + player.getName() + " rank updated!");
+        } catch (Exception e) {
+            System.err.println("Failed to update game result for player: " + player.getName());
+            e.printStackTrace();
+        }
+    }
+
+    // デバッグ用: 任意のエラーメッセージを送信
+    private void sendError(Session session, String errorMessage) {
+        try {
+            JsonObject json = new JsonObject();
+            json.addProperty("type", "error");
+            json.addProperty("message", errorMessage);
+            session.getBasicRemote().sendText(json.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

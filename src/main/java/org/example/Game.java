@@ -184,8 +184,8 @@ public class Game {
             playerResult.addProperty("chips", player.getHaveChip());
             gameResults.add(playerResult);
 
-            //データベースに書き込む
-            saveGameResultToDatabase(player.getName(), player.getUserID(), rank);
+            // データベースに書き込む (PokerWebSocketServer に処理を委譲)
+            webSocketServer.handleGameResult(player, rank);
         }
 
         JsonObject gameSummary = new JsonObject();
@@ -537,56 +537,5 @@ public class Game {
         return dealer.getUserByID(userID);
     }
 
-    private void saveGameResultToDatabase(String userName, int userID, int rank) {
-        String URL = "jdbc:mysql://sql.yamazaki.se.shibaura-it.ac.jp:13308/db_group_a"
-                + "?useUnicode=true&character_set_server=utf8mb4&useSSL=false"; // データベースURL
-        String USER = "group_a"; // ユーザー名
-        String PASSWORD = "group_a"; // パスワード
 
-        //該当カラムへ戦績更新
-        String query = "INSERT INTO userinfo (userName, userID, count1st, count2nd, count3rd, count4th)"
-                + "VALUES (?, ?, ?, ?, ?, ?)"
-                + "ON DUPLICATE KEY UPDATE "
-                + "count1st = count1st + VALUES(count1st), "
-                + "count2nd = count2nd + VALUES(count2nd), "
-                + "count3rd = count3rd + VALUES(count3rd), "
-                + "count4th = count4th + VALUES(count4th)";
-
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, userName);
-            stmt.setInt(2, userID);
-
-            //count1st ～ count4th の初期値を0に設定
-            stmt.setInt(3, 0); // count1st
-            stmt.setInt(4, 0); // count2nd
-            stmt.setInt(5, 0); // count3rd
-            stmt.setInt(6, 0); // count4th
-
-            //順位ごとにそのカラムをインクリメント
-            switch (rank) {
-                case 1: //1位
-                    stmt.setInt(3, 1);
-                    break;
-                case 2: //2位
-                    stmt.setInt(4, 1);
-                    break;
-                case 3: //3位
-                    stmt.setInt(5, 1);
-                    break;
-                case 4: //4位
-                    stmt.setInt(6, 1);
-                    break;
-                default:
-                    break;
-            }
-
-            //クエリを実行
-            stmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();//例外処理
-        }
-    }
 }

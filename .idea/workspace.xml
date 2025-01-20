@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="データベースサーバへの書き込み(修正)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_18_23______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_18_23_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/PokerWebSocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/PokerWebSocketServer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +34,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Game" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a31d9c74-3a56-4bfe-8fd1-5e4c6d0e2759" />
+        <option name="url" value="https://github.com/BP22063/poker.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,13 +80,26 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ActionTest.testExecuteCall_InsufficientChips">
+  <component name="RunManager" selected="アプリケーション.WebSocketServerLauncher">
     <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="resultsMagager.TestRunner" />
       <module name="poker" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="resultsMagager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebSocketServerLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.WebSocketServerLauncher" />
+      <module name="poker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,23 +141,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoleControlTest.test_handSizeError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="poker" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RoleControlTest" />
-      <option name="METHOD_NAME" value="test_handSizeError" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ActionTest.testExecuteCall_InsufficientChips" />
+        <item itemvalue="アプリケーション.WebSocketServerLauncher" />
         <item itemvalue="アプリケーション.TestRunner" />
-        <item itemvalue="JUnit.AllTests" />
         <item itemvalue="JUnit.RoleControlTest" />
-        <item itemvalue="JUnit.RoleControlTest.test_handSizeError" />
+        <item itemvalue="JUnit.AllTests" />
+        <item itemvalue="JUnit.ActionTest.testExecuteCall_InsufficientChips" />
       </list>
     </recent_temporary>
   </component>
@@ -466,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737268587106</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="データベースサーバへの書き込み(修正)">
+      <option name="closed" value="true" />
+      <created>1737268705925</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1737268705925</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
