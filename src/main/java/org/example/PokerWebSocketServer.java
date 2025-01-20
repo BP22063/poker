@@ -281,9 +281,6 @@ public class PokerWebSocketServer {
         broadcast("actionResult", player.getName() + " " + result);
     }
 
-    // プレイヤーのゲーム結果を保存
-
-
     // 他のメソッドにゲーム結果保存のロジックを統合
     public void handleGameResult(Player player, int rank) {
         try {
