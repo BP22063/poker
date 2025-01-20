@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="データベースサーバへの書き込み(修正)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_18_23______.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_18_23_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52______.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_12_19_52_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46______.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_13_2_46_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PokerWebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Dealer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/PokerWebSocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/PokerWebSocketServer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +27,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -517,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dealerクラス(collectInitialChip,performAction)の実装&#10;Actionクラスの引数の変更" />
     <MESSAGE value="Gameクラスの追加、コンストラクタとgetterの設定" />
     <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
     <MESSAGE value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
@@ -542,7 +529,8 @@
     <MESSAGE value="BET_CHECK" />
     <MESSAGE value="データベースサーバへの書き込み" />
     <MESSAGE value="データベースサーバへの書き込み(修正)" />
-    <option name="LAST_COMMIT_MESSAGE" value="データベースサーバへの書き込み(修正)" />
+    <MESSAGE value="データベースサーバへの書き込み(通信など修正)" />
+    <option name="LAST_COMMIT_MESSAGE" value="データベースサーバへの書き込み(通信など修正)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
