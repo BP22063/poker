@@ -176,7 +176,7 @@ public class Game {
 
         // ゲーム結果を生成
         JsonArray gameResults = new JsonArray();
-        int rank = 0;
+        int rank = 1;
         for (Player player : ranking) {
             JsonObject playerResult = new JsonObject();
             playerResult.addProperty("rank", rank++);
@@ -185,7 +185,7 @@ public class Game {
             gameResults.add(playerResult);
 
             // データベースに書き込む
-            webSocketServer.handleGameResult(player, rank);
+            webSocketServer.handleGameResult(player, rank - 1);
         }
 
         JsonObject gameSummary = new JsonObject();
