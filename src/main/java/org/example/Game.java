@@ -543,28 +543,30 @@ public class Game {
         String USER = "group_a";
         String PASSWORD = "group_a";
 
-        String query = "INSERT INTO userinfo (userName, userID, count1st, count2nd, count3rd, count4th) "
+        // INSERT または UPDATE のクエリ
+        String query = "INSERT INTO User (userID, userName, count1st, count2nd, count3rd, count4th) "
                 + "VALUES (?, ?, ?, ?, ?, ?) "
                 + "ON DUPLICATE KEY UPDATE "
-                + "count1st = count1st + VALUES(count1st), "
-                + "count2nd = count2nd + VALUES(count2nd), "
-                + "count3rd = count3rd + VALUES(count3rd), "
-                + "count4th = count4th + VALUES(count4th)";
+                + "totalMatch = COALESCE(totalMatch, 0) + 1, "
+                + "count1st = COALESCE(count1st, 0) + VALUES(count1st), "
+                + "count2nd = COALESCE(count2nd, 0) + VALUES(count2nd), "
+                + "count3rd = COALESCE(count3rd, 0) + VALUES(count3rd), "
+                + "count4th = COALESCE(count4th, 0) + VALUES(count4th)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            // 初期値のセット
-            stmt.setString(1, userName);
-            stmt.setInt(2, userID);
+            // クエリのパラメータを設定
+            stmt.setInt(1, userID); // userID
+            stmt.setString(2, userName); // userName
 
-            // 全てのカラムを0で初期化
+            // 初期値としてすべてのカウントを0に設定
             stmt.setInt(3, 0); // count1st
             stmt.setInt(4, 0); // count2nd
             stmt.setInt(5, 0); // count3rd
             stmt.setInt(6, 0); // count4th
 
-            // rankに応じて特定のカラムを1に設定
+            // rank に応じて特定のカラムを1に設定
             switch (rank) {
                 case 1:
                     stmt.setInt(3, 1); // count1st
@@ -591,4 +593,5 @@ public class Game {
             e.printStackTrace();
         }
     }
+
 }
