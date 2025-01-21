@@ -176,7 +176,7 @@ public class Game {
 
         // ゲーム結果を生成
         JsonArray gameResults = new JsonArray();
-        int rank = 1;
+        int rank = 0;
         for (Player player : ranking) {
             JsonObject playerResult = new JsonObject();
             playerResult.addProperty("rank", rank++);
