@@ -18,7 +18,4 @@ public class Skill_disableHand {
         return this.disableHand;
     }
 
-    public void useSkill_disableHand(){
-
-    }
 }

@@ -8,8 +8,4 @@ public class Skill_disableSkill {
         return skillID;
     }
 
-    public void useSkill_disableSkill(){
-
-    }
-
 }
