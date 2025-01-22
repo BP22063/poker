@@ -63,15 +63,7 @@ public class Dealer {
 
             // 最初のチップを払えない
             if(INITIAL_BET_CHIP > player.getHaveChip()){
-                // 順位の決定
-                /*
-                this.rankList.add(player);
-                this.players.remove(player);
-
-                 */
-
                 return false;
-
             }else{
                 player.setHaveChip( player.getHaveChip() - INITIAL_BET_CHIP );
                 totalFieldBetChip += INITIAL_BET_CHIP;

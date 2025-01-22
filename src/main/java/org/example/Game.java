@@ -13,9 +13,7 @@ import com.google.gson.JsonObject;
 public class Game {
 
     static Gson gson = new Gson();
-    private static final int MAX_ROUND = 10;
     private int roundNum;
-    private int gameID;
     public ArrayList<Player> players;
     private PokerWebSocketServer webSocketServer;
     private Dealer dealer;
@@ -35,10 +33,6 @@ public class Game {
 
     public List<Player> getPlayers() {
         return this.players; // プレイヤーリスト (List<Player>) を保持していると仮定
-    }
-
-    public Player getCurrentPlayer() {
-        return players.get(currentPlayerIndex); // currentPlayerIndex で現在のプレイヤーを追跡
     }
 
     public int getRound() {
@@ -70,15 +64,6 @@ public class Game {
         for (Player player : this.players){
             webSocketServer.sendToPlayerGameStateWithDetails(player, newState);
         }
-    }
-
-
-    public int getRoundNum() {
-        return this.roundNum;
-    }
-
-    public int getGameID() {
-        return this.gameID;
     }
 
     public void progressRound() {
@@ -449,11 +434,6 @@ public class Game {
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
 
-
-
-
-
-
     private void waitForActions() {
         while (!allPlayersActed()) {
             try {
@@ -512,14 +492,6 @@ public class Game {
         }
         return true; // 全員がスキル選択を完了
     }
-
-
-    public Dealer getDealer() {
-        return dealer; // 現在のDealerを返す
-    }
-
-
-
     public Player getPlayer(int userID){
         return dealer.getUserByID(userID);
     }
