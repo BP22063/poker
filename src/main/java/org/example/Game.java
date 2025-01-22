@@ -281,7 +281,7 @@ public class Game {
                     bettingTimes++;
                     startPhase2();
                 } else {
-                    if (currentPlayerIndex == 3) {
+                    if (currentPlayerIndex == playersInRound.size()-1) {
                         endRound();
                     } else {
                         moveToNextPlayer();
