@@ -145,12 +145,6 @@ public class Dealer {
 
     //プレイヤー4人がカードを交換
 
-
-    // いらないかも（Playerのコンストラクタで初期チップを設定できるため）
-    public void provideChip(Player players) {
-
-    }
-
     public void adaptSkill(Player player, Object... args) {
         if (args.length == 0) {
             //スキルを使用しない
@@ -229,10 +223,6 @@ public class Dealer {
         }
     }
 
-    public void sendApplicationCommunication(String JSON) {
-
-    }
-
     // actionNumberの値によってベット、パス、レイズ、コール、ドロップの操作を実行する
     // 0:ベット　1:パス　2:レイズ　3:コール　4:ドロップ
     public void performAction(int userID, int actionNumber, int betChip) {
@@ -282,11 +272,6 @@ public class Dealer {
         return null;
     }
 
-    public void sendCardInformation() {
-
-    }
-
-
     public void addPlayer(Player player) {
         players.add(player);
     }
@@ -308,25 +293,6 @@ public class Dealer {
         for (Player player : players) {
             player.showHand_player();
         }
-    }
-
-
-    public void checkLostUser(ArrayList<Player> players, ArrayList<Player> rankList) {
-
-    }
-
-
-    public void addDisableHands(String hand) {
-
-    }
-
-    public void addUsedSkill(int skill) {
-
-    }
-
-
-    public void checkPlayersList(ArrayList<Player> players) {
-
     }
 
     public List<Player> decideWinner(){

@@ -95,25 +95,8 @@ public class Player {
         return this.hand; // 手札を保持する List<Card> フィールド
     }
 
-    public void updatePlayerInformation() {
-
-    }
-
-    public void updateHand() {
-
-
-    }
-
-    public void returnCard() {
-
-    }
-
     public void clearCard(){
         hand.clear();
-    }
-
-    public void disconnectFromGame() {
-
     }
 
     public void addCard(Card card) {
@@ -128,10 +111,6 @@ public class Player {
 
     public void showHand_player() {
         System.out.println(name + "'s Hand: " + hand);//テスト用
-    }
-
-    public void provideChips() {
-
     }
     public String getName() {
         return name;

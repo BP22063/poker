@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="DB関係修正">
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="依存関係修正">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_20_1_24______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_20_1_24______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_21_0_57______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_21_0_57______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,19 +58,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/14488/Desktop/DatabaseAccess",
-    "onboarding.tips.debug.path": "C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム/poker/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "プロジェクト",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/14488/Desktop/DatabaseAccess&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/14488/OneDrive - 芝浦工業大学 教研テナント (SIC)/三年後期/情報実験Ⅱ/ポーカーゲーム/poker/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;プロジェクト&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="アプリケーション.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
@@ -501,14 +503,7 @@
       <option name="project" value="LOCAL" />
       <updated>1737388926404</updated>
     </task>
-    <task id="LOCAL-00049" summary="DB関係修正">
-      <created>1737439276382</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1737439276382</updated>
-    </task>
-    <option name="localTasksCounter" value="50" />
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -523,6 +518,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
     <MESSAGE value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
     <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
     <MESSAGE value="Skill_handSwapの実装" />
@@ -547,15 +543,14 @@
     <MESSAGE value="データベースサーバへの書き込み(修正)" />
     <MESSAGE value="データベースサーバへの書き込み(通信など修正)" />
     <MESSAGE value="依存関係修正" />
-    <MESSAGE value="DB関係修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="DB関係修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="依存関係修正" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$PlayerTest.ic" NAME="PlayerTest のカバレッジ結果" MODIFIED="1736831311380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$RoleControlTest.ic" NAME="RoleControlTest のカバレッジ結果" MODIFIED="1736324039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/poker$PlayerTest_test_initialState.ic" NAME="PlayerTest.test_initialState のカバレッジ結果" MODIFIED="1736827783891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$DeckTest.ic" NAME="DeckTest のカバレッジ結果" MODIFIED="1736835178312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/poker$CardTest.ic" NAME="CardTest のカバレッジ結果" MODIFIED="1736835671918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

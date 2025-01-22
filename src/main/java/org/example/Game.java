@@ -81,20 +81,12 @@ public class Game {
         return this.gameID;
     }
 
-    public void checkRound(int round) {
-
-    }
-
     public void progressRound() {
         playRound();
     }
 
     public void decideOrder() {
         players.add(players.remove(0));
-    }
-
-    public void decideRankCutPlayer() {
-
     }
 
     public void renewRound(ArrayList<Player> Players) {
@@ -104,11 +96,6 @@ public class Game {
         }
         this.dealer = new Dealer(Players);
     }
-
-    public void receiveNotification() {
-
-    }
-
 
     private void moveToNextPlayer() {
         System.out.println("moved to next player.");
