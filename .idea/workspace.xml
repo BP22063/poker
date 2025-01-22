@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="依存関係修正">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_20_1_24______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_20_1_24______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_21_0_57______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2025_01_21_0_57______.xml" afterDir="false" />
+    <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="不要なメソッド削除">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_11_07______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_13_45______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_01_15_13_46______.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/____2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -503,7 +506,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737388926404</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="不要なメソッド削除">
+      <option name="closed" value="true" />
+      <created>1737527942993</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1737527942993</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -518,7 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Actionクラスと関連するDealerクラスの変更" />
     <MESSAGE value="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整" />
     <MESSAGE value="Skillクラスの作成、コンストラクタとgetterの設定" />
     <MESSAGE value="Skill_handSwapの実装" />
@@ -543,7 +553,8 @@
     <MESSAGE value="データベースサーバへの書き込み(修正)" />
     <MESSAGE value="データベースサーバへの書き込み(通信など修正)" />
     <MESSAGE value="依存関係修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="依存関係修正" />
+    <MESSAGE value="不要なメソッド削除" />
+    <option name="LAST_COMMIT_MESSAGE" value="不要なメソッド削除" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/poker$DealerTest.ic" NAME="DealerTest のカバレッジ結果" MODIFIED="1736820209690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

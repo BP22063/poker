@@ -6,7 +6,6 @@ import org.example.Skills.Skill_exchangingHandsAgain;
 import org.example.Skills.Skill_handSwap;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Dealer {
 
@@ -18,14 +17,8 @@ public class Dealer {
     public Deck deck;
     private ArrayList<Player> rankList;
     private ArrayList<String> disableHands;
-    private ArrayList<Integer> usedSkills; // ラウンド内で選択されたスキルのID
-    private ArrayList<Object> skills; // ラウンド内で使用されるスキルのインスタンスを保持
-    private ArrayList<Integer>exchangeCardIndex;
     ArrayList<Player> winners;
     private Action action;
-
-    private static final int SKILL_NUM = 3; // 一人当たりのスキル配布数
-    private static final int SKILL_KIND_NUM = 4; // スキルの種類数
 
     // 使用される各スキルを格納
     private ArrayList<Skill_disableSkill> skills_disableSkill;
@@ -62,23 +55,6 @@ public class Dealer {
         return this.totalFieldBetChip;
     }
 
-    public void decideOrder() {
-        players.add(players.remove(0));
-    }
-
-    // 各プレイヤーにスキルを配布
-    // 配布されるスキルはランダム
-    public void provideSkill() {
-
-        Random random = new Random();
-
-        for ( int i=0; i<SKILL_NUM; i++ ) {
-            for (Player player : this.players) {
-                player.addSkill(random.nextInt(Integer.valueOf(random.nextInt(SKILL_KIND_NUM))));
-            }
-        }
-    }
-
     // 各プレイヤーに同数のチップを配布
     // ゲーム開始時に使用
     public boolean collectInitialChip() {
@@ -104,14 +80,6 @@ public class Dealer {
             }
         }
         return true;
-    }
-
-    public void provideCard() {
-        for (int i = 0; i < 5; i++) {
-            for (Player player : players) {
-                player.addCard(deck.draw());
-            }
-        }
     }
 
     //1枚ずつカード交換
@@ -285,9 +253,6 @@ public class Dealer {
             }
         }
     }
-    public Player getCurrentDealer(){
-        return players.get(0);
-    }
 
     public void showAllHands() {
         for (Player player : players) {
@@ -296,7 +261,6 @@ public class Dealer {
     }
 
     public List<Player> decideWinner(){
-        //List<Integer> point = new ArrayList<>();
         winners = new ArrayList<>();
         RoleControl roleControl = new RoleControl();
         int maxPoint=0;
@@ -412,14 +376,6 @@ public class Dealer {
         return players;
     }
 
-    public void distributeBetChip(){
-        int distributeChip = totalFieldBetChip / winners.size();
-
-        for(Player player : winners){
-            player.setHaveChip(player.getHaveChip()+distributeChip);
-        }
-    }
-
     public ArrayList<Skill_disableSkill> getSkills_disableSkill(){
         return this.skills_disableSkill;
     }
@@ -427,8 +383,5 @@ public class Dealer {
     public ArrayList<String> getDisableHands(){
         return this.disableHands;
     }
-
-
-
 
 }
