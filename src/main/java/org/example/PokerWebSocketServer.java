@@ -244,57 +244,12 @@ public class PokerWebSocketServer {
         broadcast("gameStateUpdate", gameState.toString());
     }
 
-
-    public void broadcastPlayersData() {
-        Gson gson = new Gson();
-        JsonObject jsonObject = new JsonObject();
-
-        // Create a list of all players from the map
-        List<Player> players = new ArrayList<>(playerSessions.values());
-
-        // Convert players list to JSON
-        jsonObject.add("players", gson.toJsonTree(players));
-        String playersJson = gson.toJson(jsonObject);
-
-        // Send the JSON to all sessions
-        for (Session session : playerSessions.keySet()) {
-            try {
-                session.getBasicRemote().sendText(playersJson);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    public void updatePlayerData(Session session, Player updatedPlayer) {
-        playerSessions.put(session, updatedPlayer);
-    }
-
-    public void broadcastGameState(GameState state) {
-        broadcast("gameStateUpdate", "Current phase: " + state.toString());
-    }
-
-    public void notifyActionResult(Player player, String result) {
-        broadcast("actionResult", player.getName() + " " + result);
-    }
-
     // 他のメソッドにゲーム結果保存のロジックを統合
     public void handleGameResult(Player player, int rank) {
         try {
             game.saveGameResult(player.getUserID(), player.getName(), rank);
         } catch (Exception e) {
             System.err.println("Failed to update game result for player: " + player.getName());
-            e.printStackTrace();
-        }
-    }
-
-    // デバッグ用: 任意のエラーメッセージを送信
-    private void sendError(Session session, String errorMessage) {
-        try {
-            JsonObject json = new JsonObject();
-            json.addProperty("type", "error");
-            json.addProperty("message", errorMessage);
-            session.getBasicRemote().sendText(json.toString());
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }
