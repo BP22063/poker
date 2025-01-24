@@ -31,5 +31,13 @@ public class CardTest {
         assertThat(D10.toString()).isEqualTo("10 of Diamonds");
         assertThat(SK.toString()).isEqualTo("K of Spades");
 
+        System.out.println(S2);
+        System.out.println(H5);
+        System.out.println(C7);
+        System.out.println(D10);
+        System.out.println(SK);
+
+
+
     }
 }

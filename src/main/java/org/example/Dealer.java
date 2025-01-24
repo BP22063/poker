@@ -36,7 +36,7 @@ public class Dealer {
         dealInitialCards();
         action = new Action(this);
 
-        InitializeFlag();
+        //InitializeFlag();
 
         skills_disableSkill = new ArrayList<>();
         skills_disableHand = new ArrayList<>();
@@ -94,6 +94,7 @@ public class Dealer {
         player.flag_exchangeCard = 1;
     }
 
+    /*
     public void InitializeFlag(){
         for(Player player : players){
             player.flag_exchangeCard = 0;
@@ -102,6 +103,8 @@ public class Dealer {
             player.setIsInRound(true);
         }
     }
+
+     */
 
     //プレイヤー4人がカードを交換
 
@@ -370,6 +373,18 @@ public class Dealer {
 
     public ArrayList<Skill_disableSkill> getSkills_disableSkill(){
         return this.skills_disableSkill;
+    }
+
+    public ArrayList<Skill_disableHand> getSkills_disableHand(){
+        return this.skills_disableHand;
+    }
+
+    public ArrayList<Skill_handSwap> getSkills_handSwap(){
+        return this.skills_handSwap;
+    }
+
+    public ArrayList<Skill_exchangingHandsAgain>getSkills_exchangingHandsAgain(){
+        return this.skills_exchangingHandsAgain;
     }
 
     public ArrayList<String> getDisableHands(){

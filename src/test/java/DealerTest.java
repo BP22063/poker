@@ -25,6 +25,9 @@ public class DealerTest {
 
         Dealer d1 = new Dealer(players);
 
+        assertThat(d1.getFieldBetChip()).isEqualTo(0);
+        assertThat(d1.getTotalFieldBetChip()).isEqualTo(0);
+
         //初期チップ数が3000になっていることを確認
         for(Player p :players){
             assertThat(p.getHaveChip()).isEqualTo(3000);
@@ -42,7 +45,7 @@ public class DealerTest {
         for(Player p :players){
             assertThat(p.getHaveChip()).isEqualTo(2950);
         }
-        assertThat(d1.totalFieldBetChip).isEqualTo(200);
+        assertThat(d1.getTotalFieldBetChip()).isEqualTo(200);
 
         //プレイヤーの手札の枚数が５枚になっているか確認
         for(Player p :players){
@@ -65,13 +68,13 @@ public class DealerTest {
         players.add(player4);
 
         Dealer d1 = new Dealer(players);
-        d1.collectInitialChip();
+        assertThat(d1.collectInitialChip()).isEqualTo(true);
 
 
         //プレイヤー１がパスを選択
         d1.performAction(1,1,0);
         assertThat(d1.totalFieldBetChip).isEqualTo(200);
-        assertThat(d1.fieldBetChip).isEqualTo(0);
+        assertThat(d1.getFieldBetChip()).isEqualTo(0);
         assertThat(player1.getBetChip()).isEqualTo(0);
         //プライヤー2が１００ベット
         d1.performAction(2,0,100);
@@ -150,9 +153,11 @@ public class DealerTest {
         ArrayList<Card> Hand1 = new ArrayList<Card>(player1.hand);
         ArrayList<Card> Hand2 = new ArrayList<Card>(player2.hand);
         ArrayList<Card> Hand3 = new ArrayList<Card>(player3.hand);
+        ArrayList<Card> Hand4 = new ArrayList<Card>(player4.hand);
 
         d1.changeHand(1,exchangeCardIndex);
         d1.changeHand(2,exchangeCardIndex);
+        d1.changeCard(4,0);
 
         //プレイヤー１と２がカードを交換しカードが異なることを確認
         assertThat(Hand1).isNotEqualTo(player1.hand);
@@ -161,8 +166,10 @@ public class DealerTest {
         //プレイヤー３はカードを交換していないので同じ手札
         assertThat(Hand3).isEqualTo(player3.hand);
 
+        assertThat(Hand4).isNotEqualTo(player4.hand);
+
         //３枚と３枚をカード交換した
-        assertThat(d1.deck.cards.size()).isEqualTo(52-5*4-3-3);
+        assertThat(d1.deck.cards.size()).isEqualTo(52-5*4-3-3-1);
 
     }
 
@@ -208,6 +215,10 @@ public class DealerTest {
         ArrayList<Integer> exchangeCardIndex = new ArrayList<>(Arrays.asList(0,1,3));
         d1.adaptSkill(player4,exchangeCardIndex);
 
+
+        assertThat(d1.getSkills_disableSkill()).isNotEmpty();
+        assertThat(d1.getSkills_disableHand()).isNotEmpty();
+        assertThat(d1.getSkills_exchangingHandsAgain()).isNotEmpty();
 
         //スキル無効が発動されているので、他のスキルは発動されない
         ArrayList<Card> Hand4 = new ArrayList<Card>(player4.hand);
@@ -367,6 +378,8 @@ public class DealerTest {
         d1.adaptSkill(player2,3);
         d1.adaptSkill(player3,4);
         d1.adaptSkill(player4,1);
+
+        assertThat(d1.getSkills_handSwap()).isNotEmpty();
 
         ArrayList<Card> Hand1 = new ArrayList<>(player1.hand);
         ArrayList<Card> Hand2 = new ArrayList<>(player2.hand);
