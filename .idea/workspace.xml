@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79884ce-9114-4899-888f-4bb9a364febf" name="変更" comment="不要なメソッド削除">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Skills/Skill_disableSkillTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,26 +70,13 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.Skill_disableHandTest">
+  <component name="RunManager" selected="JUnit.Skill_disableSkillTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="poker" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="resultsMagager.TestRunner" />
-      <module name="poker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="resultsMagager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,13 +121,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Skill_disableSkillTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="poker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Skills.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Skills" />
+      <option name="MAIN_CLASS_NAME" value="Skills.Skill_disableSkillTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Skill_disableSkillTest" />
         <item itemvalue="JUnit.Skill_disableHandTest" />
         <item itemvalue="JUnit.GameStateTest" />
         <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.WebSocketServerLauncher" />
-        <item itemvalue="アプリケーション.TestRunner" />
       </list>
     </recent_temporary>
   </component>
@@ -172,22 +175,6 @@
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1735224529530</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Playerクラスの属性のスコープを変更、それによるDealerクラスの調整">
-      <option name="closed" value="true" />
-      <created>1735294183193</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1735294183193</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Skillクラスの作成、コンストラクタとgetterの設定">
-      <option name="closed" value="true" />
-      <created>1735551033927</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1735551033927</updated>
     </task>
     <task id="LOCAL-00010" summary="Skill_handSwapの実装">
       <option name="closed" value="true" />
@@ -509,7 +496,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737587410030</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="不要なメソッド削除">
+      <option name="closed" value="true" />
+      <created>1737695487325</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1737695487325</updated>
+    </task>
+    <task id="LOCAL-00055" summary="不要なメソッド削除">
+      <option name="closed" value="true" />
+      <created>1737695544122</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1737695544122</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
