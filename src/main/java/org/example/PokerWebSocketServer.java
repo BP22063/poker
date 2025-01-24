@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.Gson;
 
+import java.io.IOException;
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
 import java.util.ArrayList;
