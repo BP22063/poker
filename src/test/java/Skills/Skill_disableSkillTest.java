@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Skill_disableSkillTest {
+public class Skill_disableSkillTest {
 
     @Test
     void testGetSkillID() {
