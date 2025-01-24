@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
