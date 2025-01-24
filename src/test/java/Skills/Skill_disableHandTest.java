@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.example.Skills.Skill_disableHand;
 // Test class for Skill_disableHand
-class Skill_disableHandTest {
+public class Skill_disableHandTest {
     private Skill_disableHand skillDisableHand;
 
     @BeforeEach
