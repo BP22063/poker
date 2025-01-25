@@ -9,8 +9,8 @@ public class Skill_exchangingHandsAgain{
 
     private static final int skillID = 2;
     private Dealer dealer;
-    Player player;
-    ArrayList<Integer> cardIndexList;
+    private Player player;
+    private ArrayList<Integer> cardIndexList;
 
     // コンストラクタ
     public Skill_exchangingHandsAgain( Player player, Dealer dealer ,ArrayList<Integer> cardIndexList){
