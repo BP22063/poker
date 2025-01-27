@@ -1,41 +1,46 @@
-ClassName,TestName,Status
-RoleControlTest,test_handSizeError(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_fullHouse(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_threeOfAKind(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_straight(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_straightFlush(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_highCard(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_fourOfAKind(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_onePair(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_flush(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_royal(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-RoleControlTest,test_twoPair(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-exchangeCardTest,exchangeCardTest(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,startRoundTest(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,exchangeCardTest(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,judgeTest(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,skillTest1(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,skillTest2(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,skillTest3(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,skillTest4(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DealerTest,actionTest(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-Skills.Skill_disableHandTest,testGetSkillID(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-Skills.Skill_disableHandTest,testGetDisableHand(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-ActionTest,testExecuteCall_InsufficientChips(),TestExecutionResult [status = FAILED, throwable = org.opentest4j.AssertionFailedError: Player should still have 100 chips (no call made). ==> expected: <100> but was: <0>]
-ActionTest,testExecuteCall_SufficientChips(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-ActionTest,testExecuteBet_InsufficientChips(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-ActionTest,testExecuteDrop(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-ActionTest,testExecutePass(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-ActionTest,testExecuteRaise_SufficientChips(),TestExecutionResult [status = FAILED, throwable = org.opentest4j.AssertionFailedError: Player should have 50 chips left after raising. ==> expected: <50> but was: <20>]
-ActionTest,testExecuteBet_SufficientChips(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-ActionTest,testExecuteRaise_InsufficientChips(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DeckTest,test_draw(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DeckTest,test_initializeDeck(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-DeckTest,test_shuffle(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-CardTest,test_card(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-PlayerTest,test_setterAndGetter(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-PlayerTest,test_initialState(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-PlayerTest,test_hand(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-PlayerTest,test_skills(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-PlayerTest,test_chips(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
-GameStateTest,test_enumValues(),TestExecutionResult [status = SUCCESSFUL, throwable = null]
+ClassName,TestName,Status,Throwable
+RoleControlTest,test_handSizeError(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_fullHouse(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_threeOfAKind(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_straight(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_straightFlush(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_highCard(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_fourOfAKind(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_onePair(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_flush(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_royal(),SUCCESSFUL,Optional.empty
+RoleControlTest,test_twoPair(),SUCCESSFUL,Optional.empty
+exchangeCardTest,exchangeCardTest(),SUCCESSFUL,Optional.empty
+Skills.Skill_handSwapTest,testGetSkillID(),SUCCESSFUL,Optional.empty
+Skills.Skill_handSwapTest,testUseSkill_handSwap_WithEmptyHands(),SUCCESSFUL,Optional.empty
+Skills.Skill_handSwapTest,testUseSkill_handSwap_HandIntegrity(),SUCCESSFUL,Optional.empty
+Skills.Skill_handSwapTest,testUseSkill_handSwap(),SUCCESSFUL,Optional.empty
+DealerTest,startRoundTest(),SUCCESSFUL,Optional.empty
+DealerTest,exchangeCardTest(),SUCCESSFUL,Optional.empty
+DealerTest,judgeTest(),SUCCESSFUL,Optional.empty
+DealerTest,skillTest1(),SUCCESSFUL,Optional.empty
+DealerTest,skillTest2(),SUCCESSFUL,Optional.empty
+DealerTest,skillTest3(),SUCCESSFUL,Optional.empty
+DealerTest,skillTest4(),SUCCESSFUL,Optional.empty
+DealerTest,actionTest(),SUCCESSFUL,Optional.empty
+Skills.Skill_disableHandTest,testGetSkillID(),SUCCESSFUL,Optional.empty
+Skills.Skill_disableHandTest,testGetDisableHand(),SUCCESSFUL,Optional.empty
+ActionTest,testExecuteCall_InsufficientChips(),FAILED,Optional[org.opentest4j.AssertionFailedError: Player should still have 100 chips (no call made). ==> expected: <100> but was: <0>]
+ActionTest,testExecuteCall_SufficientChips(),SUCCESSFUL,Optional.empty
+ActionTest,testExecuteBet_InsufficientChips(),SUCCESSFUL,Optional.empty
+ActionTest,testExecuteDrop(),SUCCESSFUL,Optional.empty
+ActionTest,testExecutePass(),SUCCESSFUL,Optional.empty
+ActionTest,testExecuteRaise_SufficientChips(),FAILED,Optional[org.opentest4j.AssertionFailedError: Player should have 50 chips left after raising. ==> expected: <50> but was: <20>]
+ActionTest,testExecuteBet_SufficientChips(),SUCCESSFUL,Optional.empty
+ActionTest,testExecuteRaise_InsufficientChips(),SUCCESSFUL,Optional.empty
+DeckTest,test_draw(),SUCCESSFUL,Optional.empty
+DeckTest,test_initializeDeck(),SUCCESSFUL,Optional.empty
+DeckTest,test_shuffle(),SUCCESSFUL,Optional.empty
+CardTest,test_card(),SUCCESSFUL,Optional.empty
+PlayerTest,test_setterAndGetter(),SUCCESSFUL,Optional.empty
+PlayerTest,test_initialState(),SUCCESSFUL,Optional.empty
+PlayerTest,test_hand(),SUCCESSFUL,Optional.empty
+PlayerTest,test_skills(),SUCCESSFUL,Optional.empty
+PlayerTest,test_chips(),SUCCESSFUL,Optional.empty
+GameStateTest,test_enumValues(),SUCCESSFUL,Optional.empty
+Skills.Skill_disableSkillTest,testGetSkillID(),SUCCESSFUL,Optional.empty

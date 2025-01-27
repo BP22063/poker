@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Skill_handSwap {
 
     private static final int skillID = 3;
-    Player player1;
-    Player player2;
+    private Player player1;
+    private Player player2;
 
     // コンストラクタ
     public Skill_handSwap( Player player1, Player player2 ){
