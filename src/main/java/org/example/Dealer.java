@@ -263,8 +263,11 @@ public class Dealer {
         RoleControl roleControl = new RoleControl();
         int maxPoint=0;
 
+
         for(Player player: players){
-            player.setRolePoint( roleControl.judgeRole(player.hand) );
+            if(player.getIsInRound()) {
+                player.setRolePoint(roleControl.judgeRole(player.hand));
+            }
 
 
             if(!disableHands.isEmpty()) {
