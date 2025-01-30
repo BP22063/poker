@@ -25,8 +25,17 @@ public class DealerTest {
 
         Dealer d1 = new Dealer(players);
 
+        System.out.println(d1.getPlayers());
+
+        d1.showAllHands();
+
         assertThat(d1.getFieldBetChip()).isEqualTo(0);
         assertThat(d1.getTotalFieldBetChip()).isEqualTo(0);
+
+        assertThat(d1.getUserByID(1)).isEqualTo(player1);
+        assertThat(d1.getUserByID(2)).isEqualTo(player2);
+        assertThat(d1.getUserByID(3)).isEqualTo(player3);
+        assertThat(d1.getUserByID(4)).isEqualTo(player4);
 
         //初期チップ数が3000になっていることを確認
         for(Player p :players){
@@ -67,8 +76,11 @@ public class DealerTest {
         players.add(player3);
         players.add(player4);
 
+
+
         Dealer d1 = new Dealer(players);
         assertThat(d1.collectInitialChip()).isEqualTo(true);
+
 
 
         //プレイヤー１がパスを選択

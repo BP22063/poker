@@ -209,7 +209,10 @@ public class Dealer {
                 break;
             case 4: // フォールド
                 action.executeDrop(player);
-                players.remove(player);
+                //players.remove(player);
+                break;
+            case 5:
+                action.executePass();
                 break;
             default:
                 break;

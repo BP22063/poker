@@ -194,6 +194,10 @@ public class Game {
         updateGameState(GameState.BET_PASS);
         webSocketServer.broadcast("startPhase1", "Phase 1: Bet or Pass.");
         playersInRound = new ArrayList<>(players); // 全員が対象
+        for(Player p : playersInRound){
+            p.setIsInRound(true);
+        }
+        skillLogs.clear();
         currentPlayerIndex = 0;
 
         // 最初のプレイヤーにターンを開始
@@ -235,6 +239,9 @@ public class Game {
                 break;
             case 4:
                 action = "Fold";
+                break;
+            case 5:
+                action = "Check";
                 break;
             default:
                 throw new IllegalStateException("Unexpected actionNumber value: " + actionNumber);
@@ -292,7 +299,7 @@ public class Game {
                     bettingTimes = 3;
                     startPhase2();
                 } else {
-                    if (currentPlayerIndex == 3) {
+                    if (currentPlayerIndex == playersInRound.size()-1) {
                         endRound();
                     } else {
                         moveToNextPlayer();
@@ -354,6 +361,9 @@ public class Game {
     }
 
     public void handleCardExchange(int userID, ArrayList<Integer> exchangeCardIndex) {
+        playersInRound.removeIf(player -> !player.getIsInRound());
+        System.out.println("playersInRound(number): " + playersInRound.size());
+        System.out.println("playersInRound(name): ");
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         System.out.println("current player ID: " + currentPlayer.getUserID());
         if (currentPlayer.getUserID() != userID) {
@@ -385,13 +395,16 @@ public class Game {
     public void startPhase4() {
         updateGameState(GameState.SELECT_SKILL);
         webSocketServer.broadcast("startPhase4", "Phase 4: Select a skill.");
-        playersInRound = new ArrayList<>(players); // 全員が対象
+        //playersInRound = new ArrayList<>(players); // 全員が対象
         currentPlayerIndex = 0;
 
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         webSocketServer.sendToPlayer(currentPlayer, "turnNotice", "It's your turn!");
     }
     public void handleSkillUse(int userID,String log, Object... args) {
+        playersInRound.removeIf(player -> !player.getIsInRound());
+        System.out.println("playersInRound(number): " + playersInRound.size());
+        System.out.println("playersInRound(name): ");
         Player currentPlayer = playersInRound.get(currentPlayerIndex);
         //currentPlayer.flag_skill = 1;
 
