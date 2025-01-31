@@ -292,6 +292,9 @@ public class Game {
                     continuousCallTimes = 0;
                     bettingTimes = 2;
                     raisingPlayer = null;
+                    for(Player p :playersInRound){
+                        p.setBetChip(0);
+                    }
                 } else if (nextPlayer == raisingPlayer && actionNumber == 2) {
                     raisingPlayer = currentPlayer;
                     moveToNextPlayer();
@@ -317,7 +320,7 @@ public class Game {
             case 3: {
                 int nextPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size(); // 安全なインデックス計算
                 Player nextPlayer = playersInRound.get(nextPlayerIndex);
-
+                System.out.println("bettingTime: "+bettingTimes);
                 if (actionNumber == 3) {
                     continuousCallTimes++;
                 } else if (actionNumber == 4) {
@@ -350,7 +353,7 @@ public class Game {
     public void startPhase2() {
         updateGameState(GameState.RAISE_CALL_FOLD);
         webSocketServer.broadcast("startPhase2", "Phase 2: Raise, Call, or Fold.");
-        currentPlayerIndex = (currentPlayerIndex + 1) % 4;//ここは親からではなく、最初にベットした人の次になるはず
+        currentPlayerIndex = (currentPlayerIndex + 1) % playersInRound.size();//ここは親からではなく、最初にベットした人の次になるはず
 
         // 最初のプレイヤーにターンを開始
         Player currentPlayer = playersInRound.get(currentPlayerIndex);

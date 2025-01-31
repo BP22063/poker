@@ -114,7 +114,7 @@ public class PokerWebSocketServer {
         switch (skillID) {
             case -1:
                 args = new Object[]{};
-                log= game.getPlayer(userID).getName() + "did not select the skill.";
+                log= game.getPlayer(userID).getName() + " did not select the skill.";
                 break;
             case 0:
                 // No additional arguments needed for skillID 0
@@ -126,7 +126,7 @@ public class PokerWebSocketServer {
                 // For skillID 1, "disableHand" is needed
                 String disableHand = json.get("disableHand").getAsString();
                 args = new Object[]{disableHand};
-                log = game.getPlayer(userID).getName() + " selected the skill “disableHand”. Hand: "+disableHand;
+                log = game.getPlayer(userID).getName() + " selected the skill “disableHand”. Hand: " + disableHand;
                 break;
             case 2:
                 // For skillID 2, "cardIndexList" is needed
@@ -136,13 +136,13 @@ public class PokerWebSocketServer {
                     cardIndexList.add(element.getAsInt());
                 }
                 args = new Object[]{cardIndexList};
-                log = game.getPlayer(userID).getName() + " selected the skill “exchangeHandsAgain” skill. Index: "+cardIndexList;
+                log = game.getPlayer(userID).getName() + " selected the skill “exchangeHandsAgain” skill. Index: " + cardIndexList;
                 break;
             case 3:
                 // For skillID 3, "swapPlayerID" is needed
                 int swapPlayerID = json.get("swapPlayerID").getAsInt();
                 args = new Object[]{swapPlayerID};
-                log = game.getPlayer(userID).getName() + " sekected the skill “handSwap” skill. opponent: " +game.getPlayer(swapPlayerID);
+                log = game.getPlayer(userID).getName() + " sekected the skill “handSwap” skill. opponent: " + game.getPlayer(swapPlayerID);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown skillID: " + skillID);
