@@ -97,6 +97,10 @@ public class Game {
         if(bettingTimes != 0) {
             // 勝者を決定
             List<Player> winners = dealer.decideWinner();
+            dealer.showWinners();
+            for(Player w :winners){
+                dealer.getRoleName(w.getRolePoint());
+            }
 
             // ラウンド結果を生成
             JsonArray roundResults = new JsonArray();
@@ -126,7 +130,10 @@ public class Game {
             int share = dealer.totalFieldBetChip / winners.size();
             for (Player winner : winners) {
                 winner.addChips(share);
+                System.out.println(winner.getName()+" earned "+share+" chips.");
+                webSocketServer.broadcast("log",winner.getName()+" earned "+share+" chips.");
             }
+
         }
         dealer.fieldBetChip = 0;
 

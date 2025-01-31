@@ -245,6 +245,7 @@ public class Dealer {
     public void dealInitialCards() {
         int cardsPerPlayer = 5;
         for (Player player : players) {
+            player.addCard(new Card("Spades",9));
             player.clearCard();
             for (int i = 0; i < cardsPerPlayer; i++) {
                 player.addCard(deck.draw());
